@@ -25,10 +25,10 @@
       font-size:14px;
     }
 
-    /* ADS CONTAINER FIX */
+    /* ADS CONTAINER */
     .ads-container {
-      width:95%;
-      max-width:720px;
+      width:90%;           /* 90% width for responsive fit */
+      max-width:720px;     /* Desktop max width */
       margin:18px auto;
       background:#fff;
       border:1px solid #e6e6e6;
@@ -36,16 +36,11 @@
       text-align:center;
       box-shadow:0 1px 4px rgba(0,0,0,0.03);
       overflow:hidden;
-      min-height:200px;       /* ensures ad space */
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:0;
     }
     .ads-container ins.adsbygoogle {
       display:block !important;
       width:100% !important;
-      height:100% !important;
+      height:auto !important;
     }
 
     .header {
