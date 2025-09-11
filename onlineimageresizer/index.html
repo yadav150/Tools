@@ -30,18 +30,30 @@
       font-size:16px;
       text-align:left;
     }
+
+    /* ADS CONTAINER */
     .ads-container {
-      max-width:370px;
+      width:95%;                  /* responsive width */
+      max-width:720px;            /* desktop max width */
       margin:18px auto;
       background:#fff;
       border:1px solid #e6e6e6;
       border-radius:2px;
-      padding:80px;
       text-align:center;
-      font-size:13px;
-      color:var(--muted);
       box-shadow:0 1px 4px rgba(0,0,0,0.03);
+      overflow:hidden;
+      min-height:200px;           /* fixed height */
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:10px 0;
     }
+    .ads-container ins.adsbygoogle {
+      display:block !important;
+      width:100% !important;
+      height:auto !important;
+    }
+
     .card {
       max-width:720px;
       margin:18px auto;
@@ -139,19 +151,17 @@
 
   <!-- Ads container -->
   <div class="ads-container">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-          crossorigin="anonymous"></script>
-  <!-- Tool Ad -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1876390706944654"
-       data-ad-slot="5481578615"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+    <!-- Your AdSense code goes here -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <div class="card">
     <div class="card-body">
@@ -166,19 +176,20 @@
       <button id="resizeBtn" class="btn">Resize Image</button>
       <div id="result" class="result">Upload an image and enter target size.</div>
       <img id="preview" class="preview" src="" alt="">
-
       <h4 class="h4-style">About This Tool</h4>
-      <p class="justify-p">
-        This tool allows you to quickly resize images directly in your browser to a specific KB size. It works locally, so your files remain private and secure.
-      </p>
-      <h4 class="h4-style">How to Use</h4>
-      <p class="justify-p">
-        Upload an image, enter the desired target size in KB, and click "Resize Image". After resizing, the button changes to "Reset", allowing you to start over. You will see a preview and download link immediately.
-      </p>
-      <h4 class="h4-style">Note</h4>
-      <p class="justify-p">
-        Extremely low target sizes may reduce image quality. Use the preview to verify results before downloading. This tool supports JPEG, PNG, and GIF formats.
-      </p>
+<p class="justify-p">
+  This image resizing tool is designed to make the process of reducing image file sizes fast, simple, and secure, all within your browser. Whether you need to compress large images for web uploads, email attachments, or social media sharing, this tool allows you to adjust images to a specific KB size without losing control over the outcome. By working locally on your device, the tool ensures that your files are never uploaded to an external server, maintaining complete privacy and security. This makes it ideal for sensitive photos, professional work, or personal projects where confidentiality is important. Its lightweight and intuitive interface ensures that even users with minimal technical experience can resize images effortlessly. You don’t need to install any software, create an account, or worry about complicated settings. Everything happens instantly on your device, offering convenience and peace of mind. Additionally, the tool supports multiple image formats, including JPEG, PNG, and GIF, allowing flexibility depending on your project’s requirements. It is compatible with modern browsers and works seamlessly across desktops, laptops, and mobile devices, making it accessible anytime and anywhere. By focusing on simplicity, efficiency, and security, this tool provides a reliable solution for anyone looking to optimize images quickly while maintaining control over the final file size and quality.  
+</p>
+
+<h4 class="h4-style">How to Use</h4>
+<p class="justify-p">
+  Using this tool is straightforward and user-friendly, designed for maximum convenience. To get started, upload the image you want to resize using the provided button. Once uploaded, enter the target file size in kilobytes (KB) in the input field. After specifying the desired size, click the “Resize Image” button to initiate the resizing process. The tool will automatically process your image and adjust it to the chosen size while keeping the output as close as possible to the original quality. Once the resizing is complete, the button changes to “Reset,” allowing you to start over if you want to resize another image or adjust the target size. Immediately after processing, you can see a preview of the resized image to verify the quality and make sure it meets your needs. A download link appears alongside the preview so you can save the resized image directly to your device. The simplicity of this workflow ensures that even beginners can quickly complete image resizing tasks without frustration or confusion. You can repeat the process as many times as necessary, making it ideal for batch work, personal projects, or professional content preparation.  
+</p>
+
+<h4 class="h4-style">Note</h4>
+<p class="justify-p">
+  While this tool is highly efficient, there are some important considerations to keep in mind to ensure the best results. Extremely low target sizes may compromise the image quality, leading to pixelation or visible compression artifacts. It is recommended to use the preview function to inspect the resized image before downloading it to ensure it meets your standards. The tool supports multiple popular formats, including JPEG, PNG, and GIF, each with its specific compression behavior. JPEG files generally compress well with minimal quality loss, whereas PNG and GIF may require slightly higher target sizes to maintain clarity. Additionally, resizing highly detailed images to very small file sizes can sometimes result in a noticeable reduction in visual fidelity, so adjustments may be necessary. By understanding these factors, you can effectively manage the balance between file size and image quality. This tool is optimized to provide a seamless experience while giving users full control over their resized images, making it a reliable choice for web designers, content creators, students, and casual users alike. Always verify the output using the preview, experiment with different target sizes if needed, and enjoy a fast, secure, and convenient image resizing experience.  
+</p>
     </div>
   </div>
 
