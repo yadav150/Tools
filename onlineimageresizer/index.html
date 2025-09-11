@@ -21,7 +21,10 @@
       color:var(--text);
       padding-bottom:60px;
       font-size:14px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
+
     .header {
       background:var(--accent);
       color:#fff;
@@ -29,29 +32,6 @@
       font-weight:700;
       font-size:18px;
       text-align:left;
-    }
-
-    /* ADS CONTAINER */
-    .ads-container {
-      width:90%;                  /* responsive width */
-      max-width:720px;            /* desktop max width */
-      margin:18px auto;
-      background:#fff;
-      border:1px solid #e6e6e6;
-      border-radius:2px;
-      text-align:center;
-      box-shadow:0 1px 4px rgba(0,0,0,0.03);
-      overflow:hidden;
-      min-height:200px;           /* fixed height */
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:10px 0;
-    }
-    .ads-container ins.adsbygoogle {
-      display:block !important;
-      width:100% !important;
-      height:auto !important;
     }
 
     .card {
@@ -64,6 +44,7 @@
       box-shadow:0 1px 4px rgba(0,0,0,0.04);
     }
     .card-body { padding:14px; }
+
     .row { margin-bottom:12px; }
     label {
       display:block;
@@ -72,8 +53,7 @@
       font-weight:600;
       color:var(--muted);
     }
-    input[type="file"],
-    input[type="number"] {
+    input[type="file"], input[type="number"], select {
       width:100%;
       padding:10px 12px;
       font-size:14px;
@@ -82,11 +62,11 @@
       background:var(--input-bg);
       outline:none;
     }
-    input[type="file"]:focus,
-    input[type="number"]:focus {
+    input[type="file"]:focus, input[type="number"]:focus, select:focus {
       border-color:var(--accent);
       box-shadow:0 0 0 3px rgba(211,47,47,0.06);
     }
+
     .btn {
       display:block;
       width:100%;
@@ -102,6 +82,7 @@
     }
     .btn:active { transform:translateY(1px); }
     .btn.reset { background:#666; }
+
     .result {
       margin-top:14px;
       min-height:110px;
@@ -114,21 +95,8 @@
       white-space:pre-wrap;
       font-size:13px;
     }
-    .footer {
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      text-align:center;
-      padding:10px 5px;
-      background:#f5f5f5;
-      border-top:1px solid #ddd;
-      font-size:13px;
-      color:#555;
-    }
-    .footer span { font-weight:600; }
+
     .preview { display:block; margin-top:10px; max-width:100%; border:1px solid #ccc; }
-    a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
 
     .h4-style {
       background-color: #FF0000;
@@ -146,12 +114,59 @@
       margin-left: 10px;
       margin-right: 10px;
     }
+
+    /* ADS CONTAINER (consistent with other tools) */
+    .ads-container {
+      width:90%;
+      max-width:720px;
+      margin:18px auto;
+      background:#fff;
+      border:1px solid #e6e6e6;
+      border-radius:2px;
+      text-align:center;
+      box-shadow:0 1px 4px rgba(0,0,0,0.03);
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:10px 0;
+      min-height:200px;
+    }
+    .ads-container ins.adsbygoogle {
+      display:block !important;
+      width:100% !important;
+      height:auto !important;
+    }
+
+    .footer {
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      text-align:center;
+      padding:10px 5px;
+      background:#f5f5f5;
+      border-top:1px solid #ddd;
+      font-size:13px;
+      color:#555;
+    }
+    .footer span { font-weight:600; }
+
+    a.download-link {
+      display:block;
+      margin-bottom:4px;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      font-size:13px;
+    }
   </style>
 </head>
 <body>
-  <div class="header">Online Image Resizer (KB)</div>
 
-  <!-- Responsive Rectangle AdSense Container -->
+  <div class="header">Online Image Resizer (Skill2job)</div>
+
+  <!-- Responsive Rectangle AdSense Container (updated) -->
   <div class="ads-container">
     <ins class="adsbygoogle"
          style="display:block;margin:0 auto;"
@@ -166,30 +181,52 @@
     </script>
   </div>
 
-  <div class="card">
+  <div class="card" role="region" aria-label="Image resizer">
     <div class="card-body">
       <div class="row">
         <label for="imageFile">Upload Image</label>
         <input type="file" id="imageFile" accept="image/*">
       </div>
+
       <div class="row">
-        <label for="sizeKB">Target Size (KB)</label>
-        <input type="number" id="sizeKB" placeholder="Enter size in KB">
+        <label for="sizeOption">Select Size</label>
+        <select id="sizeOption">
+          <option value="">--Select--</option>
+          <option value="450x600">Custom Size</option>
+          <option value="450x600">Passport Size</option>
+          <option value="210x310">ADRE Photo</option>
+          <option value="210x110">ADRE Sign</option>
+          <option value="210x310">DHS Photo</option>
+          <option value="210x110">DHS Sign</option>
+          <option value="1536x1920">Facebook Post</option>
+          <option value="413x531">SLPRB Photo</option>
+          <option value="472x236">SLPRB Sign</option>
+          <option value="60x20">SSC Signature</option>
+        </select>
       </div>
+
+      <div class="row" id="customSizeInputs" style="display:none;">
+        <label>Custom Width & Height (px)</label>
+        <input type="number" id="customWidth" placeholder="Width">
+        <input type="number" id="customHeight" placeholder="Height" style="margin-top:8px;">
+      </div>
+
       <button id="resizeBtn" class="btn">Resize Image</button>
-      <div id="result" class="result">Upload an image and enter target size.</div>
+
+      <div id="result" class="result">Upload an image and select size.</div>
       <img id="preview" class="preview" src="" alt="">
+
       <h4 class="h4-style">About This Tool</h4>
       <p class="justify-p">
-        This image resizing tool is designed to make the process of reducing image file sizes fast, simple, and secure, all within your browser. It allows users to adjust images to a specific KB size without losing control over the output quality. The tool ensures complete privacy since all processing happens locally on your device, never uploading files to any server. Ideal for professional work, personal projects, or sensitive photos, it supports multiple image formats like JPEG, PNG, and GIF. Its user-friendly and lightweight interface ensures even beginners can resize images effortlessly. The preview function helps verify output before downloading, while the reset option lets users start over without reloading the page. Compatible with desktops, laptops, tablets, and smartphones, it provides a seamless experience across all devices. By combining efficiency, simplicity, and security, this tool allows users to optimize image file sizes quickly while maintaining quality and control. Its intuitive workflow ensures minimal effort and maximum convenience for everyday tasks and professional content preparation.
+        This online image resizing tool is designed to make resizing images fast, simple, and accessible directly in your browser. Whether you need to adjust images for web uploads, social media, presentations, or official documents, this tool allows you to resize images efficiently without installing any software or creating an account. It is particularly useful for SSC signatures, which are automatically compressed under 20KB to meet official requirements, while other images can be resized to your preferred dimensions or file size. This ensures that your images maintain clarity and quality while meeting specific size restrictions, making it ideal for exams, applications, or digital forms.
       </p>
-      <h4 class="h4-style">How to Use</h4>
+
       <p class="justify-p">
-        To use this tool, upload your image using the provided file input, then enter the desired target size in kilobytes (KB). Click the "Resize Image" button, and the tool will process the image, attempting to match the specified size while preserving quality. After processing, the resized image appears in the preview section along with a download link. The button changes to "Reset," allowing users to resize another image or adjust the target size. The tool supports repeated usage without page reloads. Its efficient algorithm ensures images are compressed effectively while maintaining clarity. Users can experiment with different sizes to achieve the best balance between file size and quality. The interface is straightforward and works well for all skill levels, making image resizing accessible and fast. It is optimized for both single and repeated image processing tasks. Compatibility with modern browsers ensures consistent performance, and local processing guarantees user privacy. This workflow allows professionals, students, and casual users to complete image resizing tasks smoothly and reliably.
+        All resizing is performed locally in your browser, which guarantees that your files remain private and secure. Your images are never uploaded to an external server, so sensitive documents and personal photos are fully protected. This local processing also ensures faster performance, as the tool does not rely on internet speed or remote servers. The tool supports multiple image formats, including JPEG, PNG, and GIF, giving you flexibility depending on your requirements. By combining simplicity, speed, and security, this image resizer provides a convenient solution for both casual and professional users who need reliable results without compromising privacy.
       </p>
-      <h4 class="h4-style">Note</h4>
+
       <p class="justify-p">
-        When resizing images to very small target sizes, there may be some quality reduction or pixelation. Users should verify the preview before downloading to ensure it meets their standards. JPEG images typically compress well, while PNG and GIF may require slightly larger sizes to maintain clarity. The tool automatically adjusts canvas size and compression quality to meet the target KB as closely as possible. Extremely detailed images may need iterative resizing for optimal results. This tool is intended to provide convenience and speed while maintaining control over the output. By understanding how image compression works and using the preview, users can achieve desired results efficiently. This tool offers a reliable solution for web designers, content creators, students, and casual users looking to optimize images for upload, sharing, or storage. It balances ease of use, privacy, and performance to deliver consistent and high-quality outcomes.
+        The user interface is intuitive and easy to navigate. Simply upload your image, set the desired target size or dimensions, and let the tool do the work. After resizing, you can preview the image to ensure the quality meets your expectations and download it immediately. A reset option is available to quickly start over with another image, making it perfect for batch work or repetitive resizing tasks. Whether you are preparing official documents, optimizing images for websites, or compressing photos for sharing, this tool provides a reliable, secure, and hassle-free experience, turning a potentially complex task into a simple and efficient process.
       </p>
     </div>
   </div>
@@ -200,8 +237,95 @@
   <a href="https://www.skill2job.site/p/disclaimer-skill2jobsite.html">Disclaimer</a> |  
   <a href="https://www.skill2job.site/p/privacy-policy-skill2jobsite.html">Privacy</a> |  
   <a href="https://www.skill2job.site/p/terms-of-use-skill2jobsite.html">Terms</a>
-</div>
+</div>>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const imageFile = document.getElementById("image
+    const sizeOption = document.getElementById('sizeOption');
+    const customInputs = document.getElementById('customSizeInputs');
+    const resizeBtn = document.getElementById('resizeBtn');
+    const imageFile = document.getElementById('imageFile');
+    const preview = document.getElementById('preview');
+    const result = document.getElementById('result');
+    let resized = false;
+
+    sizeOption.addEventListener('change', () => {
+      if (sizeOption.value === "450x600") customInputs.style.display = "block";
+      else customInputs.style.display = "none";
+    });
+
+    resizeBtn.addEventListener('click', () => {
+      if (resized) {
+        imageFile.value = "";
+        preview.src = "";
+        result.innerHTML = "Upload an image and select size.";
+        resizeBtn.textContent = "Resize Image";
+        resized = false;
+        return;
+      }
+
+      const file = imageFile.files[0];
+      if (!file) return alert("Upload an image first.");
+
+      let width, height;
+      if (sizeOption.value === "") return alert("Select a size first.");
+      if (sizeOption.value === "450x600" && customInputs.style.display === "block") {
+        width = parseInt(document.getElementById('customWidth').value);
+        height = parseInt(document.getElementById('customHeight').value);
+        if (!width || !height) return alert("Enter valid width & height.");
+      } else {
+        [width, height] = sizeOption.value.split('x').map(Number);
+      }
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+
+          // Draw with aspect distortion intentionally (behaves like original)
+          ctx.drawImage(img, 0, 0, width, height);
+
+          function compressSSC(cb) {
+            let quality = 0.9;
+            function compressLoop() {
+              let dataURL = canvas.toDataURL('image/jpeg', quality);
+              let size = Math.round((dataURL.length * 3 / 4) / 1024);
+              if (size > 20 && quality > 0.05) { quality -= 0.05; compressLoop(); }
+              else { cb(dataURL, size); }
+            }
+            compressLoop();
+          }
+
+          function finish(dataURL, size) {
+            const link = document.createElement('a');
+            link.href = dataURL;
+            link.download = "resized_" + file.name;
+            link.textContent = `Download (${size} KB)`;
+            link.className = "download-link";
+            result.innerHTML = "";
+            result.appendChild(link);
+            preview.src = dataURL;
+            resizeBtn.textContent = "Reset";
+            resized = true;
+          }
+
+          // Check display text for "SSC Signature" option
+          if (sizeOption.options[sizeOption.selectedIndex].text === "SSC Signature") {
+            compressSSC(finish);
+          } else {
+            // compute size from 1.0 JPEG
+            const dataFull = canvas.toDataURL('image/jpeg', 1.0);
+            const sizeFull = Math.round((dataFull.length * 3 / 4) / 1024);
+            finish(dataFull, sizeFull);
+          }
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
