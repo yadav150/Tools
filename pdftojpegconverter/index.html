@@ -24,18 +24,30 @@
       padding-bottom:60px;
       font-size:14px;
     }
+
+    /* ADS CONTAINER FIX */
     .ads-container {
-      max-width:370px;
+      width:95%;
+      max-width:720px;
       margin:18px auto;
       background:#fff;
       border:1px solid #e6e6e6;
       border-radius:2px;
-      padding:80px;
       text-align:center;
-      font-size:13px;
-      color:var(--muted);
       box-shadow:0 1px 4px rgba(0,0,0,0.03);
+      overflow:hidden;
+      min-height:200px;       /* ensures ad space */
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:0;
     }
+    .ads-container ins.adsbygoogle {
+      display:block !important;
+      width:100% !important;
+      height:100% !important;
+    }
+
     .header {
       background:var(--accent);
       color:#fff;
@@ -139,20 +151,19 @@
 </head>
 <body>
   <div class="header">PDF to JPEG Converter</div>
+
+  <!-- Responsive AdSense -->
   <div class="ads-container">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-          crossorigin="anonymous"></script>
-  <!-- Tool Ad -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1876390706944654"
-       data-ad-slot="5481578615"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1876390706944654"
+         data-ad-slot="2968764212"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <div class="card">
     <div class="card-body">
