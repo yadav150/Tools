@@ -32,19 +32,29 @@
       font-size:16px;
       text-align:left;
     }
-    .ads {
-      max-width:340px;
-      margin:18px auto;
-      background:#fff;
-      border:1px solid #e6e6e6;
-      border-radius:4px;
-      height:120px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--muted);
-      font-size:14px;
-    }
+    /* ADS CONTAINER */
+.ads-container {
+  width:95%;                  /* responsive width for desktop & mobile */
+  max-width:720px;            /* maximum width for larger screens */
+  margin:18px auto;           /* centered horizontally with margin */
+  background:#fff;            /* white background for ad */
+  border:1px solid #e6e6e6;  /* subtle border */
+  border-radius:2px;          /* rounded corners */
+  text-align:center;          /* center-align ad content */
+  box-shadow:0 1px 4px rgba(0,0,0,0.03); /* light shadow */
+  overflow:hidden;            /* hide overflow content */
+  min-height:200px;           /* ensures minimum height for ad display */
+  display:flex;               /* flex layout for centering ad */
+  justify-content:center;     /* horizontal centering */
+  align-items:center;         /* vertical centering */
+  padding:10px 0;             /* top & bottom padding */
+}
+
+.ads-container ins.adsbygoogle {
+  display:block !important;   /* force block display */
+  width:100% !important;      /* full width */
+  height:auto !important;     /* automatic height */
+}
     h4.h4-style {
       background-color: var(--accent);
       color:#fff;
@@ -121,19 +131,19 @@
 <body>
   <div class="header">Skill2Job Online Tools</div>
 
-  <div class="ads">
+  <div class="ads-container">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-          crossorigin="anonymous"></script>
-  <!-- Tool Ad -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1876390706944654"
-       data-ad-slot="5481578615"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+     crossorigin="anonymous"></script>
+<!-- Tools 2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1876390706944654"
+     data-ad-slot="2968764212"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </div>
 
   <h4 class="h4-style">Our Available Tools</h4>
