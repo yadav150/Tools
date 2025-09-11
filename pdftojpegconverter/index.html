@@ -14,6 +14,7 @@
       --sheet:#ffffff;
     }
     * { box-sizing:border-box; }
+
     body {
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
@@ -24,6 +25,66 @@
       padding-bottom:60px;
       font-size:14px;
     }
+
+    .header {
+      background:var(--accent);
+      color:#fff;
+      padding:14px 16px;
+      font-weight:700;
+      font-size:18px;
+      text-align:left;
+    }
+
+    .card {
+      max-width:720px;
+      margin:18px auto;
+      background:var(--sheet);
+      border:1px solid #e6e6e6;
+      border-radius:4px;
+      overflow:hidden;
+      box-shadow:0 1px 4px rgba(0,0,0,0.04);
+    }
+    .card-body { padding:14px; }
+
+    .row { margin-bottom:12px; }
+    label {
+      display:block;
+      font-size:13px;
+      margin-bottom:6px;
+      font-weight:600;
+      color:var(--muted);
+    }
+
+    /* file input styling kept functional & accessible */
+    input[type="file"] {
+      width:100%;
+      padding:10px 12px;
+      font-size:15px;
+      border:1px solid #ccc;
+      border-radius:1px;
+      background:var(--input-bg);
+      outline:none;
+    }
+    input[type="file"]:focus {
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(211,47,47,0.06);
+    }
+
+    .btn {
+      display:block;
+      width:100%;
+      padding:11px 14px;
+      font-size:14px;
+      font-weight:700;
+      color:#fff;
+      background:var(--btn);
+      border:none;
+      border-radius:1px;
+      cursor:pointer;
+      margin-top:8px;
+    }
+    .btn:active { transform:translateY(1px); }
+    .btn.reset { background:#666; }
 
     /* ADS CONTAINER */
     .ads-container {
@@ -43,114 +104,67 @@
       height:auto !important;
     }
 
-    .header {
-      background:var(--accent);
-      color:#fff;
-      padding:10px 16px;
-      font-weight:700;
-      font-size:16px;
-      text-align:left;
-    }
-    .card {
-      max-width:720px;
-      margin:18px auto;
-      background:var(--sheet);
-      border:1px solid #e6e6e6;
-      border-radius:4px;
-      overflow:hidden;
-      box-shadow:0 1px 4px rgba(0,0,0,0.04);
-    }
-    .card-body { padding:14px; }
-    .row { margin-bottom:12px; }
-    label {
-      display:block;
-      font-size:12px;
-      margin-bottom:6px;
-      font-weight:600;
-      color:var(--muted);
-    }
-    input[type="file"] {
-      width:100%;
-      padding:8px 10px;
-      font-size:13px;
-      border:1px solid #ccc;
-      border-radius:1px;
-      background:var(--input-bg);
-      outline:none;
-    }
-    input[type="file"]:focus {
-      border-color:var(--accent);
-      box-shadow:0 0 0 3px rgba(211,47,47,0.06);
-    }
-    .btn {
-      display:block;
-      width:100%;
-      padding:9px 12px;
-      font-size:14px;
-      font-weight:700;
-      color:#fff;
-      background:var(--btn);
-      border:none;
-      border-radius:1px;
-      cursor:pointer;
-      margin-top:8px;
-    }
-    .btn:active { transform:translateY(1px); }
-    .btn.reset { background:#666; }
     .result {
-      margin-top:10px;
-      min-height:100px;
+      margin-top:14px;
+      min-height:110px;
       border:1px solid #cfcfcf;
       border-radius:1px;
       background:#fff;
-      padding:10px;
+      padding:12px;
       font-weight:600;
       color:var(--text);
       white-space:pre-wrap;
-      font-size:13px;
     }
-    .meta { font-size:12px; color:var(--muted); margin-top:6px; }
+
+    .meta { font-size:13px; color:var(--muted); margin-top:6px; }
+
     .footer {
       position:fixed;
       bottom:0;
       left:0;
       width:100%;
       text-align:center;
-      padding:8px 5px;
+      padding:10px 5px;
       background:#f5f5f5;
       border-top:1px solid #ddd;
-      font-size:12px;
+      font-size:13px;
       color:#555;
     }
     .footer span { font-weight:600; }
-    canvas { display:block; margin-bottom:10px; border:1px solid #ccc; }
-    a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
+
     .h4-style {
       background-color: #FF0000;
       padding: 5px 8px;
       border-radius: 2px;
       color: #ffffff;
       margin-top: 50px;
+      margin-left: 10px; margin-right: 10px;
       font-size:16px;
     }
+
     .justify-p {
       text-align: justify;
       margin-bottom: 10px;
+      margin-left: 10px; margin-right: 10px;
       text-justify: inter-word;
-      line-height: 1.5;
+      line-height: 1.6;
       word-spacing: normal;
       hyphens: auto;
-      font-size:13px;
+      font-size: 12px;
     }
+
+    /* small helpers for images and canvas preview */
+    canvas { display:block; margin-bottom:10px; border:1px solid #ccc; max-width:100%; height:auto; }
+    a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
   </style>
 </head>
 <body>
   <div class="header">PDF to JPEG Converter</div>
 
-  <!-- Responsive AdSense -->
+  <!-- Responsive Rectangle AdSense Container (styled like the age-calculator example) -->
   <div class="ads-container">
     <ins class="adsbygoogle"
-         style="display:block"
+         style="display:block;margin:0 auto;"
          data-ad-client="ca-pub-1876390706944654"
          data-ad-slot="2968764212"
          data-ad-format="auto"
@@ -160,36 +174,43 @@
     </script>
   </div>
 
-  <div class="card">
+  <div class="card" role="region" aria-label="PDF to JPEG converter">
     <div class="card-body">
       <div class="row">
         <label for="pdfFile">Upload PDF</label>
         <input type="file" id="pdfFile" accept="application/pdf">
       </div>
+
       <button id="convertBtn" class="btn">Convert to JPEG</button>
+
       <div id="result" class="result">Upload a PDF and click Convert.</div>
+
       <div class="meta">
         Tip: Each page of the PDF will be converted to a separate JPEG image with download buttons.
       </div>
-      <h4 class="h4-style">About This Tool</h4>
-<p class="justify-p">
-  This PDF to JPEG converter is a fast, reliable, and secure solution for converting all pages of a PDF document into high-quality JPEG images directly in your browser. Whether you are working on academic projects, professional presentations, or personal document archives, this tool allows you to extract images from PDF files without installing any additional software. Its user-friendly interface is designed for all users, from beginners to advanced, making the process simple and efficient. Each page of the PDF is rendered as a separate JPEG image, giving you complete control over your output files. Download links are provided immediately after conversion, allowing you to save pages individually or as a group. Additionally, the reset function allows you to convert multiple PDFs consecutively without refreshing or restarting the browser, providing a seamless workflow for repetitive tasks. Its compatibility with various devices, including desktops, laptops, tablets, and smartphones, ensures accessibility anytime, anywhere.
-</p>
-
-<p class="justify-p">
-  One of the key advantages of this tool is its privacy and security. All processing happens locally on your device, meaning your PDF files are never uploaded to any external server. This is particularly important for handling sensitive documents such as contracts, personal records, or confidential reports. Because the conversion is done entirely in-browser, it also ensures faster processing times compared to online server-based solutions, which can be slowed down by internet speed or server load. The tool supports popular formats like JPEG and handles multi-page PDFs efficiently, producing high-quality images without compromising clarity or readability. By maintaining the balance between convenience, speed, and security, this PDF to JPEG converter provides a trusted solution for professionals, students, content creators, and anyone needing reliable PDF-to-image conversions.
-</p>
-
-<p class="justify-p">
-  Using the tool is straightforward. Simply upload your PDF file, click the “Convert” button, and the tool will render each page as a separate JPEG image. Preview each page to ensure quality and clarity before downloading. Extremely large PDFs or very high-resolution files may take slightly longer to process, but each page is accurately converted to maintain readability and detail. The tool also includes a reset button to start over with a new PDF at any time. It is important to note that extremely complex or encrypted PDFs may not convert properly, so checking the original document for compatibility is recommended. Overall, this converter combines simplicity, security, and efficiency, making it an ideal choice for anyone who needs to transform PDF documents into easily usable JPEG images quickly and safely.
-</p>
+    </div>
   </div>
+
+  <h4 class="h4-style">About This Tool</h4>
+  <p class="justify-p">
+    This PDF to JPEG converter is a fast, reliable, and secure solution for converting all pages of a PDF document into high-quality JPEG images directly in your browser. Whether you are working on academic projects, professional presentations, or personal document archives, this tool allows you to extract images from PDF files without installing any additional software. Its user-friendly interface is designed for all users, from beginners to advanced, making the process simple and efficient. Each page of the PDF is rendered as a separate JPEG image, giving you complete control over your output files. Download links are provided immediately after conversion, allowing you to save pages individually or as a group. Additionally, the reset function allows you to convert multiple PDFs consecutively without refreshing or restarting the browser, providing a seamless workflow for repetitive tasks. Its compatibility with various devices, including desktops, laptops, tablets, and smartphones, ensures accessibility anytime, anywhere.
+  </p>
+
+  <p class="justify-p">
+    One of the key advantages of this tool is its privacy and security. All processing happens locally on your device, meaning your PDF files are never uploaded to any external server. This is particularly important for handling sensitive documents such as contracts, personal records, or confidential reports. Because the conversion is done entirely in-browser, it also ensures faster processing times compared to online server-based solutions, which can be slowed down by internet speed or server load. The tool supports popular formats like JPEG and handles multi-page PDFs efficiently, producing high-quality images without compromising clarity or readability. By maintaining the balance between convenience, speed, and security, this PDF to JPEG converter provides a trusted solution for professionals, students, content creators, and anyone needing reliable PDF-to-image conversions.
+  </p>
+
+  <p class="justify-p">
+    Using the tool is straightforward. Simply upload your PDF file, click the “Convert” button, and the tool will render each page as a separate JPEG image. Preview each page to ensure quality and clarity before downloading. Extremely large PDFs or very high-resolution files may take slightly longer to process, but each page is accurately converted to maintain readability and detail. The tool also includes a reset button to start over with a new PDF at any time. It is important to note that extremely complex or encrypted PDFs may not convert properly, so checking the original document for compatibility is recommended. Overall, this converter combines simplicity, security, and efficiency, making it an ideal choice for anyone who needs to transform PDF documents into easily usable JPEG images quickly and safely.
+  </p>
 
   <div class="footer">
     &copy; <span>Skill2job</span> | All Rights Reserved
   </div>
 
+  <!-- PDF.js (kept same as original) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
   <script>
     const convertBtn = document.getElementById("convertBtn");
     const fileInput = document.getElementById("pdfFile");
@@ -225,6 +246,7 @@
 
             await page.render({ canvasContext: context, viewport }).promise;
 
+            // convert to JPEG data URL
             const imgURL = canvas.toDataURL("image/jpeg", 1.0);
 
             const img = document.createElement("img");
@@ -263,5 +285,9 @@
       convertBtn.addEventListener("click", handleConvert);
     }
   </script>
+
+  <!-- Load Google Ads (kept like the age-calculator example for consistency) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+
 </body>
 </html>
