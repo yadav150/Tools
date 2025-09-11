@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Online Image Resizer</title>
+<title>Image Resizer Tool (cm)</title>
 <style>
 :root {
   --accent:#d32f2f;
@@ -22,20 +22,22 @@ body {
   padding-bottom:60px;
   font-size:14px;
 }
-.header { background:var(--accent); color:#fff; padding:14px 16px; font-weight:700; font-size:18px; text-align:left; }
+.header { background:var(--accent); color:#fff; padding:10px 16px; font-weight:700; font-size:16px; text-align:left; }
 .card { max-width:720px; margin:18px auto; background:var(--sheet); border:1px solid #e6e6e6; border-radius:4px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
 .card-body { padding:14px; }
 .row { margin-bottom:12px; }
-label { display:block; font-size:13px; margin-bottom:6px; font-weight:600; color:var(--muted); }
-input[type="file"], input[type="number"], select { width:100%; padding:10px 12px; font-size:14px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
-input[type="file"]:focus, input[type="number"]:focus, select:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
-.btn { display:block; width:100%; padding:11px 14px; font-size:14px; font-weight:700; color:#fff; background:var(--btn); border:none; border-radius:1px; cursor:pointer; margin-top:8px; }
+label { display:block; font-size:12px; margin-bottom:6px; font-weight:600; color:var(--muted); }
+input[type="file"], input[type="number"] { width:100%; padding:8px 10px; font-size:13px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
+input[type="file"]:focus, input[type="number"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
+select { width:100%; padding:8px 10px; font-size:13px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
+select:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
+.btn { display:block; width:100%; padding:9px 12px; font-size:14px; font-weight:700; color:#fff; background:var(--btn); border:none; border-radius:1px; cursor:pointer; margin-top:8px; }
 .btn:active { transform:translateY(1px); }
 .btn.reset { background:#666; }
-.result { margin-top:14px; min-height:110px; border:1px solid #cfcfcf; border-radius:1px; background:#fff; padding:12px; font-weight:600; color:var(--text); white-space:pre-wrap; font-size:13px; }
+.result { margin-top:10px; min-height:100px; border:1px solid #cfcfcf; border-radius:1px; background:#fff; padding:10px; font-weight:600; color:var(--text); white-space:pre-wrap; font-size:13px; }
 .preview { display:block; margin-top:10px; max-width:100%; border:1px solid #ccc; }
-.h4-style { background-color: #FF0000; padding: 5px 8px; border-radius: 2px; color: #ffffff; margin-top: 30px; font-size:16px; }
-.justify-p { text-align:justify; margin-bottom:10px; line-height:1.6; font-size:13px; margin-left: 10px; margin-right: 10px; }
+.h4-style { background-color:#FF0000; padding:5px 8px; border-radius:2px; color:#ffffff; margin-top:30px; font-size:16px; }
+.justify-p { text-align:justify; margin-bottom:10px; line-height:1.5; font-size:13px; }
 /* ADS CONTAINER */
 .ads-container {
   width:90%;
@@ -47,78 +49,90 @@ input[type="file"]:focus, input[type="number"]:focus, select:focus { border-colo
   text-align:center;
   box-shadow:0 1px 4px rgba(0,0,0,0.03);
   overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:10px 0;
-  min-height:200px;
 }
-.ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:auto !important; }
-.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 5px; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; }
+.ads-container ins.adsbygoogle {
+  display:block !important;
+  width:100% !important;
+  height:250px !important;
+}
+.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:8px 5px; background:#f5f5f5; border-top:1px solid #ddd; font-size:12px; color:#555; }
 .footer span { font-weight:600; }
 a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
 </style>
 </head>
 <body>
 
-<div class="header">Online Image Resizer (SSC Fix)</div>
+<div class="header">Online Image Resizer (cm)</div>
 
 <div class="ads-container">
   <ins class="adsbygoogle"
-       style="display:block;margin:0 auto;"
+       style="display:block"
        data-ad-client="ca-pub-1876390706944654"
        data-ad-slot="2968764212"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-          crossorigin="anonymous"></script>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <div class="card">
-  <div class="card-body">
-    <div class="row">
-      <label for="imageFile">Upload Image</label>
-      <input type="file" id="imageFile" accept="image/*">
-    </div>
-
-    <div class="row">
-      <label for="sizeOption">Select Size</label>
-      <select id="sizeOption">
-        <option value="">--Select--</option>
-        <option value="450x600">Custom Size</option>
-        <option value="450x600">Passport Size</option>
-        <option value="210x310">ADRE Photo</option>
-        <option value="210x110">ADRE Sign</option>
-        <option value="210x310">DHS Photo</option>
-        <option value="210x110">DHS Sign</option>
-        <option value="1536x1920">Facebook Post</option>
-        <option value="413x531">SLPRB Photo</option>
-        <option value="472x236">SLPRB Sign</option>
-        <option value="60x20">SSC Signature</option>
-      </select>
-    </div>
-
-    <div class="row" id="customSizeInputs" style="display:none;">
-      <label>Custom Width & Height (px)</label>
-      <input type="number" id="customWidth" placeholder="Width">
-      <input type="number" id="customHeight" placeholder="Height" style="margin-top:8px;">
-    </div>
-
-    <button id="resizeBtn" class="btn">Resize Image</button>
-    <div id="result" class="result">Upload an image and select size.</div>
-    <img id="preview" class="preview" src="" alt="">
-
-    <h4 class="h4-style">About This Tool</h4>
-    <p class="justify-p">
-      This tool resizes images efficiently. SSC Signature compression now uses improved method: it keeps maximum clarity under 20KB while maintaining quality.
-    </p>
+<div class="card-body">
+  <div class="row">
+    <label for="imageFile">Upload Image</label>
+    <input type="file" id="imageFile" accept="image/*">
   </div>
+
+  <div class="row">
+    <label for="sizeOption">Select Size (cm)</label>
+    <select id="sizeOption">
+      <option value="">--Select--</option>
+      <option value="6x2">SSC Signature</option>
+      <option value="4.5x6">Passport Size</option>
+      <option value="2.1x3.1">ADRE Photo</option>
+      <option value="2.1x1.1">ADRE Sign</option>
+      <option value="2.1x3.1">DHS Photo</option>
+      <option value="2.1x1.1">DHS Sign</option>
+      <option value="15.36x19.2">Facebook Post</option>
+      <option value="4.13x5.31">SLPRB Photo</option>
+      <option value="4.72x2.36">SLPRB Sign</option>
+      <option value="custom">Custom</option>
+    </select>
+  </div>
+
+  <div class="row" id="customSizeInputs" style="display:none;">
+    <label>Custom Width & Height (cm)</label>
+    <input type="number" id="customWidth" placeholder="Width (cm)">
+    <input type="number" id="customHeight" placeholder="Height (cm)" style="margin-top:5px;">
+  </div>
+
+  <button id="resizeBtn" class="btn">Resize Image</button>
+  <div id="result" class="result">Upload an image and select size.</div>
+  <img id="preview" class="preview" src="" alt="">
+
+  <h4 class="h4-style">About This Tool</h4>
+<p class="justify-p">
+  This online image resizing tool is designed to make resizing images fast, simple, and accessible directly in your browser. Whether you need to adjust images for web uploads, social media, presentations, or official documents, this tool allows you to resize images efficiently without installing any software or creating an account. It is particularly useful for SSC signatures, which are automatically compressed under 20KB to meet official requirements, while other images can be resized to your preferred dimensions or file size. This ensures that your images maintain clarity and quality while meeting specific size restrictions, making it ideal for exams, applications, or digital forms.
+</p>
+
+<p class="justify-p">
+  All resizing is performed locally in your browser, which guarantees that your files remain private and secure. Your images are never uploaded to an external server, so sensitive documents and personal photos are fully protected. This local processing also ensures faster performance, as the tool does not rely on internet speed or remote servers. The tool supports multiple image formats, including JPEG, PNG, and GIF, giving you flexibility depending on your requirements. By combining simplicity, speed, and security, this image resizer provides a convenient solution for both casual and professional users who need reliable results without compromising privacy.
+</p>
+
+<p class="justify-p">
+  The user interface is intuitive and easy to navigate. Simply upload your image, set the desired target size or dimensions, and let the tool do the work. After resizing, you can preview the image to ensure the quality meets your expectations and download it immediately. A reset option is available to quickly start over with another image, making it perfect for batch work or repetitive resizing tasks. Whether you are preparing official documents, optimizing images for websites, or compressing photos for sharing, this tool provides a reliable, secure, and hassle-free experience, turning a potentially complex task into a simple and efficient process.
+</p>
+</div>
 </div>
 
-<div class="footer">&copy; <span>Skill2job</span> | All Rights Reserved</div>
+<div class="footer">
+  &copy; <span>Skill2Job</span> | All Rights Reserved |  
+  <a href="https://www.skill2job.site/p/about-us_28.html">About</a> |  
+  <a href="https://www.skill2job.site/p/disclaimer-skill2jobsite.html">Disclaimer</a> |  
+  <a href="https://www.skill2job.site/p/privacy-policy-skill2jobsite.html">Privacy</a> |  
+  <a href="https://www.skill2job.site/p/terms-of-use-skill2jobsite.html">Terms</a>
+</div>
 
 <script>
+const DPI = 300; // Standard printing DPI
 const sizeOption = document.getElementById('sizeOption');
 const customInputs = document.getElementById('customSizeInputs');
 const resizeBtn = document.getElementById('resizeBtn');
@@ -128,9 +142,13 @@ const result = document.getElementById('result');
 let resized = false;
 
 sizeOption.addEventListener('change', ()=>{
-  if(sizeOption.value==="450x600") customInputs.style.display="block";
-  else customInputs.style.display="none";
+  if(sizeOption.value === "custom") customInputs.style.display = "block";
+  else customInputs.style.display = "none";
 });
+
+function cmToPx(cm){
+  return Math.round(cm/2.54 * DPI);
+}
 
 resizeBtn.addEventListener('click', ()=>{
   if(resized){
@@ -141,15 +159,18 @@ resizeBtn.addEventListener('click', ()=>{
   const file = imageFile.files[0];
   if(!file) return alert("Upload an image first.");
 
-  let width, height;
-  if(sizeOption.value==="") return alert("Select a size first.");
-  if(sizeOption.value==="450x600" && customInputs.style.display==="block"){
-    width=parseInt(document.getElementById('customWidth').value);
-    height=parseInt(document.getElementById('customHeight').value);
-    if(!width||!height) return alert("Enter valid width & height.");
+  let widthCm, heightCm;
+  if(sizeOption.value === "") return alert("Select a size first.");
+  if(sizeOption.value === "custom"){
+    widthCm = parseFloat(document.getElementById('customWidth').value);
+    heightCm = parseFloat(document.getElementById('customHeight').value);
+    if(!widthCm || !heightCm) return alert("Enter valid width & height in cm.");
   } else {
-    [width,height]=sizeOption.value.split('x').map(Number);
+    [widthCm,heightCm] = sizeOption.value.split('x').map(Number);
   }
+
+  const widthPx = cmToPx(widthCm);
+  const heightPx = cmToPx(heightCm);
 
   const reader = new FileReader();
   reader.onload = e=>{
@@ -157,48 +178,38 @@ resizeBtn.addEventListener('click', ()=>{
     img.src = e.target.result;
     img.onload = ()=>{
       const canvas = document.createElement('canvas');
-      canvas.width = width;
-      canvas.height = height;
+      canvas.width = widthPx;
+      canvas.height = heightPx;
       const ctx = canvas.getContext('2d');
-      ctx.drawImage(img,0,0,width,height);
+      ctx.drawImage(img,0,0,widthPx,heightPx);
 
-      function compressSSC(cb){
-        let minQ=0.05, maxQ=0.95;
-        let finalData="";
-        function binarySearch(){
-          let midQ = (minQ + maxQ)/2;
-          let dataURL = canvas.toDataURL('image/jpeg', midQ);
+      function compressToTargetKB(targetKB, cb){
+        let quality = 0.9;
+        function loop(){
+          let dataURL = canvas.toDataURL('image/jpeg',quality);
           let sizeKB = Math.round((dataURL.length*3/4)/1024);
-          if(sizeKB>20 && midQ>minQ+0.01){ maxQ=midQ; binarySearch(); }
-          else if(sizeKB<20 && midQ<maxQ-0.01){ minQ=midQ; finalData=dataURL; binarySearch(); }
-          else{ cb(finalData || dataURL, sizeKB); }
+          if(sizeKB > targetKB[1] && quality > 0.05){ quality -= 0.05; loop(); }
+          else if(sizeKB < targetKB[0] && quality < 1){ quality += 0.05; loop(); }
+          else cb(dataURL,sizeKB);
         }
-        binarySearch();
+        loop();
       }
 
-      function finish(dataURL,size){
+      function finish(dataURL,sizeKB){
         const link = document.createElement('a');
-        link.href=dataURL;
-        link.download="resized_"+file.name;
-        link.textContent=`Download (${size} KB)`;
-        link.className="download-link";
-        result.innerHTML="";
-        result.appendChild(link);
+        link.href=dataURL; link.download="resized_"+file.name; link.textContent=`Download (${sizeKB} KB)`; link.className="download-link";
+        result.innerHTML=""; result.appendChild(link);
         preview.src=dataURL;
-        resizeBtn.textContent="Reset";
-        resized=true;
+        resizeBtn.textContent="Reset"; resized=true;
       }
 
-      if(sizeOption.options[sizeOption.selectedIndex].text==="SSC Signature") compressSSC(finish);
-      else{
-        const dataURL = canvas.toDataURL('image/jpeg',1.0);
-        const sizeKB = Math.round((dataURL.length*3/4)/1024);
-        finish(dataURL,sizeKB);
-      }
+      if(sizeOption.options[sizeOption.selectedIndex].text==="SSC Signature") compressToTargetKB([15,19],finish);
+      else finish(canvas.toDataURL('image/jpeg',1.0),Math.round((canvas.toDataURL('image/jpeg',1.0).length*3/4)/1024));
     }
   };
   reader.readAsDataURL(file);
 });
 </script>
+
 </body>
-  </html>
+</html>
