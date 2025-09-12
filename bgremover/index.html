@@ -4,13 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Online Background Remover</title>
-
 <!-- SEO Meta Tags for Online Background Remover Tool -->
 <meta name="description" content="Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more.">
 <meta name="keywords" content="background remover, remove background online, free bg remover, image background editor, photo background removal, Skill2Job bg remover, Skill2Job tools, tools by Skill2Job, Skill2Job free online tool, Yadav Subba tools, online image editor 2025">
 <meta name="author" content="Skill2Job">
 <meta name="robots" content="index, follow">
-
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png">
 <style>
 :root {
@@ -83,6 +81,7 @@ input[type="file"]:focus {
 }
 .btn:active { transform:translateY(1px); }
 .btn.reset { background:#666; }
+
 .result {
   margin-top:14px;
   min-height:420px;
@@ -99,14 +98,72 @@ input[type="file"]:focus {
   justify-content:center;
   gap:10px;
 }
+
+/* PREVIEW CONTAINER: holds the image and overlays */
+.preview-container {
+  position: relative;
+  width: 90%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* image itself - auto height */
 .preview {
   display:block;
   max-width:100%;
-  height:auto; 
+  height:auto;
   object-fit:contain;
   border:1px solid #ccc;
   border-radius:6px;
+  transition: filter 280ms ease, transform 280ms ease;
+  /* ensure reveal respects image box */
+  clip-path: inset(0 0 0 0);
 }
+
+/* blurred state applied during processing */
+.preview-container.blurred .preview {
+  filter: blur(6px) saturate(0.95);
+  transform: scale(1.01);
+}
+
+/* swipe overlay (moving bright stripe) */
+.swipe-overlay {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.swipe-stripe {
+  position: absolute;
+  top: -25%;
+  left: -40%;
+  width: 35%;
+  height: 150%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(0);
+  animation: swipe 1.1s linear infinite;
+  will-change: transform;
+  filter: blur(6px) contrast(1.05);
+  opacity: 0.9;
+}
+@keyframes swipe {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}
+
+/* final reveal animation for processed image (left -> right) */
+.preview.reveal {
+  animation: revealAnim 600ms ease forwards;
+}
+@keyframes revealAnim {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+/* loader circle (kept) */
 .loader {
   border: 5px solid #f3f3f3;
   border-top: 5px solid #d32f2f;
@@ -118,6 +175,8 @@ input[type="file"]:focus {
   display:none;
 }
 @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+
+/* ADS CONTAINER (unchanged) */
 .ads-container {
   width:95%;
   max-width:720px;
@@ -135,6 +194,7 @@ input[type="file"]:focus {
   padding:10px 0;
 }
 .ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:auto !important; }
+
 a.download-link { display:none; margin-top:6px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
 .h4-style {
   background-color: #FF0000;
@@ -202,7 +262,16 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
 
     <div id="result" class="result">
       <div id="msg">Upload an image and click Remove Background.</div>
-      <img id="previewImg" class="preview" src="" alt="" style="display:none;">
+
+      <!-- preview container with overlays -->
+      <div class="preview-container" id="previewContainer" aria-live="polite">
+        <img id="previewImg" class="preview" src="" alt="" style="display:none;">
+        <!-- swipe overlay shown only while processing -->
+        <div class="swipe-overlay" id="swipeOverlay" style="display:none;">
+          <div class="swipe-stripe"></div>
+        </div>
+      </div>
+
       <a id="downloadLink" class="download-link" download="no-bg.png">Download Image</a>
     </div>
 
@@ -227,19 +296,29 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
   <a href="https://tools.skill2job.site/terms//">Terms</a> |
   <a href="https://tools.skill2job.site/contact//">Contact</a>
   </div>
-  
-  <script>
+
+<script>
+/* JS:
+ - show immediate original preview
+ - on remove: add blurred class + show swipeOverlay
+ - send original file unchanged to API requesting PNG
+ - when response arrives: set processed image, remove blur & overlay, do reveal animation
+*/
+
 const fileInput = document.getElementById('imageFile');
 const removeBtn = document.getElementById('removeBtn');
 const loader = document.getElementById('loader');
 const resultMsg = document.getElementById('msg');
 const previewImg = document.getElementById('previewImg');
+const previewContainer = document.getElementById('previewContainer');
+const swipeOverlay = document.getElementById('swipeOverlay');
 const downloadLink = document.getElementById('downloadLink');
 
-let apiKey = '1PkLmrg9vJSwarw7zjNiQ5iK'; // already included
-let currentPreviewUrl = null; // track object URLs to revoke
+const apiKey = '1PkLmrg9vJSwarw7zjNiQ5iK'; // your API key
+let currentPreviewUrl = null;
+let processedUrl = null;
 
-// show immediate preview of uploaded original (no compression)
+// show immediate original preview (no compression)
 fileInput.addEventListener('change', (e) => {
   const f = e.target.files && e.target.files[0];
   if (!f) {
@@ -249,21 +328,36 @@ fileInput.addEventListener('change', (e) => {
     return;
   }
 
-  // revoke previous preview URL
-  if (currentPreviewUrl) {
-    URL.revokeObjectURL(currentPreviewUrl);
-    currentPreviewUrl = null;
-  }
+  // revoke previous preview and processed URLs
+  if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
+  if (processedUrl) { try { URL.revokeObjectURL(processedUrl); } catch(e){} processedUrl = null; }
 
   const url = URL.createObjectURL(f);
   currentPreviewUrl = url;
   previewImg.src = url;
   previewImg.style.display = 'block';
+  previewImg.classList.remove('reveal');
+  previewContainer.classList.remove('blurred');
+  swipeOverlay.style.display = 'none';
   downloadLink.style.display = 'none';
   resultMsg.textContent = 'Image loaded. Click Remove Background.';
 });
 
-// perform background removal (send original file, no client compression)
+// helper to start visual processing indicators
+function startProcessingVisuals() {
+  previewContainer.classList.add('blurred'); // blurs image
+  swipeOverlay.style.display = 'block';      // show moving stripe
+  loader.style.display = 'block';            // spinner optional
+}
+
+// helper to stop visuals
+function stopProcessingVisuals() {
+  previewContainer.classList.remove('blurred');
+  swipeOverlay.style.display = 'none';
+  loader.style.display = 'none';
+}
+
+// send original file unchanged; request PNG result (lossless)
 removeBtn.addEventListener('click', async () => {
   const file = fileInput.files && fileInput.files[0];
   if (!file) {
@@ -271,52 +365,58 @@ removeBtn.addEventListener('click', async () => {
     return;
   }
 
-  // show loader
-  loader.style.display = 'block';
+  // clear previous processed url (if any) to avoid confusion
+  if (processedUrl) { try { URL.revokeObjectURL(processedUrl); } catch(e){} processedUrl = null; }
+
+  // start visuals
+  startProcessingVisuals();
   resultMsg.textContent = 'Processing...';
   removeBtn.disabled = true;
 
-  // keep reference to previous processed URL so we can revoke later
-  let processedUrl = null;
-
   try {
     const form = new FormData();
-    form.append('image_file', file); // original file, no compression
-    form.append('size', 'auto');
+    form.append('image_file', file);      // ORIGINAL file, no compression
+    form.append('size', 'auto');         // keep API auto-size behavior
+    form.append('format', 'png');        // request PNG (lossless output)
 
     const resp = await fetch('https://api.remove.bg/v1.0/removebg', {
       method: 'POST',
-      headers: { 'X-Api-Key': apiKey },
+      headers: {
+        'X-Api-Key': apiKey,
+        'Accept': 'image/png'
+      },
       body: form
     });
 
     if (!resp.ok) {
-      // try to read error message if available
       let errText = resp.status + ' ' + resp.statusText;
-      try {
-        const txt = await resp.text();
-        if (txt) errText += ' - ' + txt;
-      } catch(e) {}
+      try { const t = await resp.text(); if (t) errText += ' - ' + t; } catch(e){}
       throw new Error('Failed to remove background. (' + errText + ')');
     }
 
     const blob = await resp.blob();
     processedUrl = URL.createObjectURL(blob);
 
-    // revoke previous preview URL if it was from earlier processing (but keep original preview for clarity)
-    if (currentPreviewUrl) {
-      URL.revokeObjectURL(currentPreviewUrl);
-      currentPreviewUrl = null;
-    }
+    // stop visuals then show reveal
+    stopProcessingVisuals();
 
-    // set processed preview and enable download
+    // revoke original preview url (keep memory tidy)
+    if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
+
+    // set processed image and reveal left->right
     previewImg.src = processedUrl;
     previewImg.style.display = 'block';
+    // force reflow to allow animation restart
+    previewImg.classList.remove('reveal');
+    void previewImg.offsetWidth;
+    previewImg.classList.add('reveal');
+
     downloadLink.href = processedUrl;
     downloadLink.style.display = 'block';
     resultMsg.textContent = 'Background removed successfully!';
   } catch (err) {
     console.error(err);
+    stopProcessingVisuals();
     resultMsg.textContent = 'Error: ' + (err.message || 'Unknown error');
   } finally {
     loader.style.display = 'none';
@@ -324,20 +424,14 @@ removeBtn.addEventListener('click', async () => {
   }
 });
 
-// revoke object URLs when user leaves the page to free memory
+// cleanup object URLs on unload
 window.addEventListener('beforeunload', () => {
-  if (currentPreviewUrl) {
-    URL.revokeObjectURL(currentPreviewUrl);
-    currentPreviewUrl = null;
-  }
-  if (downloadLink && downloadLink.href) {
-    try { URL.revokeObjectURL(downloadLink.href); } catch(e) {}
-  }
+  if (currentPreviewUrl) try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){}
+  if (processedUrl) try { URL.revokeObjectURL(processedUrl); } catch(e){}
 });
 </script>
-
 <!-- Load Google Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
 
 </body>
-</html>
+  </html>
