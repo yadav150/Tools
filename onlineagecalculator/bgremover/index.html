@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Online Background Remover</title>
+<!-- SEO Meta Tags for Online Background Remover Tool -->
+<meta name="description" content="Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more.">
+<meta name="keywords" content="background remover, remove background online, free bg remover, image background editor, photo background removal, Skill2Job bg remover, Skill2Job tools, tools by Skill2Job, Skill2Job free online tool, Yadav Subba tools, online image editor 2025">
+<meta name="author" content="Skill2Job">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png">
+<style>
+:root {
+  --accent:#d32f2f;
+  --btn:#000;
+  --input-bg:#fff6f6;
+  --text:#111;
+  --muted:#777;
+  --sheet:#ffffff;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:#fafafa;
+  color:var(--text);
+  padding-bottom:70px;
+}
+.header {
+  background: #FFFFFF;
+  color:#000000;
+  padding:14px 16px;
+  font-weight:700;
+  font-size:20px;
+  text-align:left;
+}
+.card {
+  max-width:720px;
+  margin:18px auto;
+  background:var(--sheet);
+  border:1px solid #e6e6e6;
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+.card-body { padding:14px; }
+.row { margin-bottom:12px; }
+label {
+  display:block;
+  font-size:13px;
+  margin-bottom:6px;
+  font-weight:600;
+  color:var(--muted);
+}
+input[type="file"] {
+  width:100%;
+  padding:10px 12px;
+  font-size:14px;
+  border:1px solid #ccc;
+  border-radius:1px;
+  background:var(--input-bg);
+  outline:none;
+}
+input[type="file"]:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(211,47,47,0.06);
+}
+.btn {
+  display:block;
+  width:100%;
+  padding:11px 14px;
+  font-size:14px;
+  font-weight:700;
+  color:#fff;
+  background:var(--btn);
+  border:none;
+  border-radius:1px;
+  cursor:pointer;
+  margin-top:8px;
+}
+.btn:active { transform:translateY(1px); }
+.btn.reset { background:#666; }
+.result {
+  margin-top:14px;
+  min-height:420px;
+  border:1px solid #cfcfcf;
+  border-radius:1px;
+  background:#fff;
+  padding:12px;
+  font-weight:600;
+  color:var(--text);
+  font-size:13px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.preview {
+  display:block;
+  max-width:100%;
+  height:auto;       /* auto height */
+  object-fit:contain;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+.preview-wrap {
+  position: relative;
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.preview-canvas, .overlay-canvas {
+  max-width:90%;
+  border-radius:4px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+.overlay-canvas { position:absolute; left:0; top:0; pointer-events:none; }
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #d32f2f;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin:10px auto;
+  display:none;
+}
+@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+.ads-container {
+  width:95%;
+  max-width:720px;
+  margin:18px auto;
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:2px;
+  text-align:center;
+  box-shadow:0 1px 4px rgba(0,0,0,0.03);
+  overflow:hidden;
+  min-height:200px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:10px 0;
+}
+.ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:auto !important; }
+a.download-link { display:none; margin-top:6px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
+.h4-style {
+  background-color: #FF0000;
+  padding: 5px 8px;
+  border-radius: 2px;
+  color: #ffffff;
+  margin-top: 50px;
+  margin-left: 10px; margin-right: 10px;
+}
+.justify-p {
+  text-align: justify;
+  margin-bottom: 10px;
+  margin-left: 10px; margin-right: 10px;
+  text-justify: inter-word;
+  line-height: 1.6;
+  word-spacing: normal;
+  hyphens: auto;
+  font-size: 12px;
+}
+.footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  padding:8px 5px;
+  background:#f5f5f5;
+  border-top:1px solid #ddd;
+  font-size:12px;
+  color:#555;
+}
+.footer a { color: #111; text-decoration:none; margin:0 6px; }
+</style>
+</head>
+<body>
+<h2 class="header">
+  Online Background Remover
+  <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" 
+       alt="Favicon" 
+       style="width:32px; height:32px; vertical-align:middle; float:right; border-radius: 8px;">
+</h2>
+
+<div class="ads-container">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1876390706944654"
+     data-ad-slot="2968764212"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <label for="imageFile">Upload Image</label>
+      <input type="file" id="imageFile" accept="image/*">
+    </div>
+
+    <button id="removeBtn" class="btn">Remove Background</button>
+    <div class="loader" id="loader" aria-hidden="true"></div>
+
+    <div id="result" class="result">
+      <div id="msg">Upload an image and click Remove Background.</div>
+      <div class="preview-wrap" id="previewWrap" style="width:90%;">
+        <canvas id="baseCanvas" class="preview-canvas" style="display:none;"></canvas>
+        <canvas id="overlayCanvas" class="overlay-canvas" style="display:none;"></canvas>
+      </div>
+      <img id="previewImg" class="preview" src="" alt="" style="display:none;">
+      <a id="downloadLink" class="download-link" download="no-bg.png">Download Image</a>
+    </div>
+
+    <!-- Added English About Section -->
+    <h4 class="h4-style">About This Tool</h4>
+    <p class="justify-p">
+    This tool has been specially designed for users who want to remove the background of their images quickly and easily without compromising on quality. In many situations, we need clean images for different purposes such as profile pictures, professional documents, e-commerce product listings, presentations, or even creative social media posts. In these cases, an unnecessary background can be distracting or reduce the impact of the subject in the photo. With this background remover, you can eliminate that problem instantly. One of the best parts is that your image is never compressed, which means the quality remains exactly as sharp and clear as the original.
+    </p>
+    <p class="justify-p">
+    The tool uses advanced technology and intelligent algorithms that carefully analyze each part of the uploaded photo to distinguish between the main subject and the background. Once you upload an image, the system immediately starts processing it and produces a clean, transparent background image within seconds. The interface is extremely simple and user-friendly, so even beginners who have little or no technical knowledge can use it without difficulty. All you need to do is click the upload button, select your image, and let the tool do the hard work. In a matter of moments, your photo is ready to download and use anywhere you want.
+    </p>
+    <p class="justify-p">
+    Another important feature of this tool is that it has been developed with a fully responsive design. This means it automatically adapts to any screen size, whether you are using a mobile phone, a tablet, or a desktop computer. The clean interface ensures a smooth experience without clutter or confusion. In addition, the background removal process is optimized for speed so that you do not have to wait too long for results. Whether you are a professional designer, a photographer, an online seller, or simply someone who wants to enhance personal images, this tool will save you valuable time and effort. It provides a reliable, fast, and high-quality solution for anyone who needs background-free images on a regular basis.
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  &copy; <span>Skill2Job</span> | All Rights Reserved<br> 
+  <a href="https://www.skill2job.site/p/about-us_28.html">About</a> |  
+  <a href="https://www.skill2job.site/p/disclaimer-skill2jobsite.html">Disclaimer</a> |  
+  <a href="https://www.skill2job.site/p/privacy-policy-skill2jobsite.html">Privacy</a> |  
+  <a href="https://www.skill2job.site/p/terms-of-use-skill2jobsite.html">Terms</a> |
+  <a href="https://www.skill2job.site/p/contact.html">Contact</a>
+</div>
+
+<script>
+const fileInput = document.getElementById('imageFile');
+const removeBtn = document.getElementById('removeBtn');
+const loader = document.getElementById('loader');
+const resultMsg = document.getElementById('msg');
+const baseCanvas = document.getElementById('baseCanvas');
+const overlayCanvas = document.getElementById('overlayCanvas');
+const previewImg = document.getElementById('previewImg');
+const downloadLink = document.getElementById('downloadLink');
+
+let baseCtx = baseCanvas.getContext('2d');
+let overlayCtx = overlayCanvas.getContext('2d');
+let animReq;
+let apiKey = '1PkLmrg9vJSwarw7zjNiQ5iK'; // your given API key
+
+fileInput.addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const url = URL.createObjectURL(f);
+  const img = new Image();
+  img.onload = () => {
+    baseCanvas.width = img.width;
+    baseCanvas.height = img.height;
+    baseCtx.drawImage(img, 0, 0);
+    overlayCanvas.width = img.width;
+    overlayCanvas.height = img.height;
+    overlayCtx.drawImage(img, 0, 0);
+    baseCanvas.style.display = 'block';
+    overlayCanvas.style.display = 'block';
+    previewImg.style.display = 'none';
+    downloadLink.style.display = 'none';
+    resultMsg.textContent = 'Image loaded. Click Remove Background.';
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+});
+
+// swipe animation
+function startSwipe() {
+  let x = 0;
+  function step() {
+    overlayCtx.clearRect(0,0,overlayCanvas.width, overlayCanvas.height);
+    overlayCtx.drawImage(baseCanvas,0,0);
+    overlayCtx.fillStyle = 'rgba(255,255,255,0.6)';
+    overlayCtx.fillRect(x,0,overlayCanvas.width-x,overlayCanvas.height);
+    x += 20;
+    if (x > overlayCanvas.width) x = 0;
+    animReq = requestAnimationFrame(step);
+  }
+  step();
+}
+function stopSwipe() {
+  cancelAnimationFrame(animReq);
+  overlayCtx.clearRect(0,0,overlayCanvas.width,overlayCanvas.height);
+}
+
+removeBtn.addEventListener('click', async () => {
+  if (!fileInput.files[0]) {
+    resultMsg.textContent = '⚠ Please upload an image first.';
+    return;
+  }
+  loader.style.display = 'block';
+  resultMsg.textContent = 'Processing...';
+  removeBtn.disabled = true;
+  startSwipe();
+
+  const form = new FormData();
+  form.append('image_file', fileInput.files[0]);
+  form.append('size','auto');
+
+  try {
+    const resp = await fetch('https://api.remove.bg/v1.0/removebg', {
+      method: 'POST',
+      headers: { 'X-Api-Key': apiKey },
+      body: form
+    });
+    if (!resp.ok) throw new Error('Failed: ' + resp.status);
+    const blob = await resp.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    stopSwipe();
+    loader.style.display = 'none';
+    previewImg.src = objectUrl;
+    previewImg.style.display = 'block';
+    baseCanvas.style.display = 'none';
+    overlayCanvas.style.display = 'none';
+    downloadLink.href = objectUrl;
+    downloadLink.style.display = 'block';
+    resultMsg.textContent = 'Background removed successfully!';
+  } catch(err) {
+    stopSwipe();
+    loader.style.display = 'none';
+    resultMsg.textContent = 'Error: ' + err.message;
+  } finally {
+    removeBtn.disabled = false;
+  }
+});
+</script>
+
+  <!-- Load Google Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+  
+</body>
+</html>
