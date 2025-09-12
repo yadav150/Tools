@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Online Background Remover</title>
+<title>Image Background Remover</title>
 <!-- SEO Meta Tags for Online Background Remover Tool -->
 <meta name="description" content="Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more.">
 <meta name="keywords" content="background remover, remove background online, free bg remover, image background editor, photo background removal, Skill2Job bg remover, Skill2Job tools, tools by Skill2Job, Skill2Job free online tool, Yadav Subba tools, online image editor 2025">
 <meta name="author" content="Skill2Job">
 <meta name="robots" content="index, follow">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png">
 <style>
 :root {
   --accent:#d32f2f;
@@ -99,7 +99,7 @@ input[type="file"]:focus {
   gap:10px;
 }
 
-/* PREVIEW CONTAINER: holds the image and overlays */
+/* PREVIEW CONTAINER & image */
 .preview-container {
   position: relative;
   width: 90%;
@@ -108,8 +108,6 @@ input[type="file"]:focus {
   justify-content: center;
   align-items: center;
 }
-
-/* image itself - auto height */
 .preview {
   display:block;
   max-width:100%;
@@ -118,20 +116,19 @@ input[type="file"]:focus {
   border:1px solid #ccc;
   border-radius:6px;
   transition: filter 280ms ease, transform 280ms ease;
-  /* ensure reveal respects image box */
   clip-path: inset(0 0 0 0);
 }
 
-/* blurred state applied during processing */
+/* blurred state during processing */
 .preview-container.blurred .preview {
   filter: blur(6px) saturate(0.95);
   transform: scale(1.01);
 }
 
-/* swipe overlay (moving bright stripe) */
+/* swipe overlay stripe */
 .swipe-overlay {
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   pointer-events: none;
   overflow: hidden;
   border-radius: 6px;
@@ -154,7 +151,7 @@ input[type="file"]:focus {
   100% { transform: translateX(320%); }
 }
 
-/* final reveal animation for processed image (left -> right) */
+/* reveal animation */
 .preview.reveal {
   animation: revealAnim 600ms ease forwards;
 }
@@ -163,7 +160,7 @@ input[type="file"]:focus {
   to   { clip-path: inset(0 0 0 0); }
 }
 
-/* loader circle (kept) */
+/* loader circle */
 .loader {
   border: 5px solid #f3f3f3;
   border-top: 5px solid #d32f2f;
@@ -176,7 +173,46 @@ input[type="file"]:focus {
 }
 @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
 
-/* ADS CONTAINER (unchanged) */
+/* Background color picker area */
+.bg-picker {
+  width:90%;
+  max-width:100%;
+  margin:10px auto 0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.bg-swatch {
+  width:34px;
+  height:34px;
+  border-radius:6px;
+  border:2px solid #e6e6e6;
+  box-shadow:0 1px 2px rgba(0,0,0,0.04);
+  cursor:pointer;
+}
+.bg-swatch.selected {
+  outline:3px solid rgba(211,47,47,0.15);
+  border-color:var(--accent);
+}
+
+/* color input */
+.color-input {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-left:6px;
+}
+.color-input input[type="color"] {
+  width:36px;
+  height:36px;
+  padding:0;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+}
+
+/* ADS CONTAINER */
 .ads-container {
   width:95%;
   max-width:720px;
@@ -196,6 +232,7 @@ input[type="file"]:focus {
 .ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:auto !important; }
 
 a.download-link { display:none; margin-top:6px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
+
 .h4-style {
   background-color: #FF0000;
   padding: 5px 8px;
@@ -214,6 +251,7 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
   hyphens: auto;
   font-size: 12px;
 }
+
 .footer {
   position:fixed;
   bottom:0;
@@ -231,8 +269,8 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
 </head>
 <body>
 <h2 class="header">
-  Image Background Remover
-  <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" 
+  Online Background Remover
+  <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" 
        alt="Favicon" 
        style="width:32px; height:32px; vertical-align:middle; float:right; border-radius: 8px;">
 </h2>
@@ -263,10 +301,9 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
     <div id="result" class="result">
       <div id="msg">Upload an image and click Remove Background.</div>
 
-      <!-- preview container with overlays -->
+      <!-- PREVIEW + overlays -->
       <div class="preview-container" id="previewContainer" aria-live="polite">
         <img id="previewImg" class="preview" src="" alt="" style="display:none;">
-        <!-- swipe overlay shown only while processing -->
         <div class="swipe-overlay" id="swipeOverlay" style="display:none;">
           <div class="swipe-stripe"></div>
         </div>
@@ -275,6 +312,23 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
       <a id="downloadLink" class="download-link" download="no-bg.png">Download Image</a>
     </div>
 
+    <!-- Background chooser area -->
+    <div class="bg-picker" aria-hidden="false" title="Choose background color">
+      <!-- preset swatches -->
+      <div class="bg-swatch" data-color="#ffffff" style="background:#ffffff;" title="White"></div>
+      <div class="bg-swatch" data-color="#000000" style="background:#000000;" title="Black"></div>
+      <div class="bg-swatch" data-color="#f5f5f5" style="background:#f5f5f5;" title="Light Gray"></div>
+      <div class="bg-swatch" data-color="#eeeeff" style="background:#eeeeff;" title="Soft Blue"></div>
+      <div class="bg-swatch" data-color="#fff8e1" style="background:#fff8e1;" title="Soft Yellow"></div>
+
+      <!-- custom color picker -->
+      <div class="color-input">
+        <label style="font-size:13px;color:var(--muted);font-weight:600;">Custom</label>
+        <input id="colorPicker" type="color" value="#ffffff" title="Choose custom background color">
+      </div>
+    </div>
+
+    <!-- About section (unchanged) -->
     <h4 class="h4-style">About This Tool</h4>
     <p class="justify-p">
     This tool has been specially designed for users who want to remove the background of their images quickly and easily without compromising on quality. In many situations, we need clean images for different purposes such as profile pictures, professional documents, e-commerce product listings, presentations, or even creative social media posts. In these cases, an unnecessary background can be distracting or reduce the impact of the subject in the photo. With this background remover, you can eliminate that problem instantly. One of the best parts is that your image is never compressed, which means the quality remains exactly as sharp and clear as the original.
@@ -298,11 +352,13 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
   </div>
 
 <script>
-/* JS:
- - show immediate original preview
- - on remove: add blurred class + show swipeOverlay
- - send original file unchanged to API requesting PNG
- - when response arrives: set processed image, remove blur & overlay, do reveal animation
+/*
+  Behavior:
+  - immediate preview of original file (no compression)
+  - choose background color via swatches or color input
+  - on Remove: show blur + swipe + loader; send original file unchanged; request PNG
+  - after receiving PNG: composite it over chosen color at PNG native resolution via canvas (lossless)
+  - set preview to composited PNG and enable download
 */
 
 const fileInput = document.getElementById('imageFile');
@@ -314,9 +370,38 @@ const previewContainer = document.getElementById('previewContainer');
 const swipeOverlay = document.getElementById('swipeOverlay');
 const downloadLink = document.getElementById('downloadLink');
 
+const swatches = Array.from(document.querySelectorAll('.bg-swatch'));
+const colorPicker = document.getElementById('colorPicker');
+
 const apiKey = '1PkLmrg9vJSwarw7zjNiQ5iK'; // your API key
 let currentPreviewUrl = null;
 let processedUrl = null;
+let selectedBg = '#ffffff'; // default
+
+// initialize swatches (select first by default)
+function selectSwatch(colorHex, el) {
+  selectedBg = colorHex;
+  swatches.forEach(s => s.classList.remove('selected'));
+  if (el && el.classList) el.classList.add('selected');
+  // sync color picker
+  colorPicker.value = colorHex;
+}
+selectSwatch('#ffffff', swatches[0]);
+
+swatches.forEach((s) => {
+  s.addEventListener('click', (e) => {
+    const c = s.dataset.color || '#ffffff';
+    selectSwatch(c, s);
+  });
+});
+
+// custom color change
+colorPicker.addEventListener('input', (e) => {
+  const c = e.target.value;
+  selectedBg = c;
+  // clear swatch selection
+  swatches.forEach(s => s.classList.remove('selected'));
+});
 
 // show immediate original preview (no compression)
 fileInput.addEventListener('change', (e) => {
@@ -328,7 +413,7 @@ fileInput.addEventListener('change', (e) => {
     return;
   }
 
-  // revoke previous preview and processed URLs
+  // cleanup previous urls
   if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
   if (processedUrl) { try { URL.revokeObjectURL(processedUrl); } catch(e){} processedUrl = null; }
 
@@ -343,21 +428,55 @@ fileInput.addEventListener('change', (e) => {
   resultMsg.textContent = 'Image loaded. Click Remove Background.';
 });
 
-// helper to start visual processing indicators
-function startProcessingVisuals() {
-  previewContainer.classList.add('blurred'); // blurs image
-  swipeOverlay.style.display = 'block';      // show moving stripe
-  loader.style.display = 'block';            // spinner optional
+// start visuals
+function startProcessingVisuals(){
+  previewContainer.classList.add('blurred');
+  swipeOverlay.style.display = 'block';
+  loader.style.display = 'block';
 }
 
-// helper to stop visuals
-function stopProcessingVisuals() {
+// stop visuals
+function stopProcessingVisuals(){
   previewContainer.classList.remove('blurred');
   swipeOverlay.style.display = 'none';
   loader.style.display = 'none';
 }
 
-// send original file unchanged; request PNG result (lossless)
+// composite transparent PNG over selected color at native resolution and return blob
+async function compositeOverColor(pngBlob, colorHex) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = async () => {
+      try {
+        const w = img.naturalWidth;
+        const h = img.naturalHeight;
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+
+        // fill background color
+        ctx.fillStyle = colorHex;
+        ctx.fillRect(0,0,w,h);
+
+        // draw the PNG (transparent) on top
+        ctx.drawImage(img, 0, 0, w, h);
+
+        // export lossless PNG
+        canvas.toBlob((blob) => {
+          if (!blob) return reject(new Error('Failed to compose image'));
+          resolve({ blob, width: w, height: h });
+        }, 'image/png');
+      } catch (err) {
+        reject(err);
+      }
+    };
+    img.onerror = (e) => reject(new Error('Failed to load processed PNG'));
+    img.src = URL.createObjectURL(pngBlob);
+  });
+}
+
+// remove background (no compression on upload)
 removeBtn.addEventListener('click', async () => {
   const file = fileInput.files && fileInput.files[0];
   if (!file) {
@@ -365,19 +484,18 @@ removeBtn.addEventListener('click', async () => {
     return;
   }
 
-  // clear previous processed url (if any) to avoid confusion
+  // cleanup previous processed url
   if (processedUrl) { try { URL.revokeObjectURL(processedUrl); } catch(e){} processedUrl = null; }
 
-  // start visuals
   startProcessingVisuals();
   resultMsg.textContent = 'Processing...';
   removeBtn.disabled = true;
 
   try {
     const form = new FormData();
-    form.append('image_file', file);      // ORIGINAL file, no compression
-    form.append('size', 'auto');         // keep API auto-size behavior
-    form.append('format', 'png');        // request PNG (lossless output)
+    form.append('image_file', file);      // original file
+    form.append('size', 'auto');
+    form.append('format', 'png');        // ask for png (lossless)
 
     const resp = await fetch('https://api.remove.bg/v1.0/removebg', {
       method: 'POST',
@@ -394,26 +512,29 @@ removeBtn.addEventListener('click', async () => {
       throw new Error('Failed to remove background. (' + errText + ')');
     }
 
-    const blob = await resp.blob();
-    processedUrl = URL.createObjectURL(blob);
+    const pngBlob = await resp.blob();
 
-    // stop visuals then show reveal
-    stopProcessingVisuals();
+    // composite the returned transparent PNG over the chosen color (lossless PNG)
+    const composed = await compositeOverColor(pngBlob, selectedBg);
+    const composedBlob = composed.blob;
+    processedUrl = URL.createObjectURL(composedBlob);
 
-    // revoke original preview url (keep memory tidy)
+    // revoke original preview if needed
     if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
 
-    // set processed image and reveal left->right
+    // show final processed+composited image with left->right reveal
+    stopProcessingVisuals();
     previewImg.src = processedUrl;
     previewImg.style.display = 'block';
-    // force reflow to allow animation restart
     previewImg.classList.remove('reveal');
     void previewImg.offsetWidth;
     previewImg.classList.add('reveal');
 
+    // set download link to the composed PNG (lossless)
     downloadLink.href = processedUrl;
+    downloadLink.download = 'no-bg-filled.png';
     downloadLink.style.display = 'block';
-    resultMsg.textContent = 'Background removed successfully!';
+    resultMsg.textContent = 'Background removed and composited on chosen color!';
   } catch (err) {
     console.error(err);
     stopProcessingVisuals();
@@ -424,14 +545,16 @@ removeBtn.addEventListener('click', async () => {
   }
 });
 
-// cleanup object URLs on unload
+// cleanup object URLs when unload
 window.addEventListener('beforeunload', () => {
   if (currentPreviewUrl) try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){}
   if (processedUrl) try { URL.revokeObjectURL(processedUrl); } catch(e){}
 });
 </script>
+
 <!-- Load Google Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
 
+
 </body>
-  </html>
+</html>
