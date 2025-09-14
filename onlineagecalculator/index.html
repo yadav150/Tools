@@ -1,10 +1,20 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Online Age Calculator</title>
+  <title>PDF to JPEG Converter</title>
   <!-- SEO Meta Description -->
-<meta name="description" content="Skill2Job Tools Online Age Calculator helps you calculate exact age in years, months, and days instantly. Free, fast, secure, and accurate for job forms, exams, and official documents."><!-- SEO Meta Keywords --><meta name="keywords" content="Skill2Job Tools, Online Age Calculator, calculate exact age online, free DOB to age calculator, age in years months and days, date of birth age calculator, accurate age calculator for exams and forms, online birthday calculator, fast and reliable age calculation tool, calculate age instantly for official documents"><!-- Indexing & Crawling --><meta name="robots" content="index, follow"><!-- Canonical URL --><link rel="canonical" href="https://tools.skill2job.site/onlineagecalculator/">
+<meta name="description" content="Skill2Job Tools PDF to JPEG Converter lets you quickly convert PDF files into high-quality JPEG images online. Free, secure, fast, and works on all devices without installation.">
+
+<!-- SEO Meta Keywords -->
+<meta name="keywords" content="Skill2Job Tools, PDF to JPEG Converter, convert PDF to JPEG online, free PDF converter, PDF to JPG high quality, fast PDF to JPEG tool, online PDF image extractor, convert documents to images, secure PDF converter, no download PDF to JPEG, PDF to JPG converter for exams, PDF to JPEG converter for forms, PDF to JPG for application, instant PDF image converter">
+
+<!-- Indexing & Crawling -->
+<meta name="robots" content="index, follow">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://tools.skill2job.site/pdftojpegconverter/">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png">
   <style>
     :root {
@@ -16,48 +26,164 @@
       --sheet:#ffffff;
     }
     * { box-sizing:border-box; }
+
     body {
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-  background:#fafafa;
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  padding-bottom:60px;
-  font-size:14px;
-}.header { background:#FFFFFF; color:#000000; padding:14px 16px; font-weight:700; font-size:20px; text-align:left; }.card { max-width:720px; margin:18px auto; background:var(--sheet); border:1px solid #e6e6e6; border-radius:4px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.04); } .card-body { padding:14px; }
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:#fafafa;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-bottom:60px;
+      font-size:14px;
+    }
 
-.row { margin-bottom:12px; } label { display:block; font-size:13px; margin-bottom:6px; font-weight:600; color:var(--muted); } input[type="date"] { width:100%; padding:10px 12px; font-size:15px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; } input[type="date"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
+    .header {
+      background: #FFFFFF;
+      color:#000000;
+      padding:14px 16px;
+      font-weight:700;
+      font-size:20px;
+      text-align:left;
+    }
 
-.btn { display:block; width:100%; padding:11px 14px; font-size:12px; font-weight:700; color:#fff; background:var(--btn); border:none; border-radius:1px; cursor:pointer; } .btn:active { transform:translateY(1px); } .btn.reset { background:#666; }
+    .card {
+      max-width:720px;
+      margin:18px auto;
+      background:var(--sheet);
+      border:1px solid #e6e6e6;
+      border-radius:4px;
+      overflow:hidden;
+      box-shadow:0 1px 4px rgba(0,0,0,0.04);
+    }
+    .card-body { padding:14px; }
 
-/* ADS CONTAINER */ .ads-wrapper { max-width:720px; margin:18px auto; padding-left:10px; padding-right:10px; } .ads-container { width:100%; margin:0; background:#fff; border:1px solid #e6e6e6; border-radius:2px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.03); overflow:hidden; } .ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:auto !important; }
+    .row { margin-bottom:12px; }
+    label {
+      display:block;
+      font-size:13px;
+      margin-bottom:6px;
+      font-weight:600;
+      color:var(--muted);
+    }
 
-.result { margin-top:14px; min-height:110px; border:1px solid #cfcfcf; border-radius:1px; background:#fff; padding:12px; font-weight:600; color:var(--text); white-space:pre-wrap; }
+    /* file input styling kept functional & accessible */
+    input[type="file"] {
+      width:100%;
+      padding:10px 12px;
+      font-size:15px;
+      border:1px solid #ccc;
+      border-radius:1px;
+      background:var(--input-bg);
+      outline:none;
+    }
+    input[type="file"]:focus {
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(211,47,47,0.06);
+    }
 
-.meta { font-size:13px; color:var(--muted); margin-top:6px; }
+    .btn {
+      display:block;
+      width:100%;
+      padding:11px 14px;
+      font-size:14px;
+      font-weight:700;
+      color:#fff;
+      background:var(--btn);
+      border:none;
+      border-radius:1px;
+      cursor:pointer;
+      margin-top:8px;
+    }
+    .btn:active { transform:translateY(1px); }
+    .btn.reset { background:#666; }
 
-.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 5px; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; } .footer span { font-weight:600; }
+    /* ADS CONTAINER */
+    .ads-container {
+      width:90%;           /* 90% width for responsive fit */
+      max-width:720px;     /* Desktop max width */
+      margin:18px auto;
+      background:#fff;
+      border:1px solid #e6e6e6;
+      border-radius:2px;
+      text-align:center;
+      box-shadow:0 1px 4px rgba(0,0,0,0.03);
+      overflow:hidden;
+    }
+    .ads-container ins.adsbygoogle {
+      display:block !important;
+      width:100% !important;
+      height:auto !important;
+    }
 
-/* UPDATED: h4-style matched to Image Resizer tool (kept other rules intact) */ .h4-style { background-color:#FF0000; padding:5px 8px; border-radius:2px; color:#ffffff; margin-top:30px; font-size:16px; }
+    .result {
+      margin-top:14px;
+      min-height:110px;
+      border:1px solid #cfcfcf;
+      border-radius:1px;
+      background:#fff;
+      padding:12px;
+      font-weight:600;
+      color:var(--text);
+      white-space:pre-wrap;
+    }
 
-/* UPDATED: simpler justify-p to match Image Resizer tool */ .justify-p { text-align:justify; margin-bottom:10px; line-height:1.5; font-size:13px; }
+    .meta { font-size:13px; color:var(--muted); margin-top:6px; }
 
-/* NEW: content wrapper to keep About / paragraphs aligned with tool card */ .content-wrapper { max-width:720px; margin:18px auto; padding-left:10px; padding-right:10px; }
+    .footer {
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      text-align:center;
+      padding:10px 5px;
+      background:#f5f5f5;
+      border-top:1px solid #ddd;
+      font-size:13px;
+      color:#555;
+    }
+    .footer span { font-weight:600; }
 
-/* small screens: reduce margins */ @media (max-width:420px) { .header { font-size:16px; } .h4-style { margin-top:28px; font-size:14px; } } </style>
+    /* Updated h4 and p styles to match the image resizer tool */
+    .h4-style {
+      background-color: #FF0000;
+      padding: 5px 8px;
+      border-radius: 2px;
+      color: #ffffff;
+      margin-top: 30px;
+      font-size:16px;
+    }
 
+    .justify-p {
+      text-align: justify;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      font-size:15px;
+    }
+
+    /* small helpers for images and canvas preview */
+    canvas { display:block; margin-bottom:10px; border:1px solid #ccc; max-width:100%; height:auto; }
+    a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
+    
+    /* Container for about section to match card width */
+    .about-container {
+      max-width:720px;
+      margin:18px auto;
+      padding:0 14px;
+    }
+  </style>
 </head>
 <body>
   <div class="header">
-  Online Age Calculator
+  PDF to JPEG Converter
   <a href="https://tools.skill2job.site/" target="_blank">
-    <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png"     
-         alt="Favicon"     
+    <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" 
+         alt="Favicon" 
          style="width:32px; height:32px; vertical-align:middle; float:right; border-radius: 8px;">
   </a>
-  </div>  <!-- Responsive Rectangle AdSense Container -->  <div class="ads-wrapper">
-    <div class="ads-container">
+</div>
+  <!-- Responsive Rectangle AdSense Container (styled like the age-calculator example) -->
+  <div class="ads-container">
     <ins class="adsbygoogle"
          style="display:block;margin:0 auto;"
          data-ad-client="ca-pub-1876390706944654"
@@ -68,121 +194,129 @@
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
-  </div>  <div class="card" role="region" aria-label="Age calculator">
+
+  <div class="card" role="region" aria-label="PDF to JPEG converter">
     <div class="card-body">
       <div class="row">
-        <label for="dob">Date of Birth</label>
-        <input id="dob" type="date">
+        <label for="pdfFile">Upload PDF</label>
+        <input type="file" id="pdfFile" accept="application/pdf">
       </div>
-      <div class="row">
-        <label for="ageOn">Age On</label>
-        <input id="ageOn" type="date">
+
+      <button id="convertBtn" class="btn">Convert to JPEG</button>
+
+      <div id="result" class="result">Upload a PDF and click Convert.</div>
+
+      <div class="meta">
+        Tip: Each page of the PDF will be converted to a separate JPEG image with download buttons.
       </div>
-      <button id="calcBtn" class="btn" type="button">Calculate</button>  <div id="result" class="result"></div>
-  <div class="meta">
-    Tip: Pick both dates then tap Calculate. Button will change to Reset after calculation.
+    </div>
   </div>
-</div>  </div>  <!-- NEW: wrap the About section in .content-wrapper so it doesn't stretch full width on desktop -->  <div class="content-wrapper">
+
+  <!-- About section now wrapped in a container to match card width -->
+  <div class="about-container">
     <h4 class="h4-style">About This Tool</h4>
-<p class="justify-p">
-  The Online Age Calculator by <a href="https://www.skill2job.site/">Skill2Job Tools</a> is a fast, secure, and lightweight utility designed to instantly calculate your exact age. With just a few clicks, you can enter your date of birth and the date on which you wish to calculate, and the tool will automatically provide you with accurate results. It gives your age in years, months, and days without requiring any manual effort or complex formulas. Whether you are filling out application forms, preparing for exams, or simply checking your precise age, this tool saves you valuable time while ensuring accuracy every single time.
-</p><p class="justify-p">
-  Manual age calculation can often be tedious, confusing, and prone to mistakes. This tool eliminates those challenges by providing instant and error-free results. It is especially helpful when completing government forms, online applications, scholarship submissions, or legal documents that require exact age details. Many students, job seekers, and professionals rely on such tools to avoid errors that could cause application rejections. With the Online Age Calculator, you can be confident that your age is always calculated correctly, making it a reliable companion whenever accuracy is a priority in your daily or professional life.
-</p><p class="justify-p">
-  The Online Age Calculator has been built with a focus on simplicity and accessibility. The clean interface ensures that anyone, regardless of technical knowledge, can use it effortlessly. Its responsive design adapts smoothly to desktops, laptops, tablets, and smartphones, so you can calculate your age anytime and anywhere. Whether you are at home, in an internet café, or using mobile data on the go, this tool delivers a seamless experience. By avoiding unnecessary complexity, Skill2Job Tools ensures that users can complete their tasks in just seconds without distraction or confusion, making it a truly user-friendly utility.
-</p><p class="justify-p">
-  Privacy and security are also key priorities of this tool. Unlike many online platforms that collect user data, the Online Age Calculator runs entirely within your browser. This means no information is uploaded, stored, or shared with third parties. Your personal details, including your date of birth, remain completely private and safe. This feature makes the tool trustworthy for students, parents, professionals, and anyone concerned about online data safety. You can calculate your age with full confidence, knowing that your information never leaves your device. Skill2Job Tools always puts user privacy and security first when developing utilities like this.
-</p><p class="justify-p">
-  To stay updated with our latest tools, tutorials, and government job updates, we encourage you to connect with our community. Join our <a href="https://chat.whatsapp.com/B6JT3SoO5qUFGTXHwSy6mR?mode=ems_copy_t" target="_blank">official WhatsApp Group</a> to get instant updates, or be part of our growing family on <a href="https://www.facebook.com/groups/948663269161123/?ref=share&mibextid=NSMWBT" target="_blank">Facebook Channel</a> where we share useful resources daily. You can also visit our <a href="https://www.skill2job.site/" target="_blank">Skill2Job official website</a> for government job notifications, results, admit cards, and more free tools like this one. By staying connected, you not only enjoy accurate tools but also benefit from timely updates that support your academic and career journey.
-</p>
-  </div>  <div class="footer">
-  &copy; <span>Skill2Job</span> | All Rights Reserved<br>
-  <a href="https://tools.skill2job.site/about//">About</a> |
-  <a href="https://tools.skill2job.site/disclaimer//">Disclaimer</a> |
-  <a href="https://tools.skill2job.site/privacy//">Privacy</a> |
+    <p class="justify-p">
+      This PDF to JPEG converter is a fast, reliable, and secure solution for converting all pages of a PDF document into high-quality JPEG images directly in your browser. Whether you are working on academic projects, professional presentations, or personal document archives, this tool allows you to extract images from PDF files without installing any additional software. Its user-friendly interface is designed for all users, from beginners to advanced, making the process simple and efficient. Each page of the PDF is rendered as a separate JPEG image, giving you complete control over your output files. Download links are provided immediately after conversion, allowing you to save pages individually or as a group. Additionally, the reset function allows you to convert multiple PDFs consecutively without refreshing or restarting the browser, providing a seamless workflow for repetitive tasks. Its compatibility with various devices, including desktops, laptops, tablets, and smartphones, ensures accessibility anytime, anywhere.
+    </p>
+
+    <p class="justify-p">
+      One of the key advantages of this tool is its privacy and security. All processing happens locally on your device, meaning your PDF files are never uploaded to any external server. This is particularly important for handling sensitive documents such as contracts, personal records, or confidential reports. Because the conversion is done entirely in-browser, it also ensures faster processing times compared to online server-based solutions, which can be slowed down by internet speed or server load. The tool supports popular formats like JPEG and handles multi-page PDFs efficiently, producing high-quality images without compromising clarity or readability. By maintaining the balance between convenience, speed, and security, this PDF to JPEG converter provides a trusted solution for professionals, students, content creators, and anyone needing reliable PDF-to-image conversions.
+    </p>
+
+    <p class="justify-p">
+      Using the tool is straightforward. Simply upload your PDF file, click the "Convert" button, and the tool will render each page as a separate JPEG image. Preview each page to ensure quality and clarity before downloading. Extremely large PDFs or very high-resolution files may take slightly longer to process, but each page is accurately converted to maintain readability and detail. The tool also includes a reset button to start over with a new PDF at any time. It is important to note that extremely complex or encrypted PDFs may not convert properly, so checking the original document for compatibility is recommended. Overall, this converter combines simplicity, security, and efficiency, making it an ideal choice for anyone who needs to transform PDF documents into easily usable JPEG images quickly and safely.
+    </p>
+  </div>
+
+  <div class="footer">
+  &copy; <span>Skill2Job</span> | All Rights Reserved<br> 
+  <a href="https://tools.skill2job.site/about//">About</a> |  
+  <a href="https://tools.skill2job.site/disclaimer//">Disclaimer</a> |  
+  <a href="https://tools.skill2job.site/privacy//">Privacy</a> |  
   <a href="https://tools.skill2job.site/terms//">Terms</a> |
   <a href="https://tools.skill2job.site/contact//">Contact</a>
-  </div>  <script>
-    function daysInMonth(y, m) {
-      return new Date(y, m, 0).getDate();
-    }const dobInput = document.getElementById('dob');
-const ageOnInput = document.getElementById('ageOn');
-const btn = document.getElementById('calcBtn');
-const result = document.getElementById('result');
+  </div>
 
-btn.addEventListener('click', () => {
-  if (btn.dataset.mode === 'reset') {
-    resetAll();
-  } else {
-    calculate();
-  }
-});
+  <!-- PDF.js (kept same as original) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 
-function calculate() {
-  const dobVal = dobInput.value;
-  const onVal = ageOnInput.value;
+  <script>
+    const convertBtn = document.getElementById("convertBtn");
+    const fileInput = document.getElementById("pdfFile");
+    const resultDiv = document.getElementById("result");
 
-  if (!dobVal || !onVal) {
-    result.textContent = '⚠ Please select both Date of Birth and Age On date.';
-    return;
-  }
+    convertBtn.addEventListener("click", handleConvert);
 
-  const birth = new Date(dobVal + 'T00:00:00');
-  const target = new Date(onVal + 'T00:00:00');
+    async function handleConvert() {
+      const file = fileInput.files[0];
+      if (!file) {
+        resultDiv.textContent = "Please upload a PDF first.";
+        return;
+      }
 
-  if (target < birth) {
-    result.textContent = '⚠ Age On date must be the same or after Date of Birth.';
-    return;
-  }
+      resultDiv.innerHTML = "Processing PDF...";
 
-  let y = target.getFullYear() - birth.getFullYear();
-  let m = target.getMonth() - birth.getMonth();
-  let d = target.getDate() - birth.getDate();
+      const reader = new FileReader();
+      reader.onload = async function (e) {
+        const pdfData = new Uint8Array(e.target.result);
 
-  if (d < 0) {
-    m -= 1;
-    d += daysInMonth(target.getFullYear(), target.getMonth());
-  }
-  if (m < 0) {
-    y -= 1;
-    m += 12;
-  }
+        try {
+          const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+          resultDiv.innerHTML = "";
 
-  const totalMonths = y * 12 + m;
-  const msDiff = target.getTime() - birth.getTime();
-  const totalDays = Math.floor(msDiff / 86400000);
-  const totalHours = Math.floor(msDiff / 3600000);
+          for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const viewport = page.getViewport({ scale: 1.5 });
 
-  const niceTarget = target.toLocaleDateString();
-  result.textContent =
-    `Your age on ${niceTarget}:\n` +
-    `${y} years, ${m} months, ${d} days\n\nAlso:\n` +
-    `• Total months: ${totalMonths}\n` +
-    `• Total days: ${totalDays}\n` +
-    `• Total hours: ${totalHours}`;
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
 
-  btn.textContent = 'Reset';
-  btn.classList.add('reset');
-  btn.dataset.mode = 'reset';
-}
+            await page.render({ canvasContext: context, viewport }).promise;
 
-function resetAll() {
-  dobInput.value = '';
-  ageOnInput.value = '';
-  result.textContent = '';
-  btn.textContent = 'Calculate';
-  btn.classList.remove('reset');
-  delete btn.dataset.mode;
-}
+            // convert to JPEG data URL
+            const imgURL = canvas.toDataURL("image/jpeg", 1.0);
 
-(function prefillToday() {
-  const t = new Date(),
-    yyyy = t.getFullYear(),
-    mm = String(t.getMonth() + 1).padStart(2, '0'),
-    dd = String(t.getDate()).padStart(2, '0');
-  ageOnInput.value = `${yyyy}-${mm}-${dd}`;
-})();
+            const img = document.createElement("img");
+            img.src = imgURL;
+            img.style.maxWidth = "100%";
+            img.style.marginBottom = "10px";
+            resultDiv.appendChild(img);
 
-</script>  <!-- Load Google Ads -->  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script></body>
+            const link = document.createElement("a");
+            link.href = imgURL;
+            link.download = `page_${pageNum}.jpeg`;
+            link.textContent = `Download Page ${pageNum}`;
+            link.className = "download-link";
+            resultDiv.appendChild(link);
+          }
 
+          convertBtn.textContent = "Reset";
+          convertBtn.classList.add("reset");
+          convertBtn.removeEventListener("click", handleConvert);
+          convertBtn.addEventListener("click", handleReset);
+
+        } catch (err) {
+          resultDiv.textContent = "Error processing PDF: " + err.message;
+        }
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+
+    function handleReset() {
+      fileInput.value = "";
+      resultDiv.textContent = "Upload a PDF and click Convert.";
+      convertBtn.textContent = "Convert to JPEG";
+      convertBtn.classList.remove("reset");
+      convertBtn.removeEventListener("click", handleReset);
+      convertBtn.addEventListener("click", handleConvert);
+    }
+  </script>
+
+  <!-- Load Google Ads (kept like the age-calculator example for consistency) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+
+</body>
 </html>
