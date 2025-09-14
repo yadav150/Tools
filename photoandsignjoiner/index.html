@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Online Photo And Sign Joiner</title>
-  <!-- SEO Meta Tags for Image Combiner Tool -->
-  <meta name="description" content="Combine a photo and a signature into one image — photo on top and signature below. Fast, secure & simple.">
-  <meta name="keywords" content="photo sign joiner, combine photo and signature, join image and sign, Skill2job tools, Yadav Subba">
-  <meta name="author" content="Skill2Job">
-  <meta name="robots" content="index, follow">
+  <!-- SEO Meta Description -->
+<meta name="description" content="Skill2Job Tools Photo and Sign Joiner lets you easily merge your photo with your signature into a single PNG image. Fast, secure, reliable, and ideal for exam forms and official documents.">
+
+<!-- SEO Meta Keywords -->
+<meta name="keywords" content="Skill2Job Tools, Photo and Sign Joiner, photo signature merge tool, combine photo and signature online, join photo and sign, create single PNG, government exam forms, application documents, online tools, secure image merger, fast signature joiner">
+
+<!-- Indexing & Crawling -->
+<meta name="robots" content="index, follow">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://tools.skill2job.site/photoandsignjoiner/">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png">
   <style>
     :root {
@@ -35,164 +40,180 @@
       font-weight:700;
       font-size:20px;
       text-align:left;
-    }
-    .ads-container {
-      width:90%;
-      max-width:720px;
-      margin:18px auto;
-      background:#fff;
-      border:1px solid #e6e6e6;
-      border-radius:2px;
-      text-align:center;
-      box-shadow:0 1px 4px rgba(0,0,0,0.03);
-      overflow:hidden;
-    }
-    .ads-container ins.adsbygoogle {
-      display:block !important;
-      width:100% !important;
-      height:auto !important;
-    }
-    .card {
-      max-width:720px;
-      margin:18px auto;
-      background:var(--sheet);
-      border:1px solid #e6e6e6;
-      border-radius:4px;
-      overflow:hidden;
-      box-shadow:0 1px 4px rgba(0,0,0,0.04);
-    }
-    .card-body { padding:14px; }
-    .row { margin-bottom:12px; }
-    label {
-      display:block;
-      font-size:13px;
-      margin-bottom:6px;
-      font-weight:600;
-      color:var(--muted);
-    }
-    input[type="file"], select {
-      width:100%;
-      padding:10px 12px;
-      font-size:14px;
-      border:1px solid #ccc;
-      border-radius:1px;
-      background:var(--input-bg);
-      outline:none;
-    }
-    input:focus, select:focus {
-      border-color:var(--accent);
-      box-shadow:0 0 0 3px rgba(211,47,47,0.06);
-    }
-    .btn {
-      display:block;
-      width:100%;
-      padding:11px 14px;
-      font-size:14px;
-      font-weight:700;
-      color:#fff;
-      background:var(--btn);
-      border:none;
-      border-radius:1px;
-      cursor:pointer;
-      margin-top:8px;
-    }
-    .btn:active { transform:translateY(1px); }
-    .btn.reset { background:#666; }
-    .result {
-      margin-top:14px;
-      min-height:350px; /* requested */
-      border:1px solid #cfcfcf;
-      border-radius:1px;
-      background:#fff;
-      padding:12px;
-      font-weight:600;
-      color:var(--text);
-      white-space:pre-wrap;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      position:relative;
-    }
-    .footer {
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      text-align:center;
-      padding:10px 5px;
-      background:#f5f5f5;
-      border-top:1px solid #ddd;
-      font-size:13px;
-      color:#555;
-    }
-    .footer span { font-weight:600; }
-    canvas, img.preview {
-      display:block;
-      margin-bottom:10px;
-      border:1px solid #ccc;
-      max-width:100%;
-      height:auto;
-    }
-    a.download-link {
-      display:block;
-      margin-bottom:4px;
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:600;
-      font-size:13px;
-    }
-    
-    .h4-style {
-      background-color: #FF0000;
-      padding: 5px 8px;
-      border-radius: 2px;
-      color: #ffffff;
-      margin-top: 30px;
-      font-size:16px;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    .justify-p {
-      text-align: justify;
-      margin-bottom: 10px;
-      line-height: 1.6;
-      font-size:15px;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    .placeholder-msg { color:var(--muted); font-weight:600; text-align:center; }
-    .placeholder-wrap {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-      color:var(--muted);
-      justify-content:center;
-    }
-    .warn-msg {
-      color:#b71c1c;
-      font-weight:700;
-      background:#ffebee;
-      padding:8px 12px;
-      border-radius:4px;
-      display:block;
-      z-index:3;
-      align-self:center;
-    }
-    .placeholder-icon {
-      width:96px;
-      height:96px;
-      opacity:0.95;
-      transform:none;
-      margin:0 auto;
-      display:block;
-    }
-    .placeholder-icon svg {
-      width:100%;
-      height:100%;
-      display:block;
-    }
+    }/* ADS: wrapper keeps ads aligned with tool card (like Image Combiner) */
+.ads-wrapper {
+  max-width:720px;
+  margin:18px auto;
+  padding-left:10px;
+  padding-right:10px;
+}
+.ads-container {
+  width:100%;
+  margin:0;
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:2px;
+  text-align:center;
+  box-shadow:0 1px 4px rgba(0,0,0,0.03);
+  overflow:hidden;
+}
+.ads-container ins.adsbygoogle {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+}
+
+.card {
+  max-width:720px;
+  margin:18px auto;
+  background:var(--sheet);
+  border:1px solid #e6e6e6;
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+.card-body { padding:14px; }
+.row { margin-bottom:12px; }
+label {
+  display:block;
+  font-size:13px;
+  margin-bottom:6px;
+  font-weight:600;
+  color:var(--muted);
+}
+input[type="file"], select {
+  width:100%;
+  padding:10px 12px;
+  font-size:14px;
+  border:1px solid #ccc;
+  border-radius:1px;
+  background:var(--input-bg);
+  outline:none;
+}
+input:focus, select:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(211,47,47,0.06);
+}
+.btn {
+  display:block;
+  width:100%;
+  padding:11px 14px;
+  font-size:14px;
+  font-weight:700;
+  color:#fff;
+  background:var(--btn);
+  border:none;
+  border-radius:1px;
+  cursor:pointer;
+  margin-top:8px;
+}
+.btn:active { transform:translateY(1px); }
+.btn.reset { background:#666; }
+.result {
+  margin-top:14px;
+  min-height:350px; /* requested */
+  border:1px solid #cfcfcf;
+  border-radius:1px;
+  background:#fff;
+  padding:12px;
+  font-weight:600;
+  color:var(--text);
+  white-space:pre-wrap;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  position:relative;
+}
+.footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  padding:10px 5px;
+  background:#f5f5f5;
+  border-top:1px solid #ddd;
+  font-size:13px;
+  color:#555;
+}
+.footer span { font-weight:600; }
+canvas, img.preview {
+  display:block;
+  margin-bottom:10px;
+  border:1px solid #ccc;
+  max-width:100%;
+  height:auto;
+}
+a.download-link {
+  display:block;
+  margin-bottom:4px;
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+  font-size:13px;
+}
+
+.h4-style {
+  background-color: #FF0000;
+  padding: 5px 8px;
+  border-radius: 2px;
+  color: #ffffff;
+  margin-top: 30px;
+  font-size:16px;
+}
+.justify-p {
+  text-align: justify;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size:15px;
+}
+.placeholder-msg { color:var(--muted); font-weight:600; text-align:center; }
+.placeholder-wrap {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  color:var(--muted);
+  justify-content:center;
+}
+.warn-msg {
+  color:#b71c1c;
+  font-weight:700;
+  background:#ffebee;
+  padding:8px 12px;
+  border-radius:4px;
+  display:block;
+  z-index:3;
+  align-self:center;
+}
+.placeholder-icon {
+  width:96px;
+  height:96px;
+  opacity:0.95;
+  transform:none;
+  margin:0 auto;
+  display:block;
+}
+.placeholder-icon svg {
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+/* keep About section aligned with card & ads */
+.content-wrapper {
+  max-width:720px;
+  margin:18px auto;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+@media (max-width:420px) {
+  .header { font-size:16px; }
+  .h4-style { margin-top:20px; font-size:14px; }
+}
+
   </style>
 </head>
 <body>
@@ -203,24 +224,20 @@
   <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png"   
        alt="Favicon"   
        style="width:32px; height:32px; vertical-align:middle; float:right; border-radius: 8px;">
-  </div>
-
-  <!-- Ads container -->
-  <div class="ads-container">
-    <ins class="adsbygoogle"
-         style="display:block;margin:0 auto;"
-         data-ad-client="ca-pub-1876390706944654"
-         data-ad-slot="2968764212"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-            crossorigin="anonymous"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <div class="card">
+  </div>  <!-- Ads container wrapped so it matches tool width -->  <div class="ads-wrapper">
+    <div class="ads-container">
+      <ins class="adsbygoogle"
+           style="display:block;margin:0 auto;"
+           data-ad-client="ca-pub-1876390706944654"
+           data-ad-slot="2968764212"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>  <div class="card">
     <div class="card-body">
       <!-- Photo upload -->
       <div class="row">
@@ -231,59 +248,58 @@
       <div class="row">
         <label for="image2">Signature</label>
         <input type="file" id="image2" accept="image/*">
-      </div>
-
-      <button id="combineBtn" class="btn">Join Photo & Signature</button>
-      <div id="result" class="result">
-        <!-- Placeholder: new black & white image icon + message. Will be removed when result appears -->
-        <div class="placeholder-wrap" id="placeholderWrap">
-          <div class="placeholder-icon" aria-hidden="true">
-            <!-- updated monochrome SVG placeholder: photo frame with mountains and sun -->
-            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-              <rect width="64" height="64" fill="#fff" />
-              <g stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <!-- frame -->
-                <rect x="6" y="8" width="52" height="40" rx="2" />
-                <!-- mountains -->
-                <path d="M10 44 L24 24 L36 40 L50 18 L58 44 Z" fill="#fff" stroke="#111" />
-                <!-- sun -->
-                <circle cx="46" cy="14" r="4" fill="#fff" stroke="#111" />
-                <!-- foreground small hill -->
-                <path d="M8 48 C16 44, 28 46, 36 48 C44 50, 56 48, 56 48" stroke="#111" fill="none" />
-                <!-- signature-like scribble bottom-right to hint sign -->
-                <path d="M30 50 C34 52, 38 48, 44 50" stroke="#111" fill="none" stroke-linecap="round" />
-              </g>
-            </svg>
-          </div>
-        </div>
+      </div><button id="combineBtn" class="btn">Join Photo & Signature</button>
+  <div id="result" class="result">
+    <!-- Placeholder: new black & white image icon + message. Will be removed when result appears -->
+    <div class="placeholder-wrap" id="placeholderWrap">
+      <div class="placeholder-icon" aria-hidden="true">
+        <!-- updated monochrome SVG placeholder: photo frame with mountains and sun -->
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <rect width="64" height="64" fill="#fff" />
+          <g stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <!-- frame -->
+            <rect x="6" y="8" width="52" height="40" rx="2" />
+            <!-- mountains -->
+            <path d="M10 44 L24 24 L36 40 L50 18 L58 44 Z" fill="#fff" stroke="#111" />
+            <!-- sun -->
+            <circle cx="46" cy="14" r="4" fill="#fff" stroke="#111" />
+            <!-- foreground small hill -->
+            <path d="M8 48 C16 44, 28 46, 36 48 C44 50, 56 48, 56 48" stroke="#111" fill="none" />
+            <!-- signature-like scribble bottom-right to hint sign -->
+            <path d="M30 50 C34 52, 38 48, 44 50" stroke="#111" fill="none" stroke-linecap="round" />
+          </g>
+        </svg>
       </div>
     </div>
   </div>
-  
-  <h4 class="h4-style">About This Tool</h4>
+</div>
 
+  </div>  <!-- About wrapped so it doesn't stretch full width on desktop -->  <div class="content-wrapper">
+   <h4 class="h4-style">About This Tool</h4>
 <p class="justify-p">
-  This tool is designed to simplify the process of merging two different elements into one image. You can easily place your photo on the top and your signature just below it, creating a properly aligned document-style picture. The biggest advantage is that it works directly in your browser, so you don’t need to install any external software or depend on online servers. Since everything happens locally on your device, your privacy is fully protected, and you have complete control over your files during the entire process.
+  This online tool is created with the primary goal of making the task of combining your photo and signature into a single image simple, secure, and efficient. Many application forms, government exams, official documents, and verification processes require you to upload your photograph and signature in a specific format. Instead of struggling with heavy editing software or depending on cyber cafes, this tool allows you to instantly merge both elements into one properly aligned image with just a few clicks. It works directly in your browser without any installation, ensuring that you can use it easily on desktops, laptops, tablets, or even smartphones.
 </p>
 
 <p class="justify-p">
-  The interface of the tool is user-friendly and intuitive. Even if you are not experienced with editing software, you can merge your photo and signature in just a few clicks. You simply upload the required files, adjust them as needed, and let the tool automatically combine them into a single PNG image. The output maintains a clear layout, ensuring that the photo remains on top while the signature is neatly placed at the bottom, replicating the exact design format required in many official documents.
+  The tool’s interface is designed to be beginner-friendly and intuitive. You only need to upload your photo and signature, adjust their placement if necessary, and the tool will automatically align them in the correct order — photo at the top and signature neatly at the bottom. The final image is exported as a high-quality PNG file, preserving sharpness and clarity while keeping the file size light. This ensures that the combined image meets common requirements for uploading in online forms, whether for government exams, competitive tests, academic applications, or professional documents.
 </p>
 
 <p class="justify-p">
-  Another highlight of this tool is its reliability and accuracy. Since the process does not involve uploading your files to external servers, you avoid risks such as data leaks, misuse, or accidental sharing of sensitive documents. The downloaded PNG file is generated instantly, saving you valuable time while maintaining quality. This makes it highly useful for creating exam forms, application documents, or any other submissions where a neatly combined photo and signature are mandatory. The output is lightweight, clear, and ready to use.
+  One of the biggest advantages of this tool is privacy and security. Since it functions completely offline in your browser, your files never leave your device. There is no risk of your personal data, photo, or signature being leaked, misused, or stored on third-party servers. Every process happens locally, giving you full control and peace of mind while preparing sensitive documents. The instant download option ensures that you get your combined file immediately, saving time and reducing hassle.
 </p>
 
-  <div class="footer">
+<p class="justify-p">
+  This photo and signature combiner is especially useful for students, job seekers, and professionals who frequently deal with online applications. It eliminates the need for external software, saves money, and makes the whole process stress-free. With its speed, accuracy, and focus on privacy, this tool provides a perfect balance of convenience and reliability. Whether you are preparing for an exam, filling out an admission form, or submitting official paperwork, this utility ensures your documents are ready in the correct format every single time.
+</p>
+
+  </div>  <div class="footer">
     &copy; <span>Skill2Job</span> | All Rights Reserved<br>
     <a href="https://tools.skill2job.site/about//">About</a> |
     <a href="https://tools.skill2job.site/disclaimer//">Disclaimer</a> |
     <a href="https://tools.skill2job.site/privacy//">Privacy</a> |
     <a href="https://tools.skill2job.site/terms//">Terms</a> |
     <a href="https://tools.skill2job.site/contact//">Contact</a>
-  </div>
-
-  <script>
+  </div>  <script>
     const combineBtn = document.getElementById('combineBtn');
     const img1Input = document.getElementById('image1');
     const img2Input = document.getElementById('image2');
@@ -423,11 +439,5 @@
       };
       reader1.readAsDataURL(file1);
     });
-  </script>
-  
-  <!-- Load Google Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
-
-  
-</body>
+  </script>  <!-- Load Google Ads -->  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script></body>
   </html>
