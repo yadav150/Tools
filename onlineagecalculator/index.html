@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Online Age Calculator</title>
-  <!-- SEO Meta Tags for Age Calculator -->
-<meta name="description" content="Calculate exact age in years, months & days using this free online Age Calculator by Skill2job.">
-<meta name="keywords" content="age calculator, calculate age online, dob to age, date of birth calculator, birthday calculator, exact age calculator, student age calculator, Skill2job age calculator, tools by Skill2job, toolsby Skill2job, Skill2job site free tools, Yadav Subba tools, skill2job free calculator, online age tool 2025, skill2job utilities">
-<meta name="author" content="Skill2Job">
+  <!-- SEO Meta Description -->
+<meta name="description" content="Skill2Job Tools Online Age Calculator helps you calculate exact age in years, months, and days instantly. Free, fast, secure, and accurate for job forms, exams, and official documents.">
+
+<!-- SEO Meta Keywords -->
+<meta name="keywords" content="Skill2Job Tools, Online Age Calculator, calculate exact age online, free DOB to age calculator, age in years months and days, date of birth age calculator, accurate age calculator for exams and forms, online birthday calculator, fast and reliable age calculation tool, calculate age instantly for official documents">
+
+<!-- Indexing & Crawling -->
 <meta name="robots" content="index, follow">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://tools.skill2job.site/onlineagecalculator/">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png">
   <style>
     :root {
@@ -20,153 +25,50 @@
       --sheet:#ffffff;
     }
     * { box-sizing:border-box; }
-
     body {
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:#fafafa;
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding-bottom:60px;
-    }
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:#fafafa;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-bottom:60px;
+  font-size:14px;
+}.header { background:#FFFFFF; color:#000000; padding:14px 16px; font-weight:700; font-size:20px; text-align:left; }
 
-    .header {
-      background:#FFFFFF;
-      color:#000000;
-      padding:14px 16px;
-      font-weight:700;
-      font-size:18px;
-      text-align:left;
-    }
+.card { max-width:720px; margin:18px auto; background:var(--sheet); border:1px solid #e6e6e6; border-radius:4px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.04); } .card-body { padding:14px; }
 
-    .card {
-      max-width:720px;
-      margin:18px auto;
-      background:var(--sheet);
-      border:1px solid #e6e6e6;
-      border-radius:4px;
-      overflow:hidden;
-      box-shadow:0 1px 4px rgba(0,0,0,0.04);
-    }
-    .card-body { padding:14px; }
+.row { margin-bottom:12px; } label { display:block; font-size:13px; margin-bottom:6px; font-weight:600; color:var(--muted); } input[type="date"] { width:100%; padding:10px 12px; font-size:15px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; } input[type="date"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
 
-    .row { margin-bottom:12px; }
-    label {
-      display:block;
-      font-size:13px;
-      margin-bottom:6px;
-      font-weight:600;
-      color:var(--muted);
-    }
-    input[type="date"] {
-      width:100%;
-      padding:10px 12px;
-      font-size:15px;
-      border:1px solid #ccc;
-      border-radius:1px;
-      background:var(--input-bg);
-      outline:none;
-    }
-    input[type="date"]:focus {
-      border-color:var(--accent);
-      box-shadow:0 0 0 3px rgba(211,47,47,0.06);
-    }
+.btn { display:block; width:100%; padding:11px 14px; font-size:12px; font-weight:700; color:#fff; background:var(--btn); border:none; border-radius:1px; cursor:pointer; } .btn:active { transform:translateY(1px); } .btn.reset { background:#666; }
 
-    .btn {
-      display:block;
-      width:100%;
-      padding:11px 14px;
-      font-size:12px;
-      font-weight:700;
-      color:#fff;
-      background:var(--btn);
-      border:none;
-      border-radius:1px;
-      cursor:pointer;
-    }
-    .btn:active { transform:translateY(1px); }
-    .btn.reset { background:#666; }
+/* ADS CONTAINER */ .ads-wrapper { max-width:720px; margin:18px auto; padding-left:10px; padding-right:10px; } .ads-container { width:100%; margin:0; background:#fff; border:1px solid #e6e6e6; border-radius:2px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.03); overflow:hidden; } .ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:auto !important; }
 
-    /* ADS CONTAINER */
-    .ads-container {
-      width:90%;           /* 90% width for responsive fit */
-      max-width:720px;     /* Desktop max width */
-      margin:18px auto;
-      background:#fff;
-      border:1px solid #e6e6e6;
-      border-radius:2px;
-      text-align:center;
-      box-shadow:0 1px 4px rgba(0,0,0,0.03);
-      overflow:hidden;
-    }
-    .ads-container ins.adsbygoogle {
-      display:block !important;
-      width:100% !important;
-      height:auto !important;
-    }
+.result { margin-top:14px; min-height:110px; border:1px solid #cfcfcf; border-radius:1px; background:#fff; padding:12px; font-weight:600; color:var(--text); white-space:pre-wrap; }
 
-    .result {
-      margin-top:14px;
-      min-height:110px;
-      border:1px solid #cfcfcf;
-      border-radius:1px;
-      background:#fff;
-      padding:12px;
-      font-weight:600;
-      color:var(--text);
-      white-space:pre-wrap;
-    }
+.meta { font-size:13px; color:var(--muted); margin-top:6px; }
 
-    .meta { font-size:13px; color:var(--muted); margin-top:6px; }
+.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 5px; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; } .footer span { font-weight:600; }
 
-    .footer {
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      text-align:center;
-      padding:10px 5px;
-      background:#f5f5f5;
-      border-top:1px solid #ddd;
-      font-size:13px;
-      color:#555;
-    }
-    .footer span { font-weight:600; }
+.h4-style { background-color: #FF0000; padding: 5px 8px; border-radius: 2px; color: #ffffff; margin-top: 50px; }
 
-    .h4-style {
-      background-color: #FF0000;
-      padding: 5px 8px;
-      border-radius: 2px;
-      color: #ffffff;
-      margin-top: 50px;
-      margin-left: 10px; margin-right: 10px;
-    }
+.justify-p { text-align: justify; margin-bottom: 10px; text-justify: inter-word; line-height: 1.6; word-spacing: normal; hyphens: auto; font-size: 15px; }
 
-    .justify-p {
-      text-align: justify;
-      margin-bottom: 10px;
-      margin-left: 10px; margin-right: 10px;
-      text-justify: inter-word;
-      line-height: 1.6;
-      word-spacing: normal;
-      hyphens: auto;
-      font-size: 12px;
-    }
-  </style>
+/* NEW: content wrapper to keep About / paragraphs aligned with tool card */ .content-wrapper { max-width:720px; margin:18px auto; padding-left:10px; padding-right:10px; }
+
+/* small screens: reduce margins */ @media (max-width:420px) { .header { font-size:16px; } .h4-style { margin-top:28px; font-size:14px; } } </style>
+
 </head>
 <body>
   <div class="header">
   Online Age Calculator
   <a href="https://tools.skill2job.site/" target="_blank">
-    <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png"   
-         alt="Favicon"   
+    <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png"     
+         alt="Favicon"     
          style="width:32px; height:32px; vertical-align:middle; float:right; border-radius: 8px;">
   </a>
-  </div>
-
-  <!-- Responsive Rectangle AdSense Container -->
-  <div class="ads-container">
+  </div>  <!-- Responsive Rectangle AdSense Container -->  <div class="ads-wrapper">
+    <div class="ads-container">
     <ins class="adsbygoogle"
          style="display:block;margin:0 auto;"
          data-ad-client="ca-pub-1876390706944654"
@@ -177,8 +79,7 @@
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
-
-  <div class="card" role="region" aria-label="Age calculator">
+  </div>  <div class="card" role="region" aria-label="Age calculator">
     <div class="card-body">
       <div class="row">
         <label for="dob">Date of Birth</label>
@@ -188,47 +89,39 @@
         <label for="ageOn">Age On</label>
         <input id="ageOn" type="date">
       </div>
-
-      <button id="calcBtn" class="btn" type="button">Calculate</button>
-
-      <div id="result" class="result"></div>
-      <div class="meta">
-        Tip: Pick both dates then tap Calculate. Button will change to Reset after calculation.
-      </div>
-    </div>
+      <button id="calcBtn" class="btn" type="button">Calculate</button>  <div id="result" class="result"></div>
+  <div class="meta">
+    Tip: Pick both dates then tap Calculate. Button will change to Reset after calculation.
   </div>
+</div>  </div>  <!-- NEW: wrap the About section in .content-wrapper so it doesn't stretch full width on desktop -->  <div class="content-wrapper">
+    <h4 class="h4-style">About This Tool</h4>
+<p class="justify-p">
+  The Online Age Calculator by <a href="https://www.skill2job.site/">Skill2Job Tools</a> is a fast, secure, and lightweight utility designed to instantly calculate your exact age. With just a few clicks, you can enter your date of birth and the date on which you wish to calculate, and the tool will automatically provide you with accurate results. It gives your age in years, months, and days without requiring any manual effort or complex formulas. Whether you are filling out application forms, preparing for exams, or simply checking your precise age, this tool saves you valuable time while ensuring accuracy every single time.
+</p>
 
-  <h4 class="h4-style">About This Tool</h4>
-  <p class="justify-p">
-    The Online Age Calculator is a simple and lightweight utility created to calculate your exact age instantly.
-    By entering your date of birth and the date on which you want to calculate your age, this tool gives you
-    accurate results in years, months, and days without any effort.
-  </p>
-  <p class="justify-p">
-    Unlike manual calculations that are time-consuming and prone to errors, this calculator provides instant
-    and reliable results. It is especially useful for filling out application forms, official documents,
-    or simply satisfying your curiosity about your precise age.
-  </p>
-  <p class="justify-p">
-    The tool is designed to be user-friendly with a clean layout. It automatically adjusts to your device
-    and ensures a seamless experience whether you are using it on a computer or smartphone.
-  </p>
-  <p class="justify-p">
-    Moreover, the Online Age Calculator ensures your privacy since no data is stored or shared.
-    It runs directly in your browser, making it a secure and trustworthy choice for anyone needing
-    a quick and efficient age calculation.
-  </p>
+<p class="justify-p">
+  Manual age calculation can often be tedious, confusing, and prone to mistakes. This tool eliminates those challenges by providing instant and error-free results. It is especially helpful when completing government forms, online applications, scholarship submissions, or legal documents that require exact age details. Many students, job seekers, and professionals rely on such tools to avoid errors that could cause application rejections. With the Online Age Calculator, you can be confident that your age is always calculated correctly, making it a reliable companion whenever accuracy is a priority in your daily or professional life.
+</p>
 
-  <div class="footer">
-  &copy; <span>Skill2Job</span> | All Rights Reserved<br> 
-  <a href="https://tools.skill2job.site/about//">About</a> |  
-  <a href="https://tools.skill2job.site/disclaimer//">Disclaimer</a> |  
-  <a href="https://tools.skill2job.site/privacy//">Privacy</a> |  
+<p class="justify-p">
+  The Online Age Calculator has been built with a focus on simplicity and accessibility. The clean interface ensures that anyone, regardless of technical knowledge, can use it effortlessly. Its responsive design adapts smoothly to desktops, laptops, tablets, and smartphones, so you can calculate your age anytime and anywhere. Whether you are at home, in an internet café, or using mobile data on the go, this tool delivers a seamless experience. By avoiding unnecessary complexity, Skill2Job Tools ensures that users can complete their tasks in just seconds without distraction or confusion, making it a truly user-friendly utility.
+</p>
+
+<p class="justify-p">
+  Privacy and security are also key priorities of this tool. Unlike many online platforms that collect user data, the Online Age Calculator runs entirely within your browser. This means no information is uploaded, stored, or shared with third parties. Your personal details, including your date of birth, remain completely private and safe. This feature makes the tool trustworthy for students, parents, professionals, and anyone concerned about online data safety. You can calculate your age with full confidence, knowing that your information never leaves your device. Skill2Job Tools always puts user privacy and security first when developing utilities like this.
+</p>
+
+<p class="justify-p">
+  To stay updated with our latest tools, tutorials, and government job updates, we encourage you to connect with our community. Join our <a href="https://chat.whatsapp.com/B6JT3SoO5qUFGTXHwSy6mR?mode=ems_copy_t" target="_blank">official WhatsApp Group</a> to get instant updates, or be part of our growing family on <a href="https://www.facebook.com/groups/948663269161123/?ref=share&mibextid=NSMWBT" target="_blank">Facebook Channel</a> where we share useful resources daily. You can also visit our <a href="https://www.skill2job.site/" target="_blank">Skill2Job official website</a> for government job notifications, results, admit cards, and more free tools like this one. By staying connected, you not only enjoy accurate tools but also benefit from timely updates that support your academic and career journey.
+</p>
+  </div>  <div class="footer">
+  &copy; <span>Skill2Job</span> | All Rights Reserved<br>
+  <a href="https://tools.skill2job.site/about//">About</a> |
+  <a href="https://tools.skill2job.site/disclaimer//">Disclaimer</a> |
+  <a href="https://tools.skill2job.site/privacy//">Privacy</a> |
   <a href="https://tools.skill2job.site/terms//">Terms</a> |
   <a href="https://tools.skill2job.site/contact//">Contact</a>
-  </div>
-
-  <script>
+  </div>  <script>
     function daysInMonth(y, m) {
       return new Date(y, m, 0).getDate();
     }
@@ -310,10 +203,5 @@
         dd = String(t.getDate()).padStart(2, '0');
       ageOnInput.value = `${yyyy}-${mm}-${dd}`;
     })();
-  </script>
-
-  <!-- Load Google Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
-
-</body>
+  </script>  <!-- Load Google Ads -->  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script></body>
 </html>
