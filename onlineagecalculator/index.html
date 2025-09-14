@@ -52,7 +52,23 @@
 
 .h4-style { background-color: #FF0000; padding: 5px 8px; border-radius: 2px; color: #ffffff; margin-top: 50px; }
 
-.justify-p { text-align: justify; margin-bottom: 10px; text-justify: inter-word; line-height: 1.6; word-spacing: normal; hyphens: auto; font-size: 13px; }
+/* FIXED: make paragraph font-size responsive so desktop doesn't feel oversized */
+.justify-p {
+  text-align: justify;
+  margin-bottom: 10px;
+  text-justify: inter-word;
+  line-height: 1.6;
+  word-spacing: normal;
+  hyphens: auto;
+  font-size: 15px;      /* comfortable default for mobiles/tablets */
+}
+
+/* on larger screens slightly reduce visual size for better balance */
+@media (min-width: 992px) {
+  .justify-p {
+    font-size: 14px;   /* desktop — slightly smaller so it doesn't look too big */
+  }
+}
 
 /* NEW: content wrapper to keep About / paragraphs aligned with tool card */ .content-wrapper { max-width:720px; margin:18px auto; padding-left:10px; padding-right:10px; }
 
