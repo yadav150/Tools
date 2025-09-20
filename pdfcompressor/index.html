@@ -126,8 +126,12 @@ a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-de
   <a href="https://www.skill2job.site/p/disclaimer-skill2jobsite.html">Disclaimer</a> |  
   <a href="https://www.skill2job.site/p/privacy-policy-skill2jobsite.html">Privacy</a> |  
   <a href="https://www.skill2job.site/p/terms-of-use-skill2jobsite.html">Terms</a>
-</div><script>
-// -- Embedded credentials (per your request). WARNING: client-side token is exposed to anyone who views source.
+</div>
+  <script>
+/* PDF Compressor (script-only, no iframe preview)
+   NOTE: API token is embedded client-side and visible to anyone who views page source.
+*/
+
 const API_KEY = 'PnaJIofmLVea4cCg94O0adxUlrunUnrBaXkTRLOo33b12494';
 const API_BASE = 'https://api.cloudconvert.com/v2';
 const JOBS_URL = API_BASE + '/jobs';
@@ -137,105 +141,159 @@ const levelOption = document.getElementById('levelOption');
 const targetKB = document.getElementById('targetKB');
 const compressBtn = document.getElementById('compressBtn');
 const result = document.getElementById('result');
+
 let compressed = false;
 
-function mapLevelToOptions(level){
-  if(level === 'high') return { quality: 'high' };
-  if(level === 'medium') return { quality: 'medium' };
-  return { quality: 'low' };
-}
-
-async function createJob(options){
+async function createJob(options = {}) {
   const body = {
     tasks: {
       'import-my-file': { operation: 'import/upload' },
-      'compress-my-pdf': { operation: 'compress', input: ['import-my-file'], input_format: 'pdf', output_format: 'pdf', engine: 'ghostscript' },
+      'compress-my-pdf': {
+        operation: 'compress',
+        input: ['import-my-file'],
+        input_format: 'pdf',
+        output_format: 'pdf',
+        engine: 'ghostscript'
+      },
       'export-my-file': { operation: 'export/url', input: ['compress-my-pdf'] }
     }
   };
-  if(options.target_kb) body.tasks['compress-my-pdf'].options = { target_kb: options.target_kb };
-  if(options.remove_metadata) body.tasks['compress-my-pdf'].options = Object.assign(body.tasks['compress-my-pdf'].options||{}, { remove_metadata: true });
+
+  if (options.target_kb) {
+    body.tasks['compress-my-pdf'].options = Object.assign(body.tasks['compress-my-pdf'].options || {}, { target_kb: options.target_kb });
+  }
+  if (options.remove_metadata) {
+    body.tasks['compress-my-pdf'].options = Object.assign(body.tasks['compress-my-pdf'].options || {}, { remove_metadata: true });
+  }
 
   const resp = await fetch(JOBS_URL, {
     method: 'POST',
-    headers: { 'Authorization': 'Bearer ' + API_KEY, 'Content-Type': 'application/json' },
+    headers: {
+      'Authorization': 'Bearer ' + API_KEY,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(body)
   });
-  if(!resp.ok) throw new Error('Create job failed: ' + resp.status);
+
+  if (!resp.ok) {
+    const txt = await resp.text().catch(() => null);
+    const err = new Error('Create job failed: ' + resp.status + (txt ? (' - ' + txt) : ''));
+    err.status = resp.status;
+    throw err;
+  }
   return resp.json();
 }
 
-async function uploadToImportTask(jobData, file){
+async function uploadToImportTask(jobData, file) {
   const importTask = jobData.data.tasks.find(t => t.operation === 'import/upload');
-  if(!importTask) throw new Error('Import task missing');
+  if (!importTask) throw new Error('Import task missing from job response.');
   const form = importTask.result && importTask.result.form;
-  if(!form || !form.url) throw new Error('Upload form missing');
+  if (!form || !form.url) throw new Error('Upload form missing.');
 
   const fd = new FormData();
-  if(form.parameters){ Object.keys(form.parameters).forEach(k => fd.append(k, form.parameters[k])); }
+  if (form.parameters) {
+    Object.keys(form.parameters).forEach(k => fd.append(k, form.parameters[k]));
+  }
   fd.append('file', file, file.name);
 
   const up = await fetch(form.url, { method: 'POST', body: fd });
-  if(!up.ok) throw new Error('Upload failed: ' + up.status);
+  if (!up.ok) throw new Error('Upload failed: ' + up.status);
   return true;
 }
 
-async function pollJob(jobId){
-  const maxTries = 40; let tries=0;
-  while(tries < maxTries){
+async function pollJob(jobId) {
+  const maxTries = 60;
+  let tries = 0;
+  while (tries < maxTries) {
     const r = await fetch(API_BASE + '/jobs/' + jobId, { headers: { 'Authorization': 'Bearer ' + API_KEY } });
-    if(!r.ok) throw new Error('Poll failed');
+    if (!r.ok) {
+      const txt = await r.text().catch(() => null);
+      const err = new Error('Poll failed: ' + r.status + (txt ? (' - ' + txt) : ''));
+      err.status = r.status;
+      throw err;
+    }
     const data = await r.json();
     const status = data.data.status;
-    if(status === 'finished') return data.data;
-    if(status === 'error' || status === 'failed') throw new Error('Job failed');
+    if (status === 'finished') return data.data;
+    if (status === 'error' || status === 'failed') throw new Error('Job failed during processing.');
+    // update lightweight progress message
+    result.innerText = 'Processing... status: ' + status + ' (waiting)';
     await new Promise(res => setTimeout(res, 2000));
     tries++;
   }
-  throw new Error('Job timeout');
+  throw new Error('Job timed out.');
 }
 
-compressBtn.addEventListener('click', async ()=>{
-  if(compressed){ pdfFile.value=''; result.innerHTML='Upload a PDF and select size, then press Compress. The compressed file and preview will appear here.'; compressBtn.textContent='Compress PDF'; compressed=false; return; }
+async function doCompress() {
   const file = pdfFile.files[0];
-  if(!file) return alert('Upload a PDF first.');
-  if(levelOption.value === '') return alert('Select a compression level.');
+  if (!file) return alert('Upload a PDF first.');
+  if (levelOption.value === '') return alert('Select a compression level.');
 
   const options = {};
-  if(targetKB.value) options.target_kb = Number(targetKB.value);
+  if (targetKB.value) options.target_kb = Number(targetKB.value);
 
-  try{
-    result.innerHTML = 'Creating job...'; compressBtn.disabled = true;
+  try {
+    result.innerText = 'Creating job...';
+    compressBtn.disabled = true;
+
     const jobResp = await createJob(options);
     const jobId = jobResp.data.id;
 
-    result.innerHTML = 'Uploading file...';
+    result.innerText = 'Uploading file...';
     await uploadToImportTask(jobResp, file);
 
-    result.innerHTML = 'Waiting for compression...';
+    result.innerText = 'Waiting for compression...';
     const finishedJob = await pollJob(jobId);
 
     const exportTask = finishedJob.tasks.find(t => t.operation === 'export/url');
     const fileInfo = exportTask && exportTask.result && exportTask.result.files && exportTask.result.files[0];
-    if(!fileInfo) throw new Error('No output file');
+    if (!fileInfo) throw new Error('No output file returned.');
 
     const fileUrl = fileInfo.url;
     const fileName = fileInfo.filename || ('compressed_' + file.name);
 
+    // show download link only (no iframe)
     result.innerHTML = '';
-    const link = document.createElement('a'); link.href = fileUrl; link.download = fileName; link.className='download-link'; link.textContent = 'Download compressed PDF';
+    const info = document.createElement('div');
+    info.style.marginBottom = '8px';
+    info.textContent = 'Compression complete — click to download:';
+    result.appendChild(info);
+
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName;
+    link.className = 'download-link';
+    link.textContent = fileName;
+    link.target = '_blank';
     result.appendChild(link);
 
-    const iframe = document.createElement('iframe'); iframe.src = fileUrl; iframe.className='preview-embed'; iframe.title='Preview';
-    result.appendChild(iframe);
-
-    compressBtn.textContent = 'Reset'; compressed = true;
-  }catch(err){
+    compressBtn.textContent = 'Reset';
+    compressed = true;
+  } catch (err) {
     console.error(err);
-    result.innerHTML = 'Compression failed: ' + (err.message||err);
-  }finally{ compressBtn.disabled = false; }
+    if (err && err.status === 401) {
+      result.innerText = 'Compression failed: Unauthorized (401). The embedded API token is invalid or expired.';
+    } else if (err && err.message) {
+      result.innerText = 'Compression failed: ' + err.message;
+    } else {
+      result.innerText = 'Compression failed: Unknown error.';
+    }
+  } finally {
+    compressBtn.disabled = false;
+  }
+}
+
+compressBtn.addEventListener('click', async () => {
+  if (compressed) {
+    pdfFile.value = '';
+    result.innerText = 'Upload a PDF and select options, then press Compress. The compressed file link will appear here.';
+    compressBtn.textContent = 'Compress PDF';
+    compressed = false;
+    return;
+  }
+  await doCompress();
 });
-</script>
+  </script>
 <!-- Load Google Ads -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
 </body>
