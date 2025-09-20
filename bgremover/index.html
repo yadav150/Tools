@@ -356,13 +356,10 @@ a.download-link { margin-top:6px; color:var(--accent); text-decoration:none; fon
 
 <script>
 /*
-  Combined behavior (based on the second script, with enhancements from the first):
-  - Immediate original preview (no compression)
-  - Background color swatches + custom color input
-  - On Remove: show blur + swipe + loader; send original file unchanged; request PNG
-  - After receiving PNG: expose transparent PNG download and a composed PNG (transparent over chosen color)
-  - Composition happens at native PNG resolution via canvas (lossless)
-  - Uses remove.bg API (update apiKey variable if needed)
+  Same behavior as before, plus:
+  - After successful processing, the Remove button text becomes "Reset"
+  - Clicking Reset returns the UI to the original initial state
+  - No other behavior changed
 */
 
 const fileInput = document.getElementById('imageFile');
@@ -378,7 +375,7 @@ const downloadColored = document.getElementById('downloadColored');
 const swatches = Array.from(document.querySelectorAll('.bg-swatch'));
 const colorPicker = document.getElementById('colorPicker');
 
-const apiKey = 'nMckxWt14x1qEyGjp9puwX9S'; // <-- updated API key as requested
+const apiKey = 'nMckxWt14x1qEyGjp9puwX9S'; // <-- updated API key
 let currentPreviewUrl = null;
 let processedTransparentUrl = null;
 let processedCompositedUrl = null;
@@ -521,8 +518,42 @@ async function composeAndShow(transparentUrl, colorHex){
   }
 }
 
-// main removal function (sends original file unchanged, requests PNG)
-removeBtn.addEventListener('click', async () => {
+/* ---------- NEW: reset function + slightly refactored remove handler ---------- */
+
+// Reset to initial state (called when user clicks the Reset button)
+function resetToInitial() {
+  // revoke any processed URLs
+  if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl);} catch(e){} processedTransparentUrl = null; }
+  if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
+
+  // revoke preview if present
+  if (currentPreviewUrl) { try { URL.revokeObjectURL(currentPreviewUrl);} catch(e){} currentPreviewUrl = null; }
+
+  // clear UI
+  previewImg.src = '';
+  previewImg.style.display = 'none';
+  previewImg.classList.remove('reveal');
+  downloadTransparent.style.display = 'none';
+  downloadColored.style.display = 'none';
+  resultMsg.textContent = 'Upload an image and click Remove Background.';
+
+  // clear file input so user can re-upload same image if they want
+  try { fileInput.value = ''; } catch(e){ /* ignore */ }
+
+  // reset selected bg to default (first swatch)
+  if (swatches.length) selectSwatch('#ffffff', swatches[0]);
+
+  // change button back to Remove and reassign handler
+  removeBtn.textContent = 'Remove Background';
+  removeBtn.disabled = false;
+
+  // remove current reset listener and reattach removeHandler
+  removeBtn.removeEventListener('click', resetToInitial);
+  removeBtn.addEventListener('click', removeHandler);
+}
+
+// Main removal function (named so we can detach/reattach it)
+async function removeHandler() {
   const file = fileInput.files && fileInput.files[0];
   if (!file) {
     resultMsg.textContent = '⚠ Please upload an image first.';
@@ -571,15 +602,26 @@ removeBtn.addEventListener('click', async () => {
 
     stopProcessingVisuals();
     resultMsg.textContent = 'Background removed and composited on chosen color!';
+
+    // ---- HERE: switch Remove button to Reset ----
+    removeBtn.textContent = 'Reset';
+    // detach the removeHandler and attach resetToInitial
+    removeBtn.removeEventListener('click', removeHandler);
+    removeBtn.addEventListener('click', resetToInitial);
+    removeBtn.disabled = false;
+    // done
   } catch (err) {
     console.error(err);
     stopProcessingVisuals();
     resultMsg.textContent = 'Error: ' + (err.message || 'Unknown error');
+    removeBtn.disabled = false;
   } finally {
     loader.style.display = 'none';
-    removeBtn.disabled = false;
   }
-});
+}
+
+// attach initial handler
+removeBtn.addEventListener('click', removeHandler);
 
 // cleanup object URLs when unload
 window.addEventListener('beforeunload', () => {
