@@ -294,7 +294,7 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
   <div class="card-body">
     <div class="row">
       <label for="imageFile">Upload Image</label>
-      <input type="file" id="imageFile" accept="image/*">
+      <input type="file" id="imageFile" accept="image/*" aria-label="Upload image">
     </div>
 
     <button id="removeBtn" class="btn">Remove Background</button>
@@ -311,7 +311,10 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
         </div>
       </div>
 
-      <a id="downloadLink" class="download-link" download="no-bg.png">Download Image</a>
+      <div style="display:flex; gap:8px; margin-top:8px;">
+        <a id="downloadTransparent" class="download-link" download="transparent.png">Download PNG (transparent)</a>
+        <a id="downloadColored" class="download-link" download="filled.png">Download with color</a>
+      </div>
     </div>
 
     <!-- Background chooser area -->
@@ -355,12 +358,13 @@ a.download-link { display:none; margin-top:6px; color:var(--accent); text-decora
 
 <script>
 /*
-  Behavior:
-  - immediate preview of original file (no compression)
-  - choose background color via swatches or color input
-  - on Remove: show blur + swipe + loader; send original file unchanged; request PNG
-  - after receiving PNG: composite it over chosen color at PNG native resolution via canvas (lossless)
-  - set preview to composited PNG and enable download
+  Combined behavior (based on the second script, with enhancements from the first):
+  - Immediate original preview (no compression)
+  - Background color swatches + custom color input
+  - On Remove: show blur + swipe + loader; send original file unchanged; request PNG
+  - After receiving PNG: expose transparent PNG download and a composed PNG (transparent over chosen color)
+  - Composition happens at native PNG resolution via canvas (lossless)
+  - Uses remove.bg API (update apiKey variable if needed)
 */
 
 const fileInput = document.getElementById('imageFile');
@@ -370,14 +374,16 @@ const resultMsg = document.getElementById('msg');
 const previewImg = document.getElementById('previewImg');
 const previewContainer = document.getElementById('previewContainer');
 const swipeOverlay = document.getElementById('swipeOverlay');
-const downloadLink = document.getElementById('downloadLink');
+const downloadTransparent = document.getElementById('downloadTransparent');
+const downloadColored = document.getElementById('downloadColored');
 
 const swatches = Array.from(document.querySelectorAll('.bg-swatch'));
 const colorPicker = document.getElementById('colorPicker');
 
-const apiKey = '1PkLmrg9vJSwarw7zjNiQ5iK'; // your API key
+const apiKey = 'nMckxWt14x1qEyGjp9puwX9S'; // <-- updated API key as requested
 let currentPreviewUrl = null;
-let processedUrl = null;
+let processedTransparentUrl = null;
+let processedCompositedUrl = null;
 let selectedBg = '#ffffff'; // default
 
 // initialize swatches (select first by default)
@@ -385,15 +391,20 @@ function selectSwatch(colorHex, el) {
   selectedBg = colorHex;
   swatches.forEach(s => s.classList.remove('selected'));
   if (el && el.classList) el.classList.add('selected');
-  // sync color picker
   colorPicker.value = colorHex;
 }
-selectSwatch('#ffffff', swatches[0]);
+if (swatches.length) selectSwatch('#ffffff', swatches[0]);
 
 swatches.forEach((s) => {
   s.addEventListener('click', (e) => {
     const c = s.dataset.color || '#ffffff';
     selectSwatch(c, s);
+    // if we already have a transparent result, re-compose with new color
+    if (processedTransparentUrl) {
+      composeAndShow(processedTransparentUrl, selectedBg).catch(err => {
+        console.error('compose error', err);
+      });
+    }
   });
 });
 
@@ -401,8 +412,10 @@ swatches.forEach((s) => {
 colorPicker.addEventListener('input', (e) => {
   const c = e.target.value;
   selectedBg = c;
-  // clear swatch selection
   swatches.forEach(s => s.classList.remove('selected'));
+  if (processedTransparentUrl) {
+    composeAndShow(processedTransparentUrl, selectedBg).catch(err => console.error(err));
+  }
 });
 
 // show immediate original preview (no compression)
@@ -411,13 +424,15 @@ fileInput.addEventListener('change', (e) => {
   if (!f) {
     resultMsg.textContent = 'No file selected.';
     previewImg.style.display = 'none';
-    downloadLink.style.display = 'none';
+    downloadTransparent.style.display = 'none';
+    downloadColored.style.display = 'none';
     return;
   }
 
   // cleanup previous urls
-  if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
-  if (processedUrl) { try { URL.revokeObjectURL(processedUrl); } catch(e){} processedUrl = null; }
+  if (currentPreviewUrl) { try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){} currentPreviewUrl = null; }
+  if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl); } catch(e){} processedTransparentUrl = null; }
+  if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl); } catch(e){} processedCompositedUrl = null; }
 
   const url = URL.createObjectURL(f);
   currentPreviewUrl = url;
@@ -426,7 +441,8 @@ fileInput.addEventListener('change', (e) => {
   previewImg.classList.remove('reveal');
   previewContainer.classList.remove('blurred');
   swipeOverlay.style.display = 'none';
-  downloadLink.style.display = 'none';
+  downloadTransparent.style.display = 'none';
+  downloadColored.style.display = 'none';
   resultMsg.textContent = 'Image loaded. Click Remove Background.';
 });
 
@@ -444,11 +460,11 @@ function stopProcessingVisuals(){
   loader.style.display = 'none';
 }
 
-// composite transparent PNG over selected color at native resolution and return blob
-async function compositeOverColor(pngBlob, colorHex) {
+// composite transparent png over color at native resolution, return blob + objectURL
+async function compositeOverColor(transparentBlob, colorHex){
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.onload = async () => {
+    img.onload = () => {
       try {
         const w = img.naturalWidth;
         const h = img.naturalHeight;
@@ -457,28 +473,57 @@ async function compositeOverColor(pngBlob, colorHex) {
         canvas.height = h;
         const ctx = canvas.getContext('2d');
 
-        // fill background color
+        // fill bg
         ctx.fillStyle = colorHex;
         ctx.fillRect(0,0,w,h);
 
-        // draw the PNG (transparent) on top
+        // draw transparent png on top
         ctx.drawImage(img, 0, 0, w, h);
 
-        // export lossless PNG
+        // export PNG (lossless)
         canvas.toBlob((blob) => {
           if (!blob) return reject(new Error('Failed to compose image'));
-          resolve({ blob, width: w, height: h });
+          const url = URL.createObjectURL(blob);
+          resolve({ blob, url, width: w, height: h });
         }, 'image/png');
       } catch (err) {
         reject(err);
       }
     };
-    img.onerror = (e) => reject(new Error('Failed to load processed PNG'));
-    img.src = URL.createObjectURL(pngBlob);
+    img.onerror = () => reject(new Error('Failed to load transparent PNG for compositing'));
+    img.src = URL.createObjectURL(transparentBlob);
   });
 }
 
-// remove background (no compression on upload)
+// show composed result in preview (also used to update on color change)
+async function composeAndShow(transparentUrl, colorHex){
+  try {
+    const resp = await fetch(transparentUrl);
+    const blob = await resp.blob();
+    const composed = await compositeOverColor(blob, colorHex);
+    // revoke old composed URL
+    if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
+    processedCompositedUrl = composed.url;
+    previewImg.src = processedCompositedUrl;
+    // animate reveal
+    previewImg.classList.remove('reveal');
+    void previewImg.offsetWidth;
+    previewImg.classList.add('reveal');
+
+    // show downloads
+    downloadColored.href = processedCompositedUrl;
+    downloadColored.style.display = 'inline-block';
+
+    // transparent download uses the transparent object URL
+    downloadTransparent.href = transparentUrl;
+    downloadTransparent.style.display = 'inline-block';
+  } catch (err) {
+    console.error('composeAndShow err', err);
+    throw err;
+  }
+}
+
+// main removal function (sends original file unchanged, requests PNG)
 removeBtn.addEventListener('click', async () => {
   const file = fileInput.files && fileInput.files[0];
   if (!file) {
@@ -486,8 +531,9 @@ removeBtn.addEventListener('click', async () => {
     return;
   }
 
-  // cleanup previous processed url
-  if (processedUrl) { try { URL.revokeObjectURL(processedUrl); } catch(e){} processedUrl = null; }
+  // cleanup previous processed urls
+  if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl);} catch(e){} processedTransparentUrl = null; }
+  if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
 
   startProcessingVisuals();
   resultMsg.textContent = 'Processing...';
@@ -516,26 +562,16 @@ removeBtn.addEventListener('click', async () => {
 
     const pngBlob = await resp.blob();
 
+    // create an objectURL for the transparent PNG (direct from API)
+    processedTransparentUrl = URL.createObjectURL(pngBlob);
+
     // composite the returned transparent PNG over the chosen color (lossless PNG)
-    const composed = await compositeOverColor(pngBlob, selectedBg);
-    const composedBlob = composed.blob;
-    processedUrl = URL.createObjectURL(composedBlob);
+    await composeAndShow(processedTransparentUrl, selectedBg);
 
     // revoke original preview if needed
     if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
 
-    // show final processed+composited image with left->right reveal
     stopProcessingVisuals();
-    previewImg.src = processedUrl;
-    previewImg.style.display = 'block';
-    previewImg.classList.remove('reveal');
-    void previewImg.offsetWidth;
-    previewImg.classList.add('reveal');
-
-    // set download link to the composed PNG (lossless)
-    downloadLink.href = processedUrl;
-    downloadLink.download = 'no-bg-filled.png';
-    downloadLink.style.display = 'block';
     resultMsg.textContent = 'Background removed and composited on chosen color!';
   } catch (err) {
     console.error(err);
@@ -550,13 +586,13 @@ removeBtn.addEventListener('click', async () => {
 // cleanup object URLs when unload
 window.addEventListener('beforeunload', () => {
   if (currentPreviewUrl) try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){}
-  if (processedUrl) try { URL.revokeObjectURL(processedUrl); } catch(e){}
+  if (processedTransparentUrl) try { URL.revokeObjectURL(processedTransparentUrl); } catch(e){}
+  if (processedCompositedUrl) try { URL.revokeObjectURL(processedCompositedUrl); } catch(e){}
 });
 </script>
 
 <!-- Load Google Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
 
 </body>
 </html>
