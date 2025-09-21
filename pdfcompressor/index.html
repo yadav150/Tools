@@ -93,115 +93,190 @@ a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-de
   <a href="https://www.skill2job.site/p/privacy-policy-skill2jobsite.html">Privacy</a> |  
   <a href="https://www.skill2job.site/p/terms-of-use-skill2jobsite.html">Terms</a>
 </div>
+
+<!-- pdf-lib (already used) -->
 <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+<!-- PDF.js (for rasterizing pages) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
-const compressBtn = document.getElementById('compressBtn');
-const pdfFile = document.getElementById('pdfFile');
-const compressionLevel = document.getElementById('compressionLevel');
-const result = document.getElementById('result');
-let compressed = false;
-
-async function resizeImage(imgBytes, scale) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.src = URL.createObjectURL(new Blob([imgBytes]));
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width * scale;
-      canvas.height = img.height * scale;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      canvas.toBlob(blob => {
-        blob.arrayBuffer().then(resolve).catch(reject);
-      }, 'image/jpeg', 0.7);
-    };
-    img.onerror = reject;
-  });
-}
-
-async function compressPDF(file, level) {
-  result.innerText = 'Reading PDF...';
-  const arrayBuffer = await file.arrayBuffer();
-  const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
-  const pages = pdfDoc.getPages();
-  result.innerText = `Compressing ${pages.length} page(s)...`;
-
-  let scale;
-  switch(level){
-    case 'Low': scale = 0.9; break;
-    case 'Medium': scale = 0.7; break;
-    case 'High': scale = 0.5; break;
-    default: scale = 0.8;
+  // Ensure pdf.js worker is set (CDN worker)
+  if (window['pdfjsLib']) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
   }
 
-  for (let i = 0; i < pages.length; i++) {
-    const page = pages[i];
-    const images = pdfDoc.getPage(i).node.Resources?.XObject || {};
-    for (const key of Object.keys(images)) {
-      try {
-        const img = images[key];
-        if (img?.contents) {
-          const compressedBytes = await resizeImage(img.contents, scale);
-          img.contents = new Uint8Array(compressedBytes);
-        }
-      } catch(e) {
-        console.log('Skipping non-image object', e);
-      }
+  const compressBtn = document.getElementById('compressBtn');
+  const pdfFile = document.getElementById('pdfFile');
+  const compressionLevel = document.getElementById('compressionLevel');
+  const result = document.getElementById('result');
+  let compressed = false;
+  let downloadUrl = null;
+
+  function updateResult(text) {
+    result.innerText = text;
+  }
+
+  // Utility: convert a Blob promise
+  function blobToArrayBuffer(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsArrayBuffer(blob);
+    });
+  }
+
+  async function renderPageToJpeg(page, scale, quality) {
+    // Render pdf.js page to canvas and return JPEG ArrayBuffer
+    const viewport = page.getViewport({ scale });
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(viewport.width);
+    canvas.height = Math.round(viewport.height);
+    const ctx = canvas.getContext('2d');
+
+    // Clear canvas to white (important for transparent pages)
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const renderTask = page.render({ canvasContext: ctx, viewport });
+    await renderTask.promise;
+
+    // Convert canvas to JPEG blob with requested quality
+    const blob = await new Promise((res) =>
+      canvas.toBlob(res, 'image/jpeg', quality)
+    );
+    const arrayBuffer = await blobToArrayBuffer(blob);
+    // free memory
+    canvas.width = canvas.height = 0;
+    return arrayBuffer;
+  }
+
+  async function compressPDF(file, level) {
+    updateResult('Reading PDF...');
+    const arrayBuffer = await file.arrayBuffer();
+
+    // determine scale and quality by selected level
+    let scale, quality;
+    switch(level){
+      case 'Low': scale = 1.0; quality = 0.90; break;
+      case 'Medium': scale = 0.85; quality = 0.75; break;
+      case 'High': scale = 0.65; quality = 0.60; break;
+      default: scale = 0.85; quality = 0.75;
     }
+
+    // Load original using pdf.js for accurate rendering
+    updateResult('Loading PDF pages (this may take a few seconds)...');
+    const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    const pdf = await loadingTask.promise;
+    const pageCount = pdf.numPages;
+
+    updateResult(`Rasterizing and compressing ${pageCount} page(s)...`);
+
+    // Create a new PDF via pdf-lib
+    const newPdfDoc = await PDFLib.PDFDocument.create();
+
+    // For each page: render to JPEG and embed into new PDF
+    for (let idx = 1; idx <= pageCount; idx++) {
+      updateResult(`Processing page ${idx} of ${pageCount}...`);
+      try {
+        const page = await pdf.getPage(idx);
+        // Render to JPEG bytes
+        const jpegArrayBuffer = await renderPageToJpeg(page, scale, quality);
+        // Embed and add page to new PDF
+        const jpgImage = await newPdfDoc.embedJpg(jpegArrayBuffer);
+        // Determine image dimensions in PDF points
+        const imgDims = jpgImage.scale(1);
+        const newPage = newPdfDoc.addPage([imgDims.width, imgDims.height]);
+        newPage.drawImage(jpgImage, {
+          x: 0,
+          y: 0,
+          width: imgDims.width,
+          height: imgDims.height
+        });
+      } catch (err) {
+        console.error('Page processing error', err);
+        // If a page fails, skip but notify
+        updateResult(`Skipping page ${idx} due to an error...`);
+      }
+      // allow UI update
+      await new Promise(r => setTimeout(r, 100));
+    }
+
+    // Remove metadata on high compression
+    if (level === 'High') {
+      newPdfDoc.setTitle('');
+      newPdfDoc.setAuthor('');
+      newPdfDoc.setSubject('');
+      newPdfDoc.setKeywords([]);
+      newPdfDoc.setProducer('');
+      newPdfDoc.setCreator('');
+    }
+
+    updateResult('Saving compressed PDF...');
+    // Save PDF with compression option
+    const compressedBytes = await newPdfDoc.save({ useObjectStreams: false, compress: true });
+    const blob = new Blob([compressedBytes], { type: 'application/pdf' });
+
+    // revoke previous URL if any
+    if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+    downloadUrl = URL.createObjectURL(blob);
+
+    // Prepare download link in result area (preserving styling)
+    result.innerHTML = '';
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = 'compressed_' + file.name.replace(/\s+/g, '_');
+    a.textContent = 'Download Compressed PDF';
+    a.className = 'download-link';
+    result.appendChild(a);
+
+    // Show original and compressed sizes (best-effort)
+    const originalSizeKB = Math.round(file.size / 1024);
+    const compressedSizeKB = Math.round(blob.size / 1024);
+    const info = document.createElement('div');
+    info.style.fontSize = '12px';
+    info.style.color = '#444';
+    info.style.marginTop = '6px';
+    info.textContent = `Original: ${originalSizeKB} KB — Compressed: ${compressedSizeKB} KB`;
+    result.appendChild(info);
+
+    compressBtn.textContent = 'Reset';
+    compressed = true;
+    updateResult('Done — download available below.');
   }
 
-  if(level === 'High') {
-    pdfDoc.setTitle('');
-    pdfDoc.setAuthor('');
-    pdfDoc.setSubject('');
-    pdfDoc.setKeywords([]);
-    pdfDoc.setProducer('');
-    pdfDoc.setCreator('');
-  }
+  compressBtn.addEventListener('click', async () => {
+    if (compressed) {
+      // Reset UI
+      pdfFile.value = '';
+      compressionLevel.value = '';
+      if (downloadUrl) {
+        URL.revokeObjectURL(downloadUrl);
+        downloadUrl = null;
+      }
+      result.innerText = 'Upload a PDF and select compression level.';
+      compressBtn.textContent = 'Compress PDF';
+      compressed = false;
+      return;
+    }
 
-  result.innerText = 'Saving compressed PDF...';
-  const compressedBytes = await pdfDoc.save({ useObjectStreams: false, compress: true });
-  const blob = new Blob([compressedBytes], { type: 'application/pdf' });
-  const url = URL.createObjectURL(blob);
+    const file = pdfFile.files[0];
+    if (!file) return alert('Upload a PDF first.');
+    if (file.type !== 'application/pdf') return alert('Please upload a valid PDF.');
 
-  result.innerHTML = '';
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'compressed_' + file.name;
-  a.textContent = 'Download Compressed PDF';
-  a.className = 'download-link';
-  result.appendChild(a);
+    const level = compressionLevel.value;
+    if (!level) return alert('Select compression level.');
 
-  compressBtn.textContent = 'Reset';
-  compressed = true;
-}
-
-compressBtn.addEventListener('click', async () => {
-  if (compressed) {
-    pdfFile.value = '';
-    compressionLevel.value = '';
-    result.innerText = 'Upload a PDF and select compression level.';
-    compressBtn.textContent = 'Compress PDF';
-    compressed = false;
-    return;
-  }
-
-  const file = pdfFile.files[0];
-  if (!file) return alert('Upload a PDF first.');
-  if (file.type !== 'application/pdf') return alert('Please upload a valid PDF.');
-
-  const level = compressionLevel.value;
-  if (!level) return alert('Select compression level.');
-
-  try {
-    await compressPDF(file, level);
-  } catch (err) {
-    console.error(err);
-    alert('Compression failed. Try a different PDF.');
-  }
-});
+    try {
+      await compressPDF(file, level);
+    } catch (err) {
+      console.error(err);
+      alert('Compression failed. Try a different PDF or lower compression level.');
+      result.innerText = 'Compression failed. See console for details.';
+    }
+  });
 </script>
-  <!-- Load Google Ads -->
+
+  <!-- Load Google Ads (keep as-is) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
   
 </body>
