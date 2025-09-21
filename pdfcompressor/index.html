@@ -1,9 +1,10 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>PDF Compressor Tool</title>
-<!-- SEO Meta Tags for Online PDF Compressor Tool -->
+  <!-- SEO Meta Tags for Online PDF Compressor Tool -->
 <meta name="description" content="Compress PDF files instantly for free using this online PDF compressor tool by Skill2Job. Reduce file size without losing quality, perfect for documents, reports, and more.">
 <meta name="keywords" content="PDF compressor, compress PDF online, reduce PDF size, free PDF compressor, online PDF tool, Skill2Job PDF compressor, Skill2Job tools, tools by Skill2Job, Skill2Job free online tool, Yadav Subba tools, online document compressor 2025">
 <meta name="author" content="Skill2Job">
@@ -32,46 +33,28 @@ body {
 .card-body { padding:14px; }
 .row { margin-bottom:12px; }
 label { display:block; font-size:12px; margin-bottom:6px; font-weight:600; color:var(--muted); }
-input[type="file"], input[type="number"], textarea, input[type="text"] { width:100%; padding:8px 10px; font-size:13px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
-input[type="file"]:focus, input[type="number"]:focus, textarea:focus, input[type="text"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
-select { width:100%; padding:8px 10px; font-size:13px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
-select:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
+input[type="file"], select { width:100%; padding:8px 10px; font-size:13px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
+input[type="file"]:focus, select:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(211,47,47,0.06); }
 .btn { display:block; width:100%; padding:9px 12px; font-size:14px; font-weight:700; color:#fff; background:var(--btn); border:none; border-radius:1px; cursor:pointer; margin-top:8px; }
 .btn:active { transform:translateY(1px); }
-.btn.reset { background:#666; }
 .result { margin-top:10px; min-height:100px; border:1px solid #cfcfcf; border-radius:1px; background:#fff; padding:10px; font-weight:600; color:var(--text); white-space:pre-wrap; font-size:13px; }
-.preview-embed { display:block; margin-top:10px; width:100%; height:480px; border:1px solid #ccc; }
 .h4-style { background-color:#FF0000; padding:8px 12px; border-radius:2px; color:#ffffff; margin-top:30px; font-size:16px; }
 .justify-p { text-align:justify; margin-bottom:10px; line-height:1.5; font-size:15px; }
-/* ADS CONTAINER */
-    .ads-container {
-      width:90%;           /* 90% width for responsive fit */
-      max-width:720px;     /* Desktop max width */
-      margin:18px auto;
-      background:#fff;
-      border:1px solid #e6e6e6;
-      border-radius:2px;
-      text-align:center;
-      box-shadow:0 1px 4px rgba(0,0,0,0.03);
-      overflow:hidden;
-    }
-    .ads-container ins.adsbygoogle {
-      display:block !important;
-      width:100% !important;
-      height:auto !important;
-    }
+.ads-container { width:90%; max-width:720px; margin:18px auto; background:#fff; border:1px solid #e6e6e6; border-radius:2px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.03); overflow:hidden; }
+.ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:250px !important; }
 .footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:8px 5px; background:#f5f5f5; border-top:1px solid #ddd; font-size:12px; color:#555; }
 .footer span { font-weight:600; }
 a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-decoration:none; font-weight:600; font-size:13px; }
-.small-note { font-size:12px; color:var(--muted); margin-top:6px; }
 </style>
 </head>
-<body><div class="header">
+<body>
+<div class="header">
   Online PDF Compressor
   <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" 
        alt="Favicon" 
        style="width:32px; height:32px; vertical-align:middle; float:right; border-radius: 8px;">
-  </div><div class="ads-container">
+</div>
+<div class="ads-container">
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-1876390706944654"
@@ -79,63 +62,45 @@ a.download-link { display:block; margin-bottom:4px; color:var(--accent); text-de
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div><div class="card">
+</div>
+<div class="card">
 <div class="card-body">
   <div class="row">
     <label for="pdfFile">Upload PDF</label>
     <input type="file" id="pdfFile" accept="application/pdf">
-  </div>  <div class="row">
-    <label for="levelOption">Compression Level</label>
-    <select id="levelOption">
+  </div>
+  <div class="row">
+    <label for="compressionLevel">Compression Level</label>
+    <select id="compressionLevel">
       <option value="">--Select--</option>
-      <option value="high">High Quality (small compression)</option>
-      <option value="medium">Medium (balanced)</option>
-      <option value="low">Maximum Compression (lower quality)</option>
+      <option value="Low">Low (Minimal)</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High (Strong)</option>
     </select>
-  </div>  <div class="row">
-    <label for="targetKB">Target file size (KB) — optional</label>
-    <input type="number" id="targetKB" placeholder="e.g. 200" min="1">
-  </div><button id="compressBtn" class="btn">Compress PDF</button>
-
-  <div id="result" class="result">Upload a PDF and select size, then press Compress. The compressed file and preview will appear here.</div>  <h4 class="h4-style">About This Tool</h4>
-
+  </div>
+  <button id="compressBtn" class="btn">Compress PDF</button>
+  <div id="result" class="result">Upload a PDF and select compression level.</div>
+  <h4 class="h4-style">About This Tool</h4>
   <p class="justify-p">
-    Our PDF Compressor on Skill2Job Tools is a fast, simple, and efficient way to reduce the size of your PDF files. It is designed to keep the process smooth and user-friendly, allowing you to compress documents without compromising their quality. Whether you need to save storage space, send files via email, or upload them online, this tool makes the task effortless. With just a few clicks, you can upload your PDF, let the tool process it, and get a compressed version ready for download immediately.
+    This PDF compressor works fully in your browser. Upload your PDF, choose a compression level, and the tool compresses images, reduces quality, and removes metadata locally. No API or server is used, so your files remain private. Download immediately after compression.
   </p>
-
-  <p class="justify-p">
-    The interface of our PDF Compressor is clean and intuitive, following the same design style as our popular Image Resizer tool. Users can easily navigate through the tool without any technical knowledge. You don’t have to worry about complicated settings or software installation. The tool works directly in your browser, ensuring quick results. Skill2Job Tools aims to provide practical solutions for everyday tasks, making it easier for students, professionals, and anyone who frequently works with documents to manage their PDF files efficiently.
-  </p>
-
-  <p class="justify-p">
-    One of the key advantages of the Skill2Job PDF Compressor is speed. The tool compresses your files within seconds, saving valuable time. Large PDFs that typically take longer to upload or send can now be reduced efficiently. After uploading, you can preview the compressed document and download it instantly. The tool maintains the quality of your text and images while significantly reducing the file size. This makes it ideal for sharing on email, cloud storage, or online applications without worrying about slow uploads or large attachments.
-  </p>
-
-  <p class="justify-p">
-    Security and privacy are important to Skill2Job Tools. All uploaded PDFs are processed quickly, and your files are never stored permanently. This ensures your data remains safe and private while still allowing you to work efficiently. The tool is suitable for confidential documents, school assignments, business reports, or personal files. By using our PDF Compressor, you save time, reduce storage usage, and simplify document management. It is an all-in-one solution for anyone who wants a reliable and hassle-free way to handle PDF files.
-  </p>
-
-  <p class="justify-p">
-    Skill2Job Tools is committed to offering practical, accessible online solutions for daily tasks. Our PDF Compressor is just one example of how we help users save time and improve productivity. With no downloads or software required, this tool is convenient and reliable. Whether you are a student, professional, or casual user, it ensures smooth file handling while keeping quality intact. Explore our range of tools for resizing images, compressing files, and much more. With Skill2Job Tools, managing digital documents has never been easier or faster.
-  </p>
-
 </div>
-</div><div class="footer">
+</div>
+<div class="footer">
   &copy; <span>Skill2Job</span> | All Rights Reserved |  
   <a href="https://www.skill2job.site/p/about-us_28.html">About</a> |  
   <a href="https://www.skill2job.site/p/disclaimer-skill2jobsite.html">Disclaimer</a> |  
   <a href="https://www.skill2job.site/p/privacy-policy-skill2jobsite.html">Privacy</a> |  
   <a href="https://www.skill2job.site/p/terms-of-use-skill2jobsite.html">Terms</a>
 </div>
-  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 <script>
-const pdfFile = document.getElementById('pdfFile');
 const compressBtn = document.getElementById('compressBtn');
-const compressionLevel = document.getElementById('compressionLevel'); // Add a select element for levels
+const pdfFile = document.getElementById('pdfFile');
+const compressionLevel = document.getElementById('compressionLevel');
 const result = document.getElementById('result');
 let compressed = false;
 
-// Utility: resize image via canvas
 async function resizeImage(imgBytes, scale) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -148,7 +113,7 @@ async function resizeImage(imgBytes, scale) {
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       canvas.toBlob(blob => {
         blob.arrayBuffer().then(resolve).catch(reject);
-      }, 'image/jpeg', 0.8);
+      }, 'image/jpeg', 0.7);
     };
     img.onerror = reject;
   });
@@ -158,20 +123,17 @@ async function compressPDF(file, level) {
   result.innerText = 'Reading PDF...';
   const arrayBuffer = await file.arrayBuffer();
   const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
-
   const pages = pdfDoc.getPages();
   result.innerText = `Compressing ${pages.length} page(s)...`;
 
-  // Determine scale based on level
   let scale;
   switch(level){
-    case 'Low': scale = 0.9; break;   // minimal compression
-    case 'Medium': scale = 0.7; break; // moderate
-    case 'High': scale = 0.5; break;  // aggressive
+    case 'Low': scale = 0.9; break;
+    case 'Medium': scale = 0.7; break;
+    case 'High': scale = 0.5; break;
     default: scale = 0.8;
   }
 
-  // Compress images
   for (let i = 0; i < pages.length; i++) {
     const page = pages[i];
     const images = pdfDoc.getPage(i).node.Resources?.XObject || {};
@@ -188,9 +150,17 @@ async function compressPDF(file, level) {
     }
   }
 
+  if(level === 'High') {
+    pdfDoc.setTitle('');
+    pdfDoc.setAuthor('');
+    pdfDoc.setSubject('');
+    pdfDoc.setKeywords([]);
+    pdfDoc.setProducer('');
+    pdfDoc.setCreator('');
+  }
+
   result.innerText = 'Saving compressed PDF...';
   const compressedBytes = await pdfDoc.save({ useObjectStreams: false, compress: true });
-
   const blob = new Blob([compressedBytes], { type: 'application/pdf' });
   const url = URL.createObjectURL(blob);
 
@@ -209,6 +179,7 @@ async function compressPDF(file, level) {
 compressBtn.addEventListener('click', async () => {
   if (compressed) {
     pdfFile.value = '';
+    compressionLevel.value = '';
     result.innerText = 'Upload a PDF and select compression level.';
     compressBtn.textContent = 'Compress PDF';
     compressed = false;
@@ -218,12 +189,17 @@ compressBtn.addEventListener('click', async () => {
   const file = pdfFile.files[0];
   if (!file) return alert('Upload a PDF first.');
   if (file.type !== 'application/pdf') return alert('Please upload a valid PDF.');
+
   const level = compressionLevel.value;
   if (!level) return alert('Select compression level.');
-  await compressPDF(file, level);
+
+  try {
+    await compressPDF(file, level);
+  } catch (err) {
+    console.error(err);
+    alert('Compression failed. Try a different PDF.');
+  }
 });
 </script>
-<!-- Load Google Ads -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
 </body>
 </html>
