@@ -43,8 +43,53 @@
       width:32px; height:32px; border-radius:8px; display:block;
     }
 
-    .ads-container { width:95%; max-width:auto; margin:18px auto; background:#fff; border:1px solid #e6e6e6; border-radius:2px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.03); overflow:hidden; 
-                   }
+    /* ADS CONTAINER */
+.ads-wrapper {
+    width: 96%;             
+    margin: 18px auto;      
+    padding: 0;             
+}
+
+.ads-container {
+    width: 100%;           
+    height: 250px;          
+    margin: 0;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.ads-container ins.adsbygoogle {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.ads-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #777;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none; /* Prevent blocking clicks */
+}
+
+.ads-placeholder i {
+    font-size: 28px;
+    color: #777;
+        }
 
     .h4-style{
       background-color:var(--accent);
@@ -140,18 +185,27 @@
     </a>
   </header>
 
-  <div class="ads-outer" aria-hidden="true">
+  <!-- Responsive Rectangle AdSense Container -->
+<div class="ads-wrapper">
     <div class="ads-container">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1876390706944654"
-           data-ad-slot="2968764212"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <!-- Placeholder with blowhorn icon -->
+        <div class="ads-placeholder">
+            <i class="fas fa-bullhorn"></i>
+            <p>Ads help us provide this service for free</p>
+        </div>
+        <!-- Actual AdSense code -->
+        <ins class="adsbygoogle"
+             style="display:block;margin:0 auto;"
+             data-ad-client="ca-pub-1876390706944654"
+             data-ad-slot="2968764212"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
-  </div>
+</div>
+
     <h4 class="h4-style">Our Available Tools</h4>
 
     <div class="tools-container">
