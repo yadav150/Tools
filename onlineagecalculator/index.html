@@ -1,214 +1,516 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Online Age Calculator — Skill2Job Tools</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Online Age Calculator — Skill2Job Tools</title>
+  <meta name="description" content="Calculate your exact age instantly with Skill2Job Online Age Calculator. Enter your date of birth and target date to get years, months, and days. Fast, accurate, and secure.">
+  <meta name="keywords" content="Online Age Calculator, calculate age online, age in years months days, Skill2Job Tools, age calculator for forms, instant age calculator, fast age calculator, secure age calculator">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Essential SEO Meta Tags -->
+  <link rel="canonical" href="https://tools.skill2job.site/onlineagecalculator/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
 
-<!-- SEO Meta -->
-<meta name="description" content="Calculate your exact age instantly with Skill2Job Online Age Calculator. Enter your date of birth and target date to get years, months, and days. Fast, accurate, and secure.">
-<meta name="keywords" content="Online Age Calculator, calculate age online, age in years months days, Skill2Job Tools, age calculator for forms, instant age calculator, fast age calculator, secure age calculator">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://tools.skill2job.site/onlineagecalculator/">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png">
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Online Age Calculator - Skill2Job Tools" />
+  <meta property="og:description" content="Calculate your exact age instantly with Skill2Job Online Age Calculator. Enter your date of birth and target date to get years, months, and days." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+  <meta property="og:url" content="https://tools.skill2job.site/onlineagecalculator/" />
+  <meta property="og:site_name" content="Skill2Job Online Tools" />
 
-<style>
-:root {
-  --accent:#ffffff;
-  --accent-text:#000;
-  --btn:#000;
-  --input-bg:#fff6f6;
-  --text:#111;
-  --muted:#777;
-  --sheet:#ffffff;
-}
-* { box-sizing:border-box; }
-body {
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-  background:#fafafa;
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  padding-bottom:60px;
-  font-size:14px;
-}
-.header {
-  background:var(--accent);
-  color:var(--accent-text);
-  padding:14px 16px;
-  font-weight:700;
-  font-size:20px;
-  text-align:left;
-  border-bottom : 2px solid #D3D3D3;
-}
-.card {
-  width:98%;
-  max-width:720px;
-  margin:18px auto;
-  background:var(--sheet);
-  border:1px solid #e6e6e6;
-  border-radius:4px;
-  overflow:hidden;
-  box-shadow:0 1px 4px rgba(0,0,0,0.04);
-}
-.card-body { padding:14px; }
-.row { margin-bottom:12px; }
-label { display:block; font-size:13px; margin-bottom:6px; font-weight:600; color:var(--muted); }
-input[type="date"] { width:100%; padding:10px 12px; font-size:15px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
-input[type="date"]:focus { border-color:var(--accent-text); box-shadow:0 0 0 3px rgba(0,0,0,0.06); }
-.btn { display:block; width:100%; padding:11px 14px; font-size:14px; font-weight:700; color:#fff; background:var(--btn); border:none; border-radius:1px; cursor:pointer; margin-top:8px; }
-.btn:active { transform:translateY(1px); }
-.btn.reset { background:#666; }
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Online Age Calculator - Skill2Job Tools" />
+  <meta name="twitter:description" content="Calculate your exact age instantly with Skill2Job Online Age Calculator. Enter your date of birth and target date to get years, months, and days." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
 
-/* ADS CONTAINER with preload space */
-.ads-container {
-  width:98%;
-  max-width:720px;
-  margin:18px auto;
-  background:#fff;
-  border:1px solid #e6e6e6;
-  border-radius:2px;
-  text-align:center;
-  box-shadow:0 1px 4px rgba(0,0,0,0.03);
-  min-height:120px; /* Reserve space for ad to prevent layout shift */
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--muted);
-  font-size:13px;
-}
-.ads-container ins.adsbygoogle { display:block !important; width:100% !important; height:260px !important; }
+  <!-- Additional Technical SEO -->
+  <meta name="theme-color" content="#d32f2f" />
+  <meta name="msapplication-TileColor" content="#d32f2f" />
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
 
-.result { margin-top:14px; min-height:110px; border:1px solid #cfcfcf; border-radius:1px; background:#fff; padding:12px; font-weight:600; color:var(--text); white-space:pre-wrap; }
-.meta { font-size:13px; color:var(--muted); margin-top:6px; }
-.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 5px; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; }
-.footer span { font-weight:600; }
-.h4-style { background-color: #FF0000; padding: 8px 12px; border-radius: 2px; color: #ffffff; margin-top: 30px; font-size:16px; }
-.justify-p { text-align: justify; margin-bottom: 10px; line-height: 1.5; font-size:15px; }
-.about-container { width:98%; max-width:720px; margin:18px auto; padding:0 14px; }
-@media(max-width:480px){
-  .card, .ads-container, .about-container { width:98%; margin:12px auto; }
-  .btn { font-size:13px; padding:10px; }
-  .header { font-size:16px; }
-}
-</style>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Skill2Job Age Calculator",
+    "description": "Calculate your exact age instantly with Skill2Job Online Age Calculator. Enter your date of birth and target date to get years, months, and days.",
+    "url": "https://tools.skill2job.site/onlineagecalculator/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Skill2Job"
+    }
+  }
+  </script>
+
+  <!-- Performance & Preloading -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+  
+  <style>
+    :root {
+      --accent: #d32f2f;
+      --btn: #000;
+      --text: #111;
+      --sheet: #fff;
+      --max-width: 95%;
+      --max-read: 1100px;
+      --page-pad: 16px;
+      --border-radius: 2px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #fafafa;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.55;
+      padding-bottom: 72px;
+    }
+    
+    /* Header */
+    .header {
+      background: #fff;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      width: 100%;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+    
+    .header-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    
+    .site-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--border-radius);
+      display: block;
+    }
+    
+    /* Share Icon */
+    .share-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius);
+      background: #f5f5f5;
+      color: #555;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+    }
+    
+    .share-icon:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Main content container */
+    .main-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+    }
+    
+    /* ADS CONTAINER */
+    .ads-wrapper {
+      width: 98%;
+      margin: 18px auto;
+      min-height: 280px;
+      text-align: center;
+    }
+    
+    /* Section headers */
+    .section-header {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      font-size: 18px;
+      margin: 20px 0 15px;
+    }
+    
+    /* Calculator Card */
+    .calculator-card {
+      background: var(--sheet);
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      width: 100%;
+      margin-bottom: 18px;
+    }
+    
+    .calculator-card .row {
+      margin-bottom: 16px;
+    }
+    
+    .calculator-card label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .calculator-card input[type="date"] {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 15px;
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      background: #fff;
+      outline: none;
+    }
+    
+    .calculator-card input[type="date"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.1);
+    }
+    
+    .calculator-card .btn {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background: var(--btn);
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    
+    .calculator-card .btn.reset {
+      background: #666;
+    }
+    
+    .calculator-card .result {
+      margin-top: 16px;
+      min-height: 110px;
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      background: #f9f9f9;
+      padding: 14px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+    
+    .calculator-card .meta {
+      font-size: 13px;
+      color: #777;
+      margin-top: 8px;
+    }
+    
+    /* About section container */
+    .about-section {
+      background: var(--sheet);
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+    
+    /* Content paragraphs */
+    .content-paragraph {
+      text-align: justify;
+      margin: 20px 0;
+      font-size: 15px;
+      color: #222;
+    }
+    
+    .content-paragraph a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .content-paragraph a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      background: #f5f5f5;
+      border-top: 1px solid #ddd;
+      font-size: 13px;
+      color: #555;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+    
+    .footer-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+    }
+    
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+    
+    /* Small screens adjustments */
+    @media (max-width: 760px) {
+      .header {
+        padding: 10px 0;
+      }
+      
+      .header-container {
+        width: 95%;
+      }
+      
+      .main-container {
+        width: 95%;
+      }
+      
+      .ads-wrapper {
+        width: 95%;
+        min-height: 250px;
+      }
+      
+      .section-header {
+        margin: 18px 0 12px;
+        padding: 6px 8px;
+      }
+      
+      .site-brand img {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .footer-container {
+        width: 95%;
+      }
+      
+      .about-section {
+        padding: 12px;
+      }
+      
+      .share-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+      
+      .calculator-card {
+        padding: 12px;
+      }
+    }
+    
+    @media (max-width: 420px) {
+      .header-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  </style>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics for Subdomain -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV12J7V98D');
+  </script>
+  
+  <!-- AdSense Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
+     crossorigin="anonymous"></script>
 </head>
 <body>
-
-<div class="header">
-  Online Age Calculator
-  <a href="https://tools.skill2job.site/" target="_blank">
-    <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png"     
-         alt="Favicon"     
-         style="width:32px; height:32px; vertical-align:middle; float:right; border-radius: 8px;">
-  </a>
-  </div>
-
-<div class="ads-container">
-  <ins class="adsbygoogle"
-       style="display:block;margin:0 auto;"
-       data-ad-client="ca-pub-1876390706944654"
-       data-ad-slot="2968764212"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
-
-<div class="card" role="region" aria-label="Age calculator">
-  <div class="card-body">
-    <div class="row">
-      <label for="dob">Date of Birth</label>
-      <input id="dob" type="date">
+  <header class="header" role="banner">
+    <div class="header-container">
+      <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" alt="Skill2Job logo">
+      </a>
+      
+      <button class="share-icon" onclick="sharePage()" title="Share this page">
+        <i class="fas fa-share-alt"></i>
+      </button>
     </div>
-    <div class="row">
-      <label for="ageOn">Age On</label>
-      <input id="ageOn" type="date">
+  </header>
+
+  <main class="main-container" role="main">
+    <!-- Google AdSense Ad (Responsive, Width 98%) -->
+    <div class="ads-wrapper">
+      <ins class="adsbygoogle"
+           style="display:block; width:100%; min-height:280px;"
+           data-ad-client="ca-pub-1876390706944654"
+           data-ad-slot="4054819400"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
-    <button id="calcBtn" class="btn">Calculate</button>
-    <div id="result" class="result">Pick both dates then tap Calculate.</div>
-    <div class="meta">Tip: Button changes to Reset after calculation.</div>
-  </div>
-</div>
 
-<div class="about-container">
-  <h4 class="h4-style">About This Tool</h4>
-  <p class="justify-p">
-  Skill2Job Online Tools presents the Online Age Calculator, a simple yet powerful utility that instantly calculates your exact age in years, months, and days. By entering your date of birth and the target date, you get fast, accurate, and reliable results without manual calculations.
-</p>
+    <h2 class="section-header">Age Calculator</h2>
 
-<p class="justify-p">
-  This calculator works entirely in-browser, ensuring your privacy and security. No downloads or installations are needed, and all computations happen locally on your device. Skill2Job Online Tools are fully responsive, so the age calculator adapts seamlessly to desktops, tablets, and smartphones for a smooth and user-friendly experience.
-</p>
+    <div class="calculator-card" role="region" aria-label="Age calculator">
+      <div class="row">
+        <label for="dob">Date of Birth</label>
+        <input id="dob" type="date">
+      </div>
+      <div class="row">
+        <label for="ageOn">Age On</label>
+        <input id="ageOn" type="date">
+      </div>
+      <button id="calcBtn" class="btn">Calculate</button>
+      <div id="result" class="result">Pick both dates then tap Calculate.</div>
+      <div class="meta">Tip: Button changes to Reset after calculation.</div>
+    </div>
 
-<p class="justify-p">
-  The Online Age Calculator is especially useful for official forms, applications, and documents that require precise age information. Skill2Job Online Tools provide accurate results for any target date, reducing errors compared to manual methods. You can calculate your age in years, months, days, total months, and total hours instantly.
-</p>
+    <h2 class="section-header">About This Tool</h2>
 
-<p class="justify-p">
-  With a clean and intuitive interface, Skill2Job Online Tools make age calculation quick and easy. Simply enter your date of birth and the date you want to calculate your age, then click “Calculate.” The tool generates results instantly, offering a complete and professional view of your age for personal or official purposes.
-</p>
+    <div class="about-section">
+      <p class="content-paragraph">
+        Skill2Job Online Tools presents the Online Age Calculator, a simple yet powerful utility that instantly calculates your exact age in years, months, and days. By entering your date of birth and the target date, you get fast, accurate, and reliable results without manual calculations.
+      </p>
 
-<p class="justify-p">
-  Privacy and security are a top priority. Skill2Job Online Tools run completely in your browser, meaning no data is stored or transmitted externally. This makes the Online Age Calculator fast, reliable, and safe. It combines efficiency, accuracy, and security, providing a professional-grade solution for anyone needing instant age calculations.
-</p>
-</div>
+      <p class="content-paragraph">
+        This calculator works entirely in-browser, ensuring your privacy and security. No downloads or installations are needed, and all computations happen locally on your device. Skill2Job Online Tools are fully responsive, so the age calculator adapts seamlessly to desktops, tablets, and smartphones for a smooth and user-friendly experience.
+      </p>
 
-<div class="footer">
-  &copy; <span>Skill2Job</span> | All Rights Reserved<br>
-  <a href="https://tools.skill2job.site/about//">About</a> |
-  <a href="https://tools.skill2job.site/disclaimer//">Disclaimer</a> |
-  <a href="https://tools.skill2job.site/privacy//">Privacy</a> |
-  <a href="https://tools.skill2job.site/terms//">Terms</a> |
-  <a href="https://tools.skill2job.site/contact//">Contact</a>
-  </div>
+      <p class="content-paragraph">
+        The Online Age Calculator is especially useful for official forms, applications, and documents that require precise age information. Skill2Job Online Tools provide accurate results for any target date, reducing errors compared to manual methods. You can calculate your age in years, months, days, total months, and total hours instantly.
+      </p>
 
-<script>
-const dobInput=document.getElementById('dob'); 
-const ageOnInput=document.getElementById('ageOn'); 
-const btn=document.getElementById('calcBtn'); 
-const result=document.getElementById('result');
+      <p class="content-paragraph">
+        With a clean and intuitive interface, Skill2Job Online Tools make age calculation quick and easy. Simply enter your date of birth and the date you want to calculate your age, then click "Calculate." The tool generates results instantly, offering a complete and professional view of your age for personal or official purposes.
+      </p>
 
-btn.addEventListener('click',()=>{
-  if(btn.dataset.mode==='reset'){resetAll();}
-  else{calculate();}
-});
+      <p class="content-paragraph">
+        Privacy and security are a top priority. Skill2Job Online Tools run completely in your browser, meaning no data is stored or transmitted externally. This makes the Online Age Calculator fast, reliable, and safe. It combines efficiency, accuracy, and security, providing a professional-grade solution for anyone needing instant age calculations.
+      </p>
+    </div>
+  </main>
 
-function daysInMonth(y,m){return new Date(y,m,0).getDate();}
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
+      <a href="about/">About</a> |
+      <a href="disclaimer/">Disclaimer</a> |
+      <a href="privacy/">Privacy</a> |
+      <a href="terms/">Terms</a> |
+      <a href="contact/">Contact</a>
+    </div>
+  </footer>
 
-function calculate(){
-  const dobVal=dobInput.value; 
-  const onVal=ageOnInput.value; 
-  if(!dobVal||!onVal){result.textContent='⚠ Please select both dates.'; return;} 
-  const birth=new Date(dobVal+'T00:00:00'); 
-  const target=new Date(onVal+'T00:00:00'); 
-  if(target<birth){result.textContent='⚠ Age On date must be same or after DOB.'; return;} 
-  let y=target.getFullYear()-birth.getFullYear(); 
-  let m=target.getMonth()-birth.getMonth(); 
-  let d=target.getDate()-birth.getDate(); 
-  if(d<0){m-=1; d+=daysInMonth(target.getFullYear(),target.getMonth());} 
-  if(m<0){y-=1; m+=12;} 
-  const totalMonths=y*12+m; 
-  const msDiff=target.getTime()-birth.getTime(); 
-  const totalDays=Math.floor(msDiff/86400000); 
-  const totalHours=Math.floor(msDiff/3600000); 
-  result.textContent=`Your age on ${target.toLocaleDateString()}:\n${y} years, ${m} months, ${d} days\n\nAlso:\n• Total months: ${totalMonths}\n• Total days: ${totalDays}\n• Total hours: ${totalHours}`; 
-  btn.textContent='Reset'; 
-  btn.classList.add('reset'); 
-  btn.dataset.mode='reset';
-}
+  <!-- Original JavaScript for Age Calculation (Intact) -->
+  <script>
+    const dobInput=document.getElementById('dob'); 
+    const ageOnInput=document.getElementById('ageOn'); 
+    const btn=document.getElementById('calcBtn'); 
+    const result=document.getElementById('result');
 
-function resetAll(){
-  dobInput.value=''; 
-  ageOnInput.value=''; 
-  result.textContent='Pick both dates then tap Calculate.'; 
-  btn.textContent='Calculate'; 
-  btn.classList.remove('reset'); 
-  btn.dataset.mode='';
-}
-</script>
+    btn.addEventListener('click',()=>{
+      if(btn.dataset.mode==='reset'){resetAll();}
+      else{calculate();}
+    });
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+    function daysInMonth(y,m){return new Date(y,m,0).getDate();}
 
+    function calculate(){
+      const dobVal=dobInput.value; 
+      const onVal=ageOnInput.value; 
+      if(!dobVal||!onVal){result.textContent='⚠ Please select both dates.'; return;} 
+      const birth=new Date(dobVal+'T00:00:00'); 
+      const target=new Date(onVal+'T00:00:00'); 
+      if(target<birth){result.textContent='⚠ Age On date must be same or after DOB.'; return;} 
+      let y=target.getFullYear()-birth.getFullYear(); 
+      let m=target.getMonth()-birth.getMonth(); 
+      let d=target.getDate()-birth.getDate(); 
+      if(d<0){m-=1; d+=daysInMonth(target.getFullYear(),target.getMonth());} 
+      if(m<0){y-=1; m+=12;} 
+      const totalMonths=y*12+m; 
+      const msDiff=target.getTime()-birth.getTime(); 
+      const totalDays=Math.floor(msDiff/86400000); 
+      const totalHours=Math.floor(msDiff/3600000); 
+      result.textContent=`Your age on ${target.toLocaleDateString()}:\n${y} years, ${m} months, ${d} days\n\nAlso:\n• Total months: ${totalMonths}\n• Total days: ${totalDays}\n• Total hours: ${totalHours}`; 
+      btn.textContent='Reset'; 
+      btn.classList.add('reset'); 
+      btn.dataset.mode='reset';
+    }
+
+    function resetAll(){
+      dobInput.value=''; 
+      ageOnInput.value=''; 
+      result.textContent='Pick both dates then tap Calculate.'; 
+      btn.textContent='Calculate'; 
+      btn.classList.remove('reset'); 
+      btn.dataset.mode='';
+    }
+  </script>
+
+  <!-- Share Functionality -->
+  <script>
+    // Function to handle native sharing
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Skill2Job Age Calculator',
+          text: 'Calculate your exact age instantly with Skill2Job Online Age Calculator.',
+          url: 'https://tools.skill2job.site/onlineagecalculator/'
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing:', error));
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText('Check out Skill2Job Age Calculator: https://tools.skill2job.site/onlineagecalculator/')
+          .then(() => {
+            alert('Link copied to clipboard! You can now share it anywhere.');
+          })
+          .catch(err => {
+            // Final fallback: show the URL in an alert
+            alert('Share this URL: https://tools.skill2job.site/onlineagecalculator/');
+          });
+      }
+    }
+  </script>
 </body>
 </html>
