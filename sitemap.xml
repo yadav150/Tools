@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://tools.skill2job.site/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Tool pages -->
+  <url>
+    <loc>https://tools.skill2job.site/bgremover</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/onlineagecalculator</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/onlineimagecombiner</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/onlineimageresizer</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/pdfcompressor</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/pdftojpegconverter</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/photoandsignjoiner</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Info pages -->
+  <url>
+    <loc>https://tools.skill2job.site/about</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/contact</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/disclaimer</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/privacy</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tools.skill2job.site/terms</loc>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
