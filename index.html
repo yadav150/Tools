@@ -3,217 +3,361 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Skill2Job Online Tools</title>
+  <title>Skill2Job.site - Free Online Tools</title>
   <meta name="description" content="Free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser.">
   <meta name="keywords" content="online tools, free pdf tools, image resizer, pdf to jpeg, age calculator, Skill2Job">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Essential SEO Meta Tags -->
+<link rel="canonical" href="https://tools.skill2job.site/" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Skill2Job Online Tools - Free Image & PDF Tools" />
+<meta property="og:description" content="Free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser." />
+<meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+<meta property="og:url" content="https://tools.skill2job.site/" />
+<meta property="og:site_name" content="Skill2Job Online Tools" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Skill2Job Online Tools - Free Image & PDF Tools" />
+<meta name="twitter:description" content="Free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser." />
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+
+<!-- Additional Technical SEO -->
+<meta name="theme-color" content="#d32f2f" />
+<meta name="msapplication-TileColor" content="#d32f2f" />
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Skill2Job Online Tools",
+  "description": "Free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser.",
+  "url": "https://tools.skill2job.site/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Skill2Job"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Yadav Subba"
+  }
+}
+</script>
+
+<!-- Performance & Preloading -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" />
   <style>
-    :root{
-      --accent:#d32f2f;
-      --btn:#000;
-      --text:#111;
-      --sheet:#fff;
-      --max-read:1100px; /* readable content width used across pages */
-      --page-pad:16px;
+    :root {
+      --accent: #d32f2f;
+      --btn: #000;
+      --text: #111;
+      --sheet: #fff;
+      --max-width: 95%;
+      --max-read: 1100px;
+      --page-pad: 16px;
+      --border-radius: 2px;
     }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background:#fafafa;
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding-bottom:72px;
-      line-height:1.55;
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-
-    /* Header - full width background, inner content centered visually like other pages */
-    .header{
-      background:#fff;
-      padding:14px 16px;
-      border-bottom:1px solid #ddd;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+    
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #fafafa;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.55;
+      padding-bottom: 72px;
     }
-    .site-title{ font-weight:700; font-size:20px; margin:0; color:#000; }
-    .site-brand img{
-      width:32px; height:32px; border-radius:8px; display:block;
+    
+    /* Header */
+    .header {
+      background: #fff;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      width: 100%;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
-
-    /* ADS CONTAINER */
-.ads-wrapper {
-    width: 96%;             
-    margin: 18px auto;      
-    padding: 0;             
-}
-
-.ads-container {
-    width: 100%;           
-    height: 320px;          
-    margin: 0;
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: 2px;
-    text-align: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
-
-.ads-container ins.adsbygoogle {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.ads-placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #777;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    pointer-events: none; /* Prevent blocking clicks */
-}
-
-.ads-placeholder i {
-    font-size: 28px;
-    color: #777;
-        }
-
-    .h4-style{
-      background-color:var(--accent);
-      color:#fff;
-      padding:8px 12px;
-      border-radius: 2px;
-      display:block;
-      font-size:18px;
-      margin-left:10px;
-      margin-right:10px;;
+    
+    .header-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
-
-    /* Tools container: will expand to content-inner width and cards will be 100% (so they grow) */
-    .tools-container{
-      width:100%;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-bottom:18px;
+    
+    .site-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--border-radius);
+      display: block;
     }
-    .tools-container .card{
-      background:var(--sheet);
-      border:1px solid #e6e6e6;
-      border-radius:10px;
-      padding:12px;
-      box-shadow:0 1px 4px rgba(0,0,0,0.04);
-      width:100%; /* ensures card expands to available width */
-      display:block;
+    
+    /* Share Icon */
+    .share-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius);
+      background: #f5f5f5;
+      color: #555;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
     }
-    .tools-container .card h2{
-      margin:0 0 6px 0;
-      color:var(--accent);
-      font-size:18px;
+    
+    .share-icon:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .tools-container .card p{ margin:0 0 8px 0; color:#333; }
-    .tools-container .card a{
-      display:inline-block;
-      padding:6px 10px;
-      background:var(--btn);
-      color:#fff;
-      text-decoration:none;
-      border-radius:4px;
-      font-weight:400;
+    
+    /* Main content container */
+    .main-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
     }
-    .tools-container .card a:hover{ background:var(--accent); }
-
-    /* Paragraphs: centered inside content-inner and justified */
-    .justify-p{
-      text-align:justify;
-      margin-top:30px;
-      margin-left:10px;
-      margin-right:10px;;
-      font-size:15px;
-      color:#222;
+    
+    /* Section headers */
+    .section-header {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      font-size: 18px;
+      margin: 20px 0 15px;
     }
-
-    /* Footer (same fixed style as before) */
-    .footer{
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      text-align:center;
-      padding:10px 6px;
-      background:#f5f5f5;
-      border-top:1px solid #ddd;
-      font-size:13px;
-      color:#555;
+    
+    /* Tools container */
+    .tools-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
     }
-    .footer a{ color:#555; text-decoration:none; margin:0 6px; }
-
+    
+    /* Desktop grid layout */
+    @media (min-width: 768px) {
+      .tools-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+    }
+    
+    .card {
+      background: var(--sheet);
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      padding: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      width: 100%;
+    }
+    
+    .card h2 {
+      margin: 0 0 6px 0;
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .card p {
+      margin: 0 0 8px 0;
+      color: #333;
+      font-size: 13.5px;
+      line-height: 1.4;
+    }
+    
+    .card a {
+      display: inline-block;
+      padding: 5px 8px;
+      background: var(--btn);
+      color: #fff;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      font-weight: 400;
+      font-size: 12px;
+    }
+    
+    .card a:hover {
+      background: var(--accent);
+    }
+    
+    /* About section container */
+    .about-section {
+      background: var(--sheet);
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+    
+    /* Content paragraphs */
+    .content-paragraph {
+      text-align: justify;
+      margin: 20px 0;
+      font-size: 15px;
+      color: #222;
+    }
+    
+    .content-paragraph a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .content-paragraph a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      background: #f5f5f5;
+      border-top: 1px solid #ddd;
+      font-size: 13px;
+      color: #555;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+    
+    .footer-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+    }
+    
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+    
     /* Small screens adjustments */
-    @media (max-width:760px){
-      .header{ padding:10px 12px; }
-      .site-title{ font-size:18px; }
-      .ads-container{ padding:10px 0; min-height:140px; }
-      .h4-style{ margin-top:18px; margin-left:0; margin-right:0; padding:6px 8px; }
-      .content-inner{ margin:12px auto; padding:0 10px; }
-      .site-brand img{ width:30px; height:30px; }
+    @media (max-width: 760px) {
+      .header {
+        padding: 10px 0;
+      }
+      
+      .header-container {
+        width: 95%;
+      }
+      
+      .main-container {
+        width: 95%;
+      }
+      
+      .section-header {
+        margin: 18px 0 12px;
+        padding: 6px 8px;
+      }
+      
+      .site-brand img {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .footer-container {
+        width: 95%;
+      }
+      
+      .about-section {
+        padding: 12px;
+      }
+      
+      .share-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
     }
-
-    /* When screen is narrow, remove float-like behavior for header brand */
-    @media (max-width:420px){
-      .header{ flex-direction:row; align-items:center; gap:8px; }
+    
+    @media (max-width: 420px) {
+      .header-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
     }
   </style>
   <!-- Global site tag (gtag.js) - Google Analytics for Subdomain -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HV12J7V98D');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV12J7V98D');
+  </script>
+  <!-- AdSense Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
+     crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="header" role="banner">
-    <h1 class="site-title">Skill2Job Online Tools</h1>
-    <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
-      <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" alt="Skill2Job logo">
-    </a>
+    <div class="header-container">
+      <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" alt="Skill2Job logo">
+      </a>
+      
+      <button class="share-icon" onclick="sharePage()" title="Share this page">
+        <i class="fas fa-share-alt"></i>
+      </button>
+    </div>
   </header>
 
-  <!-- Responsive Rectangle AdSense Container -->
-<div class="ads-wrapper">
-    <div class="ads-container">
-        <!-- Placeholder with blowhorn icon -->
-        <div class="ads-placeholder">
-            <i class="fas fa-bullhorn"></i>
-            <p>Ads help us provide this service for free</p>
-        </div>
-        <!-- Actual AdSense code -->
-        <ins class="adsbygoogle"
-             style="display:block;margin:0 auto;"
-             data-ad-client="ca-pub-1876390706944654"
-             data-ad-slot="2968764212"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+  <main class="main-container" role="main">
+    <!-- Google AdSense Ad (Responsive, Width 98%) -->
+<div style="width:98%; margin:auto; min-height:250px; text-align:center;">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
+       crossorigin="anonymous"></script>
+
+  <ins class="adsbygoogle"
+       style="display:block; width:100%; min-height:250px;"
+       data-ad-client="ca-pub-1876390706944654"
+       data-ad-slot="4054819400"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </div>
 
-    <h4 class="h4-style">Our Available Tools</h4>
+    <h2 class="section-header">Our Available Tools</h2>
 
     <div class="tools-container">
       <div class="card">
@@ -258,37 +402,66 @@
         <a href="photoandsignjoiner/">Open Tool</a>
       </div>
     </div>
-    <h4 class="h4-style">About Skill2Job</h4>
 
-<p class="justify-p">
-<a href="https://www.skill2job.site/">Skill2Job</a> is a versatile online platform dedicated to providing users with simple, efficient, and free web tools for everyday digital tasks. From resizing, compressing, and combining images to converting PDFs, calculating ages, or generating quick online solutions, our platform ensures every tool is fast, reliable, and easy to use. Designed for both beginners and advanced users, Skill2Job emphasizes accessibility, convenience, and performance without compromising quality. Students, professionals, content creators, and anyone needing quick digital solutions can benefit from our platform. By focusing on usability, speed, and reliability, Skill2Job empowers users to complete digital tasks effectively, turning complex processes into effortless actions that save valuable time and energy.
-</p>
+    <h2 class="section-header">About Skill2Job</h2>
 
-<p class="justify-p">
-All Skill2Job Tools run entirely in your browser, eliminating the need for downloads or installations. This ensures that sensitive files and personal data remain private, as nothing is ever uploaded to external servers. Security and privacy are core priorities, making Skill2Job a trustworthy platform for handling personal, educational, or professional content. Tools work seamlessly across desktops, laptops, tablets, and smartphones, allowing users to access utilities anytime, anywhere. Whether working from home, school, or on the go, Skill2Job ensures fast, secure, and accessible solutions for every user.
-</p>
+    <div class="about-section">
+      <p class="content-paragraph">
+        <a href="https://www.skill2job.site/">Skill2Job</a> is a versatile online platform dedicated to providing users with simple, efficient, and free web tools for everyday digital tasks. From resizing, compressing, and combining images to converting PDFs, calculating ages, or generating quick online solutions, our platform ensures every tool is fast, reliable, and easy to use. Designed for both beginners and advanced users, Skill2Job emphasizes accessibility, convenience, and performance without compromising quality. Students, professionals, content creators, and anyone needing quick digital solutions can benefit from our platform. By focusing on usability, speed, and reliability, Skill2Job empowers users to complete digital tasks effectively, turning complex processes into effortless actions that save valuable time and energy.
+      </p>
 
-<p class="justify-p">
-Founded and developed by Yadav Subba from Dikhlem Subba Basti, Hawaipur Mauza, West Karbi Anglong, Assam, Skill2Job is committed to simplifying digital tasks for a broad audience. Our mission is to create innovative, easy-to-use, and accessible tools that cater to students, professionals, content creators, and casual users. We regularly update and enhance the platform to ensure all utilities function flawlessly and provide a satisfying experience. By blending functionality, speed, and user-friendliness, Skill2Job has become a reliable destination for anyone seeking efficient online tools.
-</p>
+      <p class="content-paragraph">
+        All Skill2Job Tools run entirely in your browser, eliminating the need for downloads or installations. This ensures that sensitive files and personal data remain private, as nothing is ever uploaded to external servers. Security and privacy are core priorities, making Skill2Job a trustworthy platform for handling personal, educational, or professional content. Tools work seamlessly across desktops, laptops, tablets, and smartphones, allowing users to access utilities anytime, anywhere. Whether working from home, school, or on the go, Skill2Job ensures fast, secure, and accessible solutions for every user.
+      </p>
 
-<p class="justify-p">
-In addition to practical tools, Skill2Job offers timely updates for government jobs, admit cards, results, tutorials, and career guidance. Users can access all updates alongside online utilities to streamline preparation and save time. The platform emphasizes convenience, speed, and reliability, ensuring students and aspirants can perform tasks efficiently while staying informed. By integrating career resources with practical tools, Skill2Job Tools empowers users to focus on achieving goals without compromising privacy or performance.
-</p>
+      <p class="content-paragraph">
+        Founded and developed by Yadav Subba from Dikhlem Subba Basti, Hawaipur Mauza, West Karbi Anglong, Assam, Skill2Job is committed to simplifying digital tasks for a broad audience. Our mission is to create innovative, easy-to-use, and accessible tools that cater to students, professionals, content creators, and casual users. We regularly update and enhance the platform to ensure all utilities function flawlessly and provide a satisfying experience. By blending functionality, speed, and user-friendliness, Skill2Job has become a reliable destination for anyone seeking efficient online tools.
+      </p>
 
-<p class="justify-p">
-We encourage all users to join and follow our official channels to stay connected with the latest updates and tools. Join our <a href="https://chat.whatsapp.com/B6JT3SoO5qUFGTXHwSy6mR?mode=ems_copy_t">WhatsApp Group</a> and follow our <a href="https://www.facebook.com/groups/948663269161123/?ref=share&mibextid=NSMWBT">Facebook Channel</a> to receive notifications, tips, and resources directly. Additionally, visit our <a href="https://www.skill2job.site/">official Skill2Job Job Updates website</a> to explore all tools and career updates in one place. By connecting with us, users can ensure they never miss new features, tools, or important job notifications while benefiting from Skill2Job Tools’ safe, fast, and reliable online solutions.
-</p>
+      <p class="content-paragraph">
+        In addition to practical tools, Skill2Job offers timely updates for government jobs, admit cards, results, tutorials, and career guidance. Users can access all updates alongside online utilities to streamline preparation and save time. The platform emphasizes convenience, speed, and reliability, ensuring students and aspirants can perform tasks efficiently while staying informed. By integrating career resources with practical tools, Skill2Job Tools empowers users to focus on achieving goals without compromising privacy or performance.
+      </p>
 
+      <p class="content-paragraph">
+        We encourage all users to join and follow our official channels to stay connected with the latest updates and tools. Join our <a href="https://chat.whatsapp.com/B6JT3SoO5qUFGTXHwSy6mR?mode=ems_copy_t">WhatsApp Group</a> and follow our <a href="https://www.facebook.com/groups/948663269161123/?ref=share&mibextid=NSMWBT">Facebook Channel</a> to receive notifications, tips, and resources directly. Additionally, visit our <a href="https://www.skill2job.site/">official Skill2Job Job Updates website</a> to explore all tools and career updates in one place. By connecting with us, users can ensure they never miss new features, tools, or important job notifications while benefiting from Skill2Job Tools' safe, fast, and reliable online solutions.
+      </p>
+    </div>
   </main>
 
   <footer class="footer" role="contentinfo">
-    &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
-    <a href="about/">About</a> |
-    <a href="disclaimer/">Disclaimer</a> |
-    <a href="privacy/">Privacy</a> |
-    <a href="terms/">Terms</a> |
-    <a href="contact/">Contact</a>
+    <div class="footer-container">
+      &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
+      <a href="about/">About</a> |
+      <a href="disclaimer/">Disclaimer</a> |
+      <a href="privacy/">Privacy</a> |
+      <a href="terms/">Terms</a> |
+      <a href="contact/">Contact</a>
+    </div>
   </footer>
+
+  <script>
+    // Function to handle native sharing
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Skill2Job Online Tools',
+          text: 'Check out these free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser.',
+          url: 'https://tools.skill2job.site'
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing:', error));
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText('Check out Skill2Job Online Tools: https://tools.skill2job.site')
+          .then(() => {
+            alert('Link copied to clipboard! You can now share it anywhere.');
+          })
+          .catch(err => {
+            // Final fallback: show the URL in an alert
+            alert('Share this URL: https://tools.skill2job.site');
+          });
+      }
+    }
+  </script>
 </body>
 </html>
