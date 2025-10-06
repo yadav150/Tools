@@ -18,7 +18,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Online Age Calculator - Skill2Job Tools" />
   <meta property="og:description" content="Calculate your exact age instantly with Skill2Job Online Age Calculator. Enter your date of birth and target date to get years, months, and days." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
   <meta property="og:url" content="https://tools.skill2job.site/onlineagecalculator/" />
   <meta property="og:site_name" content="Skill2Job Online Tools" />
 
@@ -26,12 +26,12 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Online Age Calculator - Skill2Job Tools" />
   <meta name="twitter:description" content="Calculate your exact age instantly with Skill2Job Online Age Calculator. Enter your date of birth and target date to get years, months, and days." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
 
   <!-- Additional Technical SEO -->
   <meta name="theme-color" content="#d32f2f" />
   <meta name="msapplication-TileColor" content="#d32f2f" />
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -61,293 +61,82 @@
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
   
   <style>
-    :root {
-      --accent: #d32f2f;
-      --btn: #000;
-      --text: #111;
-      --sheet: #fff;
-      --max-width: 95%;
-      --max-read: 1100px;
-      --page-pad: 16px;
-      --border-radius: 2px;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: #fafafa;
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1.55;
-      padding-bottom: 72px;
-    }
-    
-    /* Header */
-    .header {
-      background: #fff;
-      padding: 14px 0;
-      border-bottom: 1px solid #ddd;
-      width: 100%;
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
-    }
-    
-    .header-container {
-      max-width: var(--max-read);
-      width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    
-    .site-brand img {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--border-radius);
-      display: block;
-    }
-    
-    /* Share Icon */
-    .share-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: var(--border-radius);
-      background: #f5f5f5;
-      color: #555;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      font-size: 16px;
-    }
-    
-    .share-icon:hover {
-      background: var(--accent);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    /* Main content container */
-    .main-container {
-      max-width: var(--max-read);
-      width: var(--max-width);
-      margin: 0 auto;
-    }
-    
-    /* ADS CONTAINER */
-    .ads-wrapper {
-      width: 98%;
-      margin: 18px auto;
-      min-height: 280px;
-      text-align: center;
-    }
-    
-    /* Section headers */
-    .section-header {
-      background-color: var(--accent);
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: var(--border-radius);
-      font-size: 18px;
-      margin: 20px 0 15px;
-    }
-    
-    /* Calculator Card */
-    .calculator-card {
-      background: var(--sheet);
-      border: 1px solid #e6e6e6;
-      border-radius: var(--border-radius);
-      padding: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-      width: 100%;
-      margin-bottom: 18px;
-    }
-    
-    .calculator-card .row {
-      margin-bottom: 16px;
-    }
-    
-    .calculator-card label {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: #333;
-    }
-    
-    .calculator-card input[type="date"] {
-      width: 100%;
-      padding: 10px 12px;
-      font-size: 15px;
-      border: 1px solid #e6e6e6;
-      border-radius: var(--border-radius);
-      background: #fff;
-      outline: none;
-    }
-    
-    .calculator-card input[type="date"]:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.1);
-    }
-    
-    .calculator-card .btn {
-      display: block;
-      width: 100%;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #fff;
-      background: var(--btn);
-      border: none;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      margin-top: 8px;
-    }
-    
-    .calculator-card .btn.reset {
-      background: #666;
-    }
-    
-    .calculator-card .result {
-      margin-top: 16px;
-      min-height: 110px;
-      border: 1px solid #e6e6e6;
-      border-radius: var(--border-radius);
-      background: #f9f9f9;
-      padding: 14px;
-      font-weight: 600;
-      color: var(--text);
-      white-space: pre-wrap;
-      line-height: 1.5;
-    }
-    
-    .calculator-card .meta {
-      font-size: 13px;
-      color: #777;
-      margin-top: 8px;
-    }
-    
-    /* About section container */
-    .about-section {
-      background: var(--sheet);
-      border: 1px solid #e6e6e6;
-      border-radius: var(--border-radius);
-      padding: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-      margin-bottom: 20px;
-    }
-    
-    /* Content paragraphs */
-    .content-paragraph {
-      text-align: justify;
-      margin: 20px 0;
-      font-size: 15px;
-      color: #222;
-    }
-    
-    .content-paragraph a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    
-    .content-paragraph a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Footer */
-    .footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-      background: #f5f5f5;
-      border-top: 1px solid #ddd;
-      font-size: 13px;
-      color: #555;
-      border-radius: var(--border-radius) var(--border-radius) 0 0;
-    }
-    
-    .footer-container {
-      max-width: var(--max-read);
-      width: var(--max-width);
-      margin: 0 auto;
-    }
-    
-    .footer a {
-      color: #555;
-      text-decoration: none;
-      margin: 0 6px;
-    }
-    
-    /* Small screens adjustments */
-    @media (max-width: 760px) {
-      .header {
-        padding: 10px 0;
-      }
-      
-      .header-container {
-        width: 95%;
-      }
-      
-      .main-container {
-        width: 95%;
-      }
-      
-      .ads-wrapper {
-        width: 95%;
-        min-height: 250px;
-      }
-      
-      .section-header {
-        margin: 18px 0 12px;
-        padding: 6px 8px;
-      }
-      
-      .site-brand img {
-        width: 30px;
-        height: 30px;
-      }
-      
-      .footer-container {
-        width: 95%;
-      }
-      
-      .about-section {
-        padding: 12px;
-      }
-      
-      .share-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-      }
-      
-      .calculator-card {
-        padding: 12px;
-      }
-    }
-    
-    @media (max-width: 420px) {
-      .header-container {
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-      }
-    }
-  </style>
+:root {
+  --accent: #d32f2f;
+  --btn: #000;
+  --text: #111;
+  --sheet: #fff;
+  --max-width: 98%;
+  --max-read: 1100px;
+  --page-pad: 16px;
+  --border-radius: 2px;
+}
+
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #fafafa;
+  color: var(--text);
+  line-height: 1.55;
+  padding-bottom: 72px;
+}
+
+/* Header */
+.header { background:#fff; padding:14px 0; border-bottom:1px solid #ddd; border-radius:0 0 var(--border-radius) var(--border-radius); width:100%; }
+.header-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block;margin-left:5px; }
+
+/* Share Icon */
+.share-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius); background:#f5f5f5; color:#555; text-decoration:none; cursor:pointer; font-size:16px; border:none; transition:0.3s;margin-right:5px; }
+.share-icon:hover { background: var(--accent); color:#fff; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+
+/* Main content container */
+.main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
+
+/* ADS CONTAINER */
+.ads-wrapper { width:98%; margin:18px auto; min-height:280px; text-align:center; background:#fff; border:1px solid #e6e6e6; border-radius:var(--border-radius); overflow:hidden; }
+
+/* Section headers */
+.section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
+
+/* Tool Card */
+.tool-card { background: var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); width:100%; margin-bottom:18px; }
+.tool-card .row { margin-bottom:16px; }
+.tool-card label { display:block; font-size:14px; margin-bottom:6px; color:#333; }
+.tool-card input[type="date"], .tool-card select { width:100%; padding:10px 12px; font-size:15px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#fff; outline:none; }
+.tool-card input[type="date"]:focus, .tool-card select:focus { border-color: var(--accent); box-shadow:0 0 0 2px rgba(211,47,47,0.1); }
+.tool-card .btn { display:block; width:100%; padding:10px 14px; font-size:14px; color:#fff; background:var(--btn); border:none; border-radius:var(--border-radius); cursor:pointer; margin-top:8px; }
+.tool-card .btn.reset { background:#666; }
+.tool-card .result { margin-top:16px; min-height:110px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#f9f9f9; padding:14px; color: var(--text); white-space:pre-wrap; line-height:1.5; }
+.tool-card .meta { font-size:13px; color:#777; margin-top:8px; }
+
+/* About section */
+.about-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
+.content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
+.content-paragraph a { color: var(--accent); text-decoration:none; }
+.content-paragraph a:hover { text-decoration:underline; }
+
+/* Footer */
+.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 0; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; border-radius: var(--border-radius) var(--border-radius) 0 0; }
+.footer-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
+.footer a { color:#555; text-decoration:none; margin:0 6px; }
+
+/* Responsive */
+@media (max-width:760px) {
+  .header { padding:10px 0; }
+  .header-container, .main-container, .footer-container { width:98%; }
+  .ads-wrapper { width:98%; min-height:280px; }
+  .section-header { margin:18px 0 12px; padding:6px 8px; }
+  .site-brand img { width:30px; height:30px; }
+  .about-section { padding:12px; }
+  .share-icon { width:32px; height:32px; font-size:14px; }
+  .tool-card { padding:12px; }
+}
+@media (max-width:420px) {
+  .header-container { flex-direction:row; align-items:center; gap:8px; }
+}
+</style>
   
   <!-- Global site tag (gtag.js) - Google Analytics for Subdomain -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
@@ -366,7 +155,7 @@
   <header class="header" role="banner">
     <div class="header-container">
       <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
-        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" alt="Skill2Job logo">
+        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" alt="Skill2Job logo">
       </a>
       
       <button class="share-icon" onclick="sharePage()" title="Share this page">
@@ -376,6 +165,8 @@
   </header>
 
   <main class="main-container" role="main">
+    <!-- Auto AdSense will place ads automatically -->
+
     <!-- Google AdSense Ad (Responsive, Width 98%) -->
     <div class="ads-wrapper">
       <ins class="adsbygoogle"
@@ -391,7 +182,7 @@
 
     <h2 class="section-header">Age Calculator</h2>
 
-    <div class="calculator-card" role="region" aria-label="Age calculator">
+    <div class="tool-card" role="region" aria-label="Age calculator">
       <div class="row">
         <label for="dob">Date of Birth</label>
         <input id="dob" type="date">
