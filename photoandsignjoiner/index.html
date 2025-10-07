@@ -81,17 +81,17 @@ body {
 
 .main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
 
-/* Reserve space for ads and prevent layout shift */
-.ads-wrapper {
-  width: 98%;
-  margin: 18px auto;
-  min-height: 280px;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-}
+/* Reserve ad container space with aspect ratio */
+    .ads-wrapper {
+      width: 100%;
+      margin: 16px auto;
+      min-height: 250px;
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
 
 .section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
 
