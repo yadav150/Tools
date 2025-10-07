@@ -1,152 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PDF Compressor Tool</title>
-<!-- SEO Meta Tags -->
-<meta name="description" content="Compress PDF files instantly for free using this online PDF compressor tool by Skill2Job. Reduce file size without losing quality.">
-<meta name="keywords" content="PDF compressor, compress PDF online, reduce PDF size, free PDF compressor, online PDF tool, Skill2Job PDF compressor">
-<meta name="author" content="Skill2Job">
-<meta name="robots" content="index, follow">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png">
-<style>
-/* same CSS as before */
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PDF Compressor Tool — Skill2Job Tools</title>
+  <meta name="description" content="Skill2Job Tools PDF Compressor lets you instantly reduce PDF file size for free. Compress PDFs without losing quality, ideal for official documents and applications.">
+  <meta name="keywords" content="PDF compressor, compress PDF online, reduce PDF size, free PDF compressor, online PDF tool, Skill2Job PDF compressor">
+  <meta name="author" content="Skill2Job">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Essential SEO Meta Tags -->
+  <link rel="canonical" href="https://tools.skill2job.site/pdfcompressor/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PDF Compressor Tool - Skill2Job Tools" />
+  <meta property="og:description" content="Skill2Job Tools PDF Compressor lets you instantly reduce PDF file size for free. Compress PDFs without losing quality, ideal for official documents and applications." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+  <meta property="og:url" content="https://tools.skill2job.site/pdfcompressor/" />
+  <meta property="og:site_name" content="Skill2Job Online Tools" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PDF Compressor Tool - Skill2Job Tools" />
+  <meta name="twitter:description" content="Skill2Job Tools PDF Compressor lets you instantly reduce PDF file size for free. Compress PDFs without losing quality, ideal for official documents and applications." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#d32f2f" />
+  <meta name="msapplication-TileColor" content="#d32f2f" />
+  <link rel="icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
+
+  <!-- Preconnect & preload -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+  <style>
 :root {
-  --accent:#d32f2f;
-  --btn:#000;
-  --input-bg:#fff6f6;
-  --text:#111;
-  --muted:#777;
-  --sheet:#ffffff;
+  --accent: #d32f2f;
+  --btn: #000;
+  --text: #111;
+  --sheet: #fff;
+  --max-width: 98%;
+  --max-read: 1100px;
+  --page-pad: 16px;
+  --border-radius: 2px;
 }
-* { box-sizing:border-box; }
-body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-  background:#fafafa; color:var(--text); padding-bottom:60px; font-size:14px; }
-.header { background:#FFFFFF; color:#000000; padding:14px 16px; font-weight:700; font-size:20px; text-align:left; }
-.card { max-width:720px; margin:18px auto; background:var(--sheet); border:1px solid #e6e6e6; border-radius:4px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
-.card-body { padding:14px; }
-.row { margin-bottom:12px; }
-label { display:block; font-size:12px; margin-bottom:6px; font-weight:600; color:var(--muted); }
-input[type="file"], select { width:100%; padding:8px 10px; font-size:13px; border:1px solid #ccc; border-radius:1px; background:var(--input-bg); outline:none; }
-.btn { display:block; width:100%; padding:9px 12px; font-size:14px; font-weight:700; color:#fff; background:var(--btn); border:none; border-radius:1px; cursor:pointer; margin-top:8px; }
-.result { margin-top:10px; min-height:100px; border:1px solid #cfcfcf; border-radius:1px; background:#fff; padding:10px; font-weight:600; color:var(--text); white-space:pre-wrap; font-size:13px; }
-.h4-style { background-color:#FF0000; padding:8px 12px; border-radius:2px; color:#ffffff; margin-top:30px; font-size:16px; }
-.justify-p { text-align:justify; margin-bottom:10px; line-height:1.5; font-size:15px; }
-.ads-container { width:95%; max-width:720px; margin:18px auto; background:#fff; border:1px solid #e6e6e6; border-radius:2px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.03); overflow:hidden; }
-.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:8px 5px; background:#f5f5f5; border-top:1px solid #ddd; font-size:12px; color:#555; }
-a.download-link { display:inline-block; margin-top:6px; padding:8px 14px; background:var(--accent); color:#fff; border-radius:2px; text-decoration:none; font-weight:600; font-size:13px; }
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #fafafa;
+  color: var(--text);
+  line-height: 1.55;
+  padding-bottom: 72px;
+}
+
+/* Header */
+.header { background:#fff; padding:14px 0; border-bottom:1px solid #ddd; border-radius:0 0 var(--border-radius) var(--border-radius); width:100%; }
+.header-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block; margin-left:5px; }
+
+/* Prevent layout shift by fixing image dimensions */
+.site-brand img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Share Icon */
+.share-icon {
+  display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius);
+  background:#f5f5f5; color:#555; border:none; font-size:16px; cursor:pointer; margin-right:5px; transition:0.3s;
+}
+.share-icon:hover { background: var(--accent); color:#fff; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+
+.main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
+
+/* Reserve ad container space with aspect ratio */
+.ads-wrapper {
+  width: 100%;
+  margin: 16px auto;
+  min-height: 250px;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
+
+.tool-card { background: var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); width:100%; margin-bottom:18px; }
+.row { margin-bottom:16px; }
+label { display:block; font-size:14px; margin-bottom:6px; color:#333; }
+input[type="file"], select { width:100%; padding:10px 12px; font-size:15px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#fff; outline:none; }
+input[type="file"]:focus, select:focus { border-color: var(--accent); box-shadow:0 0 0 2px rgba(211,47,47,0.1); }
+.btn { display:block; width:100%; padding:10px 14px; font-size:14px; color:#fff; background:var(--btn); border:none; border-radius:var(--border-radius); cursor:pointer; margin-top:8px; }
+.reset { background:#666; }
+
+/* Reserve space for dynamic result to reduce layout shifts */
+#result {
+  min-height: 250px;
+  transition: none;
+  margin-top: 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--border-radius);
+  background: #f9f9f9;
+  padding: 14px;
+  color: var(--text);
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+a.download-link { 
+  display: inline-block; 
+  margin-top: 6px; 
+  padding: 8px 14px; 
+  background: var(--accent); 
+  color: #fff; 
+  border-radius: var(--border-radius); 
+  text-decoration: none; 
+  font-weight: 600; 
+  font-size: 13px; 
+}
+
+.about-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
+.content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
+.content-paragraph a { color: var(--accent); text-decoration:none; }
+.content-paragraph a:hover { text-decoration:underline; }
+
+.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 0; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; border-radius: var(--border-radius) var(--border-radius) 0 0; }
+.footer-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
+.footer a { color:#555; text-decoration:none; margin:0 6px; }
+
+@media(max-width:760px) {
+  .header { padding:10px 0; }
+  .header-container, .main-container, .footer-container { width:98%; }
+  .section-header { margin:18px 0 12px; padding:6px 8px; }
+  .site-brand img { width:30px; height:30px; }
+  .about-section { padding:12px; }
+  .share-icon { width:32px; height:32px; font-size:14px; }
+}
 </style>
+
+<!-- External Scripts (Deferred for speed) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HV12J7V98D');
+</script>
+
 </head>
 <body>
-<div class="header">
-  Online PDF Compressor
-  <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" 
-       alt="Favicon" style="width:32px; height:32px; vertical-align:middle; float:right; border-radius:8px;">
-</div>
-<div class="ads-container">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1876390706944654"
-       data-ad-slot="2968764212"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-<div class="card">
-<div class="card-body">
-  <div class="row">
-    <label for="pdfFile">Upload PDF</label>
-    <input type="file" id="pdfFile" accept="application/pdf">
+<header class="header" role="banner">
+  <div class="header-container">
+    <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" alt="Skill2Job logo" width="32" height="32">
+    </a>
+    <button class="share-icon" onclick="sharePage()" title="Share this page">
+      <i class="fas fa-share-alt"></i>
+    </button>
   </div>
-  <div class="row">
-    <label for="compressionLevel">Compression Level</label>
-    <select id="compressionLevel">
-      <option value="">--Select--</option>
-      <option value="Low">Low (Minimal)</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High (Strong)</option>
-    </select>
+</header>
+
+<main class="main-container" role="main">
+  <!-- AdSense -->
+  <div class="ads-wrapper">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; min-height:280px;"
+         data-ad-client="ca-pub-1876390706944654"
+         data-ad-slot="4054819400"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
-  <button id="compressBtn" class="btn">Compress PDF</button>
-  <div id="result" class="result">Upload a PDF and select compression level.</div>
-  <h4 class="h4-style">About This Tool</h4>
-  <p class="justify-p">
-Skill2Job Online PDF Compressor is created to make document management simple, fast, and stress-free. Many official forms, exam applications, and professional submissions have strict file size limits, and oversized PDFs often cause rejection. This tool helps you reduce the size of your PDF files instantly without installing heavy software. With just a few clicks, your document is compressed while maintaining clarity and readability. It works directly in your browser, ensuring accessibility, speed, and convenience for all users.
-</p>
 
-<p class="justify-p">
-One of the standout features of the Skill2Job PDF Compressor is its ability to preserve text quality and formatting while reducing file size. Unlike other online platforms that compromise clarity, this tool ensures that every word, table, and image remains sharp and easy to read. Whether you are uploading a resume, project report, or academic paper, the final compressed file is professional and presentable. This makes the tool ideal for students, job seekers, and working professionals dealing with sensitive documents.
-</p>
+  <!-- Tool Content -->
+  <h2 class="section-header">PDF Compressor</h2>
+  <div class="tool-card" role="region" aria-label="PDF Compressor">
+    <div class="row">
+      <label for="pdfFile">Upload PDF</label>
+      <input type="file" id="pdfFile" accept="application/pdf">
+    </div>
+    <div class="row">
+      <label for="compressionLevel">Compression Level</label>
+      <select id="compressionLevel">
+        <option value="">--Select--</option>
+        <option value="Low">Low (Minimal)</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High (Strong)</option>
+      </select>
+    </div>
+    <button id="compressBtn" class="btn">Compress PDF</button>
+    <div id="result" class="result">Upload a PDF and select compression level.</div>
+  </div>
 
-<p class="justify-p">
-Skill2Job Online PDF Compressor operates fully within your browser, meaning your files never leave your device. This ensures complete privacy and security, making it reliable for handling confidential documents. No uploads to third-party servers, no waiting times, and no risks of data leaks. The compression process is instant and offline, giving you full control over your documents. This local-processing approach sets Skill2Job apart from many other online services that store or misuse personal files during the compression process.
-</p>
+  <h2 class="section-header">About This Tool</h2>
+  <div class="about-section">
+    <p class="content-paragraph">
+      Skill2Job Online PDF Compressor is created to make document management simple, fast, and stress-free. Many official forms, exam applications, and professional submissions have strict file size limits, and oversized PDFs often cause rejection. This tool helps you reduce the size of your PDF files instantly without installing heavy software. With just a few clicks, your document is compressed while maintaining clarity and readability. It works directly in your browser, ensuring accessibility, speed, and convenience for all users.
+    </p>
 
-<p class="justify-p">
-Accessibility is a major focus of the Skill2Job PDF Compressor. The interface is designed to be responsive and beginner-friendly, working smoothly on desktops, laptops, tablets, and smartphones. Even users with limited digital experience can compress their files easily by following the simple instructions. The tool is lightweight and fast-loading, ensuring smooth performance even on slower networks. This makes it especially useful for people in rural areas, students applying for exams, and professionals who need reliable tools on the go.
-</p>
+    <p class="content-paragraph">
+      One of the standout features of the Skill2Job PDF Compressor is its ability to preserve text quality and formatting while reducing file size. Unlike other online platforms that compromise clarity, this tool ensures that every word, table, and image remains sharp and easy to read. Whether you are uploading a resume, project report, or academic paper, the final compressed file is professional and presentable. This makes the tool ideal for students, job seekers, and working professionals dealing with sensitive documents.
+    </p>
 
-<p class="justify-p">
-What truly makes Skill2Job Online PDF Compressor valuable is its commitment to practicality and user needs. The platform continually improves based on feedback, ensuring that the tool evolves with modern digital requirements. With its balance of efficiency, privacy, and ease of use, it has become a trusted choice for reducing file sizes without compromising quality. Whether you need to upload documents to a government portal, academic institution, or corporate site, Skill2Job ensures your PDFs are always ready and acceptable.
-</p>
-</div>
-</div>
-<div class="footer">
-  &copy; <span>Skill2Job</span> | All Rights Reserved |  
-  <a href="https://www.skill2job.site/p/about-us_28.html">About</a> |  
-  <a href="https://www.skill2job.site/p/disclaimer-skill2jobsite.html">Disclaimer</a> |  
-  <a href="https://www.skill2job.site/p/privacy-policy-skill2jobsite.html">Privacy</a> |  
-  <a href="https://www.skill2job.site/p/terms-of-use-skill2jobsite.html">Terms</a>
-</div>
+    <p class="content-paragraph">
+      Skill2Job Online PDF Compressor operates fully within your browser, meaning your files never leave your device. This ensures complete privacy and security, making it reliable for handling confidential documents. No uploads to third-party servers, no waiting times, and no risks of data leaks. The compression process is instant and offline, giving you full control over your documents. This local-processing approach sets Skill2Job apart from many other online services that store or misuse personal files during the compression process.
+    </p>
 
+    <p class="content-paragraph">
+      Accessibility is a major focus of the Skill2Job PDF Compressor. The interface is designed to be responsive and beginner-friendly, working smoothly on desktops, laptops, tablets, and smartphones. Even users with limited digital experience can compress their files easily by following the simple instructions. The tool is lightweight and fast-loading, ensuring smooth performance even on slower networks. This makes it especially useful for people in rural areas, students applying for exams, and professionals who need reliable tools on the go.
+    </p>
+
+    <p class="content-paragraph">
+      What truly makes Skill2Job Online PDF Compressor valuable is its commitment to practicality and user needs. The platform continually improves based on feedback, ensuring that the tool evolves with modern digital requirements. With its balance of efficiency, privacy, and ease of use, it has become a trusted choice for reducing file sizes without compromising quality. Whether you need to upload documents to a government portal, academic institution, or corporate site, Skill2Job ensures your PDFs are always ready and acceptable.
+    </p>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
+    <a href="about/">About</a> | <a href="disclaimer/">Disclaimer</a> | <a href="privacy/">Privacy</a> | <a href="terms/">Terms</a> | <a href="contact/">Contact</a>
+  </div>
+</footer>
+
+<!-- JavaScript -->
 <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
 if (window['pdfjsLib']) {
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 }
+
 const compressBtn = document.getElementById('compressBtn');
 const pdfFile = document.getElementById('pdfFile');
 const compressionLevel = document.getElementById('compressionLevel');
 const result = document.getElementById('result');
 let compressed = false, downloadUrl = null;
 
-function blobToArrayBuffer(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsArrayBuffer(blob);});}
-async function renderPageToJpeg(page,scale,q){const v=page.getViewport({scale});const c=document.createElement('canvas');c.width=v.width;c.height=v.height;const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);await page.render({canvasContext:ctx,viewport:v}).promise;const b=await new Promise(r=>c.toBlob(r,'image/jpeg',q));const buf=await blobToArrayBuffer(b);c.width=c.height=0;return buf;}
+function blobToArrayBuffer(blob){
+  return new Promise((res,rej)=>{
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsArrayBuffer(blob);
+  });
+}
+
+async function renderPageToJpeg(page, scale, q){
+  const v = page.getViewport({scale});
+  const c = document.createElement('canvas');
+  c.width = v.width;
+  c.height = v.height;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, c.width, c.height);
+  await page.render({canvasContext: ctx, viewport: v}).promise;
+  const b = await new Promise(r => c.toBlob(r, 'image/jpeg', q));
+  const buf = await blobToArrayBuffer(b);
+  c.width = c.height = 0;
+  return buf;
+}
 
 async function compressPDF(file, level){
-  result.innerText='Reading PDF...';
-  const buf=await file.arrayBuffer(); let scale,quality;
-  if(level==='Low'){scale=1.0;quality=0.9;}else if(level==='Medium'){scale=0.85;quality=0.75;}else{scale=0.65;quality=0.6;}
-  const pdf=await pdfjsLib.getDocument({data:buf}).promise;
-  const newDoc=await PDFLib.PDFDocument.create();
-  for(let i=1;i<=pdf.numPages;i++){result.innerText=`Processing page ${i}/${pdf.numPages}...`;const p=await pdf.getPage(i);const imgBuf=await renderPageToJpeg(p,scale,quality);const img=await newDoc.embedJpg(imgBuf);const d=img.scale(1);const page=newDoc.addPage([d.width,d.height]);page.drawImage(img,{x:0,y:0,width:d.width,height:d.height});}
-  if(level==='High'){newDoc.setTitle('');newDoc.setAuthor('');}
-  const out=await newDoc.save({useObjectStreams:false,compress:true});
-  const blob=new Blob([out],{type:'application/pdf'});
+  result.innerText = 'Reading PDF...';
+  const buf = await file.arrayBuffer();
+  let scale, quality;
+  
+  if(level === 'Low'){
+    scale = 1.0;
+    quality = 0.9;
+  } else if(level === 'Medium'){
+    scale = 0.85;
+    quality = 0.75;
+  } else {
+    scale = 0.65;
+    quality = 0.6;
+  }
+  
+  const pdf = await pdfjsLib.getDocument({data: buf}).promise;
+  const newDoc = await PDFLib.PDFDocument.create();
+  
+  for(let i = 1; i <= pdf.numPages; i++){
+    result.innerText = `Processing page ${i}/${pdf.numPages}...`;
+    const p = await pdf.getPage(i);
+    const imgBuf = await renderPageToJpeg(p, scale, quality);
+    const img = await newDoc.embedJpg(imgBuf);
+    const d = img.scale(1);
+    const page = newDoc.addPage([d.width, d.height]);
+    page.drawImage(img, {x: 0, y: 0, width: d.width, height: d.height});
+  }
+  
+  if(level === 'High'){
+    newDoc.setTitle('');
+    newDoc.setAuthor('');
+  }
+  
+  const out = await newDoc.save({useObjectStreams: false, compress: true});
+  const blob = new Blob([out], {type: 'application/pdf'});
+  
   if(downloadUrl) URL.revokeObjectURL(downloadUrl);
-  downloadUrl=URL.createObjectURL(blob);
+  downloadUrl = URL.createObjectURL(blob);
   
   // Auto download
-  const auto=document.createElement('a');
-  auto.href=downloadUrl; auto.download='compressed_'+file.name.replace(/\s+/g,'_');
-  document.body.appendChild(auto); auto.click(); auto.remove();
+  const auto = document.createElement('a');
+  auto.href = downloadUrl;
+  auto.download = 'compressed_' + file.name.replace(/\s+/g, '_');
+  document.body.appendChild(auto);
+  auto.click();
+  auto.remove();
   
   // Show download button
-  result.innerHTML='';
-  const btn=document.createElement('a');
-  btn.href=downloadUrl; btn.download='compressed_'+file.name.replace(/\s+/g,'_');
-  btn.textContent='Download Again';
-  btn.className='download-link';
+  result.innerHTML = '';
+  const btn = document.createElement('a');
+  btn.href = downloadUrl;
+  btn.download = 'compressed_' + file.name.replace(/\s+/g, '_');
+  btn.textContent = 'Download Again';
+  btn.className = 'download-link';
   result.appendChild(btn);
   
-  compressBtn.textContent='Reset'; compressed=true;
+  compressBtn.textContent = 'Reset';
+  compressed = true;
 }
-compressBtn.addEventListener('click',async()=>{if(compressed){pdfFile.value='';compressionLevel.value='';if(downloadUrl){URL.revokeObjectURL(downloadUrl);downloadUrl=null;}result.innerText='Upload a PDF and select compression level.';compressBtn.textContent='Compress PDF';compressed=false;return;}
-const f=pdfFile.files[0];if(!f)return alert('Upload a PDF first.');if(f.type!=='application/pdf')return alert('Invalid file.');if(!compressionLevel.value)return alert('Select compression level.');
-try{await compressPDF(f,compressionLevel.value);}catch(e){console.error(e);alert('Compression failed.');}});
+
+compressBtn.addEventListener('click', async () => {
+  if(compressed){
+    pdfFile.value = '';
+    compressionLevel.value = '';
+    if(downloadUrl){
+      URL.revokeObjectURL(downloadUrl);
+      downloadUrl = null;
+    }
+    result.innerText = 'Upload a PDF and select compression level.';
+    compressBtn.textContent = 'Compress PDF';
+    compressed = false;
+    return;
+  }
+  
+  const f = pdfFile.files[0];
+  if(!f) return alert('Upload a PDF first.');
+  if(f.type !== 'application/pdf') return alert('Invalid file.');
+  if(!compressionLevel.value) return alert('Select compression level.');
+  
+  try {
+    await compressPDF(f, compressionLevel.value);
+  } catch(e) {
+    console.error(e);
+    alert('Compression failed.');
+  }
+});
+
+// Share functionality
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Skill2Job PDF Compressor',
+      text: 'Compress PDF files instantly for free with this online tool.',
+      url: 'https://tools.skill2job.site/pdfcompressor/'
+    }).then(() => console.log('Shared successfully'))
+      .catch(() => alert('Share failed or canceled.'));
+  } else {
+    navigator.clipboard.writeText('https://tools.skill2job.site/pdfcompressor/').then(() => {
+      alert('Link copied to clipboard!');
+    }).catch(() => {
+      alert('Copy to clipboard failed.');
+    });
+  }
+}
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
 </body>
 </html>
