@@ -6,7 +6,8 @@
   <title>Image Background Remover — Skill2Job Tools</title>
   <meta name="description" content="Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more.">
   <meta name="keywords" content="background remover, remove background online, free bg remover, image background editor, photo background removal, Skill2Job bg remover, Skill2Job tools, tools by Skill2Job, Skill2Job free online tool, Yadav Subba tools, online image editor 2025">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- Essential SEO Meta Tags -->
   <link rel="canonical" href="https://tools.skill2job.site/backgroundremover/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -17,7 +18,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Image Background Remover - Skill2Job Tools" />
   <meta property="og:description" content="Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <meta property="og:image" content="https://tools.skill2job.site/tools.logo.webp" />
   <meta property="og:url" content="https://tools.skill2job.site/backgroundremover/" />
   <meta property="og:site_name" content="Skill2Job Online Tools" />
 
@@ -25,42 +26,21 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Image Background Remover - Skill2Job Tools" />
   <meta name="twitter:description" content="Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <meta name="twitter:image" content="https://tools.skill2job.site/tools.logo.webp" />
 
-  <!-- Additional Technical SEO -->
+  <!-- Additional SEO -->
   <meta name="theme-color" content="#d32f2f" />
   <meta name="msapplication-TileColor" content="#d32f2f" />
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <link rel="icon" href="https://tools.skill2job.site/tools.logo.webp" />
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Skill2Job Background Remover",
-    "description": "Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more.",
-    "url": "https://tools.skill2job.site/backgroundremover/",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Skill2Job"
-    }
-  }
-  </script>
-
-  <!-- Performance & Preloading -->
+  <!-- Preconnect & preload -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
   <style>
 :root {
   --accent: #d32f2f;
@@ -72,9 +52,7 @@
   --page-pad: 16px;
   --border-radius: 2px;
 }
-
 * { box-sizing: border-box; margin:0; padding:0; }
-
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: #fafafa;
@@ -86,36 +64,76 @@ body {
 /* Header */
 .header { background:#fff; padding:14px 0; border-bottom:1px solid #ddd; border-radius:0 0 var(--border-radius) var(--border-radius); width:100%; }
 .header-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block;margin-left:5px; }
+.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block; margin-left:5px; }
+
+/* Prevent layout shift by fixing image dimensions */
+.site-brand img {
+  width: 32px;
+  height: 32px;
+}
 
 /* Share Icon */
-.share-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius); background:#f5f5f5; color:#555; text-decoration:none; cursor:pointer; font-size:16px; border:none; transition:0.3s;margin-right:5px; }
+.share-icon {
+  display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius);
+  background:#f5f5f5; color:#555; border:none; font-size:16px; cursor:pointer; margin-right:5px; transition:0.3s;
+}
 .share-icon:hover { background: var(--accent); color:#fff; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.1); }
 
-/* Main content container */
 .main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
 
-/* ADS CONTAINER */
-.ads-wrapper { width:98%; margin:18px auto; min-height:280px; text-align:center; background:#fff; border:1px solid #e6e6e6; border-radius:var(--border-radius); overflow:hidden; }
+/* Reserve ad container space with aspect ratio */
+.ads-wrapper {
+  width: 100%;
+  margin: 16px auto;
+  min-height: 250px;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
 
-/* Section headers */
 .section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
 
-/* Tool Card */
 .tool-card { background: var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); width:100%; margin-bottom:18px; }
-.tool-card .row { margin-bottom:16px; }
-.tool-card label { display:block; font-size:14px; margin-bottom:6px; color:#333; }
-.tool-card input[type="file"], .tool-card select { width:100%; padding:10px 12px; font-size:15px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#fff; outline:none; }
-.tool-card input[type="file"]:focus, .tool-card select:focus { border-color: var(--accent); box-shadow:0 0 0 2px rgba(211,47,47,0.1); }
-.tool-card .btn { display:block; width:100%; padding:10px 14px; font-size:14px; color:#fff; background:var(--btn); border:none; border-radius:var(--border-radius); cursor:pointer; margin-top:8px; }
-.tool-card .btn.reset { background:#666; }
-.tool-card .result { margin-top:16px; min-height:110px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#f9f9f9; padding:14px; color: var(--text); white-space:pre-wrap; line-height:1.5; text-align: center; }
+.row { margin-bottom:16px; }
+label { display:block; font-size:14px; margin-bottom:6px; color:#333; }
+input[type="file"], select { width:100%; padding:10px 12px; font-size:15px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#fff; outline:none; }
+input[type="file"]:focus, select:focus { border-color: var(--accent); box-shadow:0 0 0 2px rgba(211,47,47,0.1); }
+.btn { display:block; width:100%; padding:10px 14px; font-size:14px; color:#fff; background:var(--btn); border:none; border-radius:var(--border-radius); cursor:pointer; margin-top:8px; }
+.reset { background:#666; }
+
+/* Reserve space for dynamic result to reduce layout shifts */
+#result {
+  min-height: 250px;
+  transition: none;
+  margin-top: 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--border-radius);
+  background: #f9f9f9;
+  padding: 14px;
+  color: var(--text);
+  white-space: pre-wrap;
+  line-height: 1.5;
+  text-align: center;
+}
 
 canvas, img.preview { display:block; margin:0 auto 10px; border:1px solid #e6e6e6; max-width:100%; border-radius:var(--border-radius); }
-a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-decoration:none; font-size:13px; text-align: center; }
+a.download-link { 
+  display: inline-block; 
+  margin-top: 6px; 
+  padding: 8px 14px; 
+  background: var(--accent); 
+  color: #fff; 
+  border-radius: var(--border-radius); 
+  text-decoration: none; 
+  font-weight: 600; 
+  font-size: 13px; 
+  margin: 4px;
+}
 
 /* Background color picker area */
-.bg-picker { width:90%; max-width:100%; margin:10px auto 0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.bg-picker { width:90%; max-width:100%; margin:10px auto 0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content: center; }
 .bg-swatch { width:34px; height:34px; border-radius:6px; border:2px solid #e6e6e6; box-shadow:0 1px 2px rgba(0,0,0,0.04); cursor:pointer; }
 .bg-swatch.selected { outline:3px solid rgba(211,47,47,0.15); border-color:var(--accent); }
 
@@ -131,6 +149,7 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px auto;
 }
 .preview {
   display:block;
@@ -197,22 +216,18 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
 }
 @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
 
-/* About section */
 .about-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
 .content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
 .content-paragraph a { color: var(--accent); text-decoration:none; }
 .content-paragraph a:hover { text-decoration:underline; }
 
-/* Footer */
 .footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 0; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; border-radius: var(--border-radius) var(--border-radius) 0 0; }
 .footer-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
 .footer a { color:#555; text-decoration:none; margin:0 6px; }
 
-/* Responsive */
-@media (max-width:760px) {
+@media(max-width:760px) {
   .header { padding:10px 0; }
   .header-container, .main-container, .footer-container { width:98%; }
-  .ads-wrapper { width:98%; min-height:280px; }
   .section-header { margin:18px 0 12px; padding:6px 8px; }
   .site-brand img { width:30px; height:30px; }
   .about-section { padding:12px; }
@@ -220,415 +235,422 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
   .tool-card { padding:12px; }
   .bg-picker { justify-content: center; }
 }
-@media (max-width:420px) {
-  .header-container { flex-direction:row; align-items:center; gap:8px; }
-}
 </style>
-  
-  <!-- Global site tag (gtag.js) - Google Analytics for Subdomain -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HV12J7V98D');
-  </script>
-  
-  <!-- AdSense Auto Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-     crossorigin="anonymous"></script>
+
+<!-- External Scripts (Deferred for speed) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HV12J7V98D');
+</script>
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Skill2Job Background Remover",
+  "description": "Remove image backgrounds instantly for free using this online background remover tool by Skill2Job. Perfect for photos, product images, and more.",
+  "url": "https://tools.skill2job.site/backgroundremover/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Skill2Job"
+  }
+}
+</script>
+
 </head>
 <body>
-  <header class="header" role="banner">
-    <div class="header-container">
-      <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
-        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" alt="Skill2Job logo">
-      </a>
-      
-      <button class="share-icon" onclick="sharePage()" title="Share this page">
-        <i class="fas fa-share-alt"></i>
-      </button>
+<header class="header" role="banner">
+  <div class="header-container">
+    <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
+      <img src="https://tools.skill2job.site/tools.logo.webp" alt="Skill2Job logo" width="32" height="32">
+    </a>
+    <button class="share-icon" onclick="sharePage()" title="Share this page">
+      <i class="fas fa-share-alt"></i>
+    </button>
+  </div>
+</header>
+
+<main class="main-container" role="main">
+  <!-- AdSense -->
+  <div class="ads-wrapper">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; min-height:280px;"
+         data-ad-client="ca-pub-1876390706944654"
+         data-ad-slot="4054819400"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <h2 class="section-header">Background Remover</h2>
+
+  <div class="tool-card" role="region" aria-label="Background remover">
+    <div class="row">
+      <label for="imageFile">Upload Image</label>
+      <input type="file" id="imageFile" accept="image/*" aria-label="Upload image">
     </div>
-  </header>
 
-  <main class="main-container" role="main">
-    <!-- Auto AdSense will place ads automatically -->
+    <button id="removeBtn" class="btn">Remove Background</button>
+    <div class="loader" id="loader" aria-hidden="true"></div>
 
-    <!-- Google AdSense Ad (Responsive, Width 98%) -->
-    <div class="ads-wrapper">
-      <ins class="adsbygoogle"
-           style="display:block; width:100%; min-height:280px;"
-           data-ad-client="ca-pub-1876390706944654"
-           data-ad-slot="4054819400"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+    <div id="result" class="result">
+      <div id="msg">Upload an image and click Remove Background.</div>
 
-    <h2 class="section-header">Background Remover</h2>
-
-    <div class="tool-card" role="region" aria-label="Background remover">
-      <div class="row">
-        <label for="imageFile">Upload Image</label>
-        <input type="file" id="imageFile" accept="image/*" aria-label="Upload image">
-      </div>
-
-      <button id="removeBtn" class="btn">Remove Background</button>
-      <div class="loader" id="loader" aria-hidden="true"></div>
-
-      <div id="result" class="result">
-        <div id="msg">Upload an image and click Remove Background.</div>
-
-        <!-- PREVIEW + overlays -->
-        <div class="preview-container" id="previewContainer" aria-live="polite">
-          <img id="previewImg" class="preview" src="" alt="" style="display:none;">
-          <div class="swipe-overlay" id="swipeOverlay" style="display:none;">
-            <div class="swipe-stripe"></div>
-          </div>
-        </div>
-
-        <div style="display:flex; gap:8px; margin-top:8px; justify-content: center; flex-wrap: wrap;">
-          <a id="downloadTransparent" class="download-link" download="transparent.png" style="display:none;">Download PNG (transparent)</a>
-          <a id="downloadColored" class="download-link" download="filled.png" style="display:none;">Download with color</a>
+      <!-- PREVIEW + overlays -->
+      <div class="preview-container" id="previewContainer" aria-live="polite">
+        <img id="previewImg" class="preview" src="" alt="" style="display:none;">
+        <div class="swipe-overlay" id="swipeOverlay" style="display:none;">
+          <div class="swipe-stripe"></div>
         </div>
       </div>
 
-      <!-- Background chooser area -->
-      <div class="bg-picker" aria-hidden="false" title="Choose background color">
-        <!-- preset swatches -->
-        <div class="bg-swatch" data-color="#ffffff" style="background:#ffffff;" title="White"></div>
-        <div class="bg-swatch" data-color="#000000" style="background:#000000;" title="Black"></div>
-        <div class="bg-swatch" data-color="#f5f5f5" style="background:#f5f5f5;" title="Light Gray"></div>
-        <div class="bg-swatch" data-color="#eeeeff" style="background:#eeeeff;" title="Soft Blue"></div>
-        <div class="bg-swatch" data-color="#fff8e1" style="background:#fff8e1;" title="Soft Yellow"></div>
-
-        <!-- custom color picker -->
-        <div class="color-input">
-          <label style="font-size:13px;color:#777;font-weight:600;">Custom</label>
-          <input id="colorPicker" type="color" value="#ffffff" title="Choose custom background color">
-        </div>
+      <div style="display:flex; gap:8px; margin-top:8px; justify-content: center; flex-wrap: wrap;">
+        <a id="downloadTransparent" class="download-link" download="transparent.png" style="display:none;">Download PNG (transparent)</a>
+        <a id="downloadColored" class="download-link" download="filled.png" style="display:none;">Download with color</a>
       </div>
     </div>
 
-    <h2 class="section-header">About This Tool</h2>
+    <!-- Background chooser area -->
+    <div class="bg-picker" aria-hidden="false" title="Choose background color">
+      <!-- preset swatches -->
+      <div class="bg-swatch" data-color="#ffffff" style="background:#ffffff;" title="White"></div>
+      <div class="bg-swatch" data-color="#000000" style="background:#000000;" title="Black"></div>
+      <div class="bg-swatch" data-color="#f5f5f5" style="background:#f5f5f5;" title="Light Gray"></div>
+      <div class="bg-swatch" data-color="#eeeeff" style="background:#eeeeff;" title="Soft Blue"></div>
+      <div class="bg-swatch" data-color="#fff8e1" style="background:#fff8e1;" title="Soft Yellow"></div>
 
-    <div class="about-section">
-      <p class="content-paragraph">
-        This tool has been specially designed for users who want to remove the background of their images quickly and easily without compromising on quality. In many situations, we need clean images for different purposes such as profile pictures, professional documents, e-commerce product listings, presentations, or even creative social media posts. In these cases, an unnecessary background can be distracting or reduce the impact of the subject in the photo. With this background remover, you can eliminate that problem instantly. One of the best parts is that your image is never compressed, which means the quality remains exactly as sharp and clear as the original.
-      </p>
-      <p class="content-paragraph">
-        The tool uses advanced technology and intelligent algorithms that carefully analyze each part of the uploaded photo to distinguish between the main subject and the background. Once you upload an image, the system immediately starts processing it and produces a clean, transparent background image within seconds. The interface is extremely simple and user-friendly, so even beginners who have little or no technical knowledge can use it without difficulty. All you need to do is click the upload button, select your image, and let the tool do the hard work. In a matter of moments, your photo is ready to download and use anywhere you want.
-      </p>
-      <p class="content-paragraph">
-        Another important feature of this tool is that it has been developed with a fully responsive design. This means it automatically adapts to any screen size, whether you are using a mobile phone, a tablet, or a desktop computer. The clean interface ensures a smooth experience without clutter or confusion. In addition, the background removal process is optimized for speed so that you do not have to wait too long for results. Whether you are a professional designer, a photographer, an online seller, or simply someone who wants to enhance personal images, this tool will save you valuable time and effort. It provides a reliable, fast, and high-quality solution for anyone who needs background-free images on a regular basis.
-      </p>
+      <!-- custom color picker -->
+      <div class="color-input">
+        <label style="font-size:13px;color:#777;font-weight:600;">Custom</label>
+        <input id="colorPicker" type="color" value="#ffffff" title="Choose custom background color">
+      </div>
     </div>
-  </main>
+  </div>
 
-  <footer class="footer" role="contentinfo">
-    <div class="footer-container">
-      &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
-      <a href="about/">About</a> |
-      <a href="disclaimer/">Disclaimer</a> |
-      <a href="privacy/">Privacy</a> |
-      <a href="terms/">Terms</a> |
-      <a href="contact/">Contact</a>
-    </div>
-  </footer>
+  <h2 class="section-header">About This Tool</h2>
 
-  <!-- Background Remover JavaScript -->
-  <script>
-    const fileInput = document.getElementById('imageFile');
-    const removeBtn = document.getElementById('removeBtn');
-    const loader = document.getElementById('loader');
-    const resultMsg = document.getElementById('msg');
-    const previewImg = document.getElementById('previewImg');
-    const previewContainer = document.getElementById('previewContainer');
-    const swipeOverlay = document.getElementById('swipeOverlay');
-    const downloadTransparent = document.getElementById('downloadTransparent');
-    const downloadColored = document.getElementById('downloadColored');
+  <div class="about-section">
+    <p class="content-paragraph">
+      This tool has been specially designed for users who want to remove the background of their images quickly and easily without compromising on quality. In many situations, we need clean images for different purposes such as profile pictures, professional documents, e-commerce product listings, presentations, or even creative social media posts. In these cases, an unnecessary background can be distracting or reduce the impact of the subject in the photo. With this background remover, you can eliminate that problem instantly. One of the best parts is that your image is never compressed, which means the quality remains exactly as sharp and clear as the original.
+    </p>
+    <p class="content-paragraph">
+      The tool uses advanced technology and intelligent algorithms that carefully analyze each part of the uploaded photo to distinguish between the main subject and the background. Once you upload an image, the system immediately starts processing it and produces a clean, transparent background image within seconds. The interface is extremely simple and user-friendly, so even beginners who have little or no technical knowledge can use it without difficulty. All you need to do is click the upload button, select your image, and let the tool do the hard work. In a matter of moments, your photo is ready to download and use anywhere you want.
+    </p>
+    <p class="content-paragraph">
+      Another important feature of this tool is that it has been developed with a fully responsive design. This means it automatically adapts to any screen size, whether you are using a mobile phone, a tablet, or a desktop computer. The clean interface ensures a smooth experience without clutter or confusion. In addition, the background removal process is optimized for speed so that you do not have to wait too long for results. Whether you are a professional designer, a photographer, an online seller, or simply someone who wants to enhance personal images, this tool will save you valuable time and effort. It provides a reliable, fast, and high-quality solution for anyone who needs background-free images on a regular basis.
+    </p>
+  </div>
+</main>
 
-    const swatches = Array.from(document.querySelectorAll('.bg-swatch'));
-    const colorPicker = document.getElementById('colorPicker');
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
+    <a href="about/">About</a> | 
+    <a href="disclaimer/">Disclaimer</a> | 
+    <a href="privacy/">Privacy</a> | 
+    <a href="terms/">Terms</a> | 
+    <a href="contact/">Contact</a>
+  </div>
+</footer>
 
-    const apiKey = 'nMckxWt14x1qEyGjp9puwX9S';
-    let currentPreviewUrl = null;
-    let processedTransparentUrl = null;
-    let processedCompositedUrl = null;
-    let selectedBg = '#ffffff';
+<!-- Background Remover JavaScript -->
+<script>
+  const fileInput = document.getElementById('imageFile');
+  const removeBtn = document.getElementById('removeBtn');
+  const loader = document.getElementById('loader');
+  const resultMsg = document.getElementById('msg');
+  const previewImg = document.getElementById('previewImg');
+  const previewContainer = document.getElementById('previewContainer');
+  const swipeOverlay = document.getElementById('swipeOverlay');
+  const downloadTransparent = document.getElementById('downloadTransparent');
+  const downloadColored = document.getElementById('downloadColored');
 
-    // initialize swatches (select first by default)
-    function selectSwatch(colorHex, el) {
-      selectedBg = colorHex;
-      swatches.forEach(s => s.classList.remove('selected'));
-      if (el && el.classList) el.classList.add('selected');
-      colorPicker.value = colorHex;
+  const swatches = Array.from(document.querySelectorAll('.bg-swatch'));
+  const colorPicker = document.getElementById('colorPicker');
+
+  const apiKey = 'nMckxWt14x1qEyGjp9puwX9S';
+  let currentPreviewUrl = null;
+  let processedTransparentUrl = null;
+  let processedCompositedUrl = null;
+  let selectedBg = '#ffffff';
+
+  // initialize swatches (select first by default)
+  function selectSwatch(colorHex, el) {
+    selectedBg = colorHex;
+    swatches.forEach(s => s.classList.remove('selected'));
+    if (el && el.classList) el.classList.add('selected');
+    colorPicker.value = colorHex;
+  }
+  if (swatches.length) selectSwatch('#ffffff', swatches[0]);
+
+  swatches.forEach((s) => {
+    s.addEventListener('click', (e) => {
+      const c = s.dataset.color || '#ffffff';
+      selectSwatch(c, s);
+      if (processedTransparentUrl) {
+        composeAndShow(processedTransparentUrl, selectedBg).catch(err => {
+          console.error('compose error', err);
+        });
+      }
+    });
+  });
+
+  // custom color change
+  colorPicker.addEventListener('input', (e) => {
+    const c = e.target.value;
+    selectedBg = c;
+    swatches.forEach(s => s.classList.remove('selected'));
+    if (processedTransparentUrl) {
+      composeAndShow(processedTransparentUrl, selectedBg).catch(err => console.error(err));
     }
+  });
+
+  // show immediate original preview (no compression)
+  fileInput.addEventListener('change', (e) => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) {
+      resultMsg.textContent = 'No file selected.';
+      previewImg.style.display = 'none';
+      downloadTransparent.style.display = 'none';
+      downloadColored.style.display = 'none';
+      return;
+    }
+
+    // cleanup previous urls
+    if (currentPreviewUrl) { try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){} currentPreviewUrl = null; }
+    if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl); } catch(e){} processedTransparentUrl = null; }
+    if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl); } catch(e){} processedCompositedUrl = null; }
+
+    const url = URL.createObjectURL(f);
+    currentPreviewUrl = url;
+    previewImg.src = url;
+    previewImg.style.display = 'block';
+    previewImg.classList.remove('reveal');
+    previewContainer.classList.remove('blurred');
+    swipeOverlay.style.display = 'none';
+    downloadTransparent.style.display = 'none';
+    downloadColored.style.display = 'none';
+    resultMsg.textContent = 'Image loaded. Click Remove Background.';
+  });
+
+  // start visuals
+  function startProcessingVisuals(){
+    previewContainer.classList.add('blurred');
+    swipeOverlay.style.display = 'block';
+    loader.style.display = 'block';
+  }
+
+  // stop visuals
+  function stopProcessingVisuals(){
+    previewContainer.classList.remove('blurred');
+    swipeOverlay.style.display = 'none';
+    loader.style.display = 'none';
+  }
+
+  // composite transparent png over color at native resolution, return blob + objectURL
+  async function compositeOverColor(transparentBlob, colorHex){
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        try {
+          const w = img.naturalWidth;
+          const h = img.naturalHeight;
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+
+          // fill bg
+          ctx.fillStyle = colorHex;
+          ctx.fillRect(0,0,w,h);
+
+          // draw transparent png on top
+          ctx.drawImage(img, 0, 0, w, h);
+
+          // export PNG (lossless)
+          canvas.toBlob((blob) => {
+            if (!blob) return reject(new Error('Failed to compose image'));
+            const url = URL.createObjectURL(blob);
+            resolve({ blob, url, width: w, height: h });
+          }, 'image/png');
+        } catch (err) {
+          reject(err);
+        }
+      };
+      img.onerror = () => reject(new Error('Failed to load transparent PNG for compositing'));
+      img.src = URL.createObjectURL(transparentBlob);
+    });
+  }
+
+  // show composed result in preview (also used to update on color change)
+  async function composeAndShow(transparentUrl, colorHex){
+    try {
+      const resp = await fetch(transparentUrl);
+      const blob = await resp.blob();
+      const composed = await compositeOverColor(blob, colorHex);
+      // revoke old composed URL
+      if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
+      processedCompositedUrl = composed.url;
+      previewImg.src = processedCompositedUrl;
+      // animate reveal
+      previewImg.classList.remove('reveal');
+      void previewImg.offsetWidth;
+      previewImg.classList.add('reveal');
+
+      // show downloads
+      downloadColored.href = processedCompositedUrl;
+      downloadColored.style.display = 'inline-block';
+
+      // transparent download uses the transparent object URL
+      downloadTransparent.href = transparentUrl;
+      downloadTransparent.style.display = 'inline-block';
+    } catch (err) {
+      console.error('composeAndShow err', err);
+      throw err;
+    }
+  }
+
+  // Reset to initial state (called when user clicks the Reset button)
+  function resetToInitial() {
+    // revoke any processed URLs
+    if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl);} catch(e){} processedTransparentUrl = null; }
+    if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
+
+    // revoke preview if present
+    if (currentPreviewUrl) { try { URL.revokeObjectURL(currentPreviewUrl);} catch(e){} currentPreviewUrl = null; }
+
+    // clear UI
+    previewImg.src = '';
+    previewImg.style.display = 'none';
+    previewImg.classList.remove('reveal');
+    downloadTransparent.style.display = 'none';
+    downloadColored.style.display = 'none';
+    resultMsg.textContent = 'Upload an image and click Remove Background.';
+
+    // clear file input so user can re-upload same image if they want
+    try { fileInput.value = ''; } catch(e){ /* ignore */ }
+
+    // reset selected bg to default (first swatch)
     if (swatches.length) selectSwatch('#ffffff', swatches[0]);
 
-    swatches.forEach((s) => {
-      s.addEventListener('click', (e) => {
-        const c = s.dataset.color || '#ffffff';
-        selectSwatch(c, s);
-        if (processedTransparentUrl) {
-          composeAndShow(processedTransparentUrl, selectedBg).catch(err => {
-            console.error('compose error', err);
-          });
-        }
-      });
-    });
+    // change button back to Remove and reassign handler
+    removeBtn.textContent = 'Remove Background';
+    removeBtn.disabled = false;
 
-    // custom color change
-    colorPicker.addEventListener('input', (e) => {
-      const c = e.target.value;
-      selectedBg = c;
-      swatches.forEach(s => s.classList.remove('selected'));
-      if (processedTransparentUrl) {
-        composeAndShow(processedTransparentUrl, selectedBg).catch(err => console.error(err));
-      }
-    });
+    // remove current reset listener and reattach removeHandler
+    removeBtn.removeEventListener('click', resetToInitial);
+    removeBtn.addEventListener('click', removeHandler);
+  }
 
-    // show immediate original preview (no compression)
-    fileInput.addEventListener('change', (e) => {
-      const f = e.target.files && e.target.files[0];
-      if (!f) {
-        resultMsg.textContent = 'No file selected.';
-        previewImg.style.display = 'none';
-        downloadTransparent.style.display = 'none';
-        downloadColored.style.display = 'none';
-        return;
-      }
-
-      // cleanup previous urls
-      if (currentPreviewUrl) { try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){} currentPreviewUrl = null; }
-      if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl); } catch(e){} processedTransparentUrl = null; }
-      if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl); } catch(e){} processedCompositedUrl = null; }
-
-      const url = URL.createObjectURL(f);
-      currentPreviewUrl = url;
-      previewImg.src = url;
-      previewImg.style.display = 'block';
-      previewImg.classList.remove('reveal');
-      previewContainer.classList.remove('blurred');
-      swipeOverlay.style.display = 'none';
-      downloadTransparent.style.display = 'none';
-      downloadColored.style.display = 'none';
-      resultMsg.textContent = 'Image loaded. Click Remove Background.';
-    });
-
-    // start visuals
-    function startProcessingVisuals(){
-      previewContainer.classList.add('blurred');
-      swipeOverlay.style.display = 'block';
-      loader.style.display = 'block';
+  // Main removal function (named so we can detach/reattach it)
+  async function removeHandler() {
+    const file = fileInput.files && fileInput.files[0];
+    if (!file) {
+      resultMsg.textContent = '⚠ Please upload an image first.';
+      return;
     }
 
-    // stop visuals
-    function stopProcessingVisuals(){
-      previewContainer.classList.remove('blurred');
-      swipeOverlay.style.display = 'none';
+    // cleanup previous processed urls
+    if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl);} catch(e){} processedTransparentUrl = null; }
+    if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
+
+    startProcessingVisuals();
+    resultMsg.textContent = 'Processing...';
+    removeBtn.disabled = true;
+
+    try {
+      const form = new FormData();
+      form.append('image_file', file);
+      form.append('size', 'auto');
+      form.append('format', 'png');
+
+      const resp = await fetch('https://api.remove.bg/v1.0/removebg', {
+        method: 'POST',
+        headers: {
+          'X-Api-Key': apiKey,
+          'Accept': 'image/png'
+        },
+        body: form
+      });
+
+      if (!resp.ok) {
+        let errText = resp.status + ' ' + resp.statusText;
+        try { const t = await resp.text(); if (t) errText += ' - ' + t; } catch(e){}
+        throw new Error('Failed to remove background. (' + errText + ')');
+      }
+
+      const pngBlob = await resp.blob();
+
+      // create an objectURL for the transparent PNG (direct from API)
+      processedTransparentUrl = URL.createObjectURL(pngBlob);
+
+      // composite the returned transparent PNG over the chosen color (lossless PNG)
+      await composeAndShow(processedTransparentUrl, selectedBg);
+
+      // revoke original preview if needed
+      if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
+
+      stopProcessingVisuals();
+      resultMsg.textContent = 'Background removed and composited on chosen color!';
+
+      // switch Remove button to Reset
+      removeBtn.textContent = 'Reset';
+      // detach the removeHandler and attach resetToInitial
+      removeBtn.removeEventListener('click', removeHandler);
+      removeBtn.addEventListener('click', resetToInitial);
+      removeBtn.disabled = false;
+    } catch (err) {
+      console.error(err);
+      stopProcessingVisuals();
+      resultMsg.textContent = 'Error: ' + (err.message || 'Unknown error');
+      removeBtn.disabled = false;
+    } finally {
       loader.style.display = 'none';
     }
+  }
 
-    // composite transparent png over color at native resolution, return blob + objectURL
-    async function compositeOverColor(transparentBlob, colorHex){
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => {
-          try {
-            const w = img.naturalWidth;
-            const h = img.naturalHeight;
-            const canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            const ctx = canvas.getContext('2d');
+  // attach initial handler
+  removeBtn.addEventListener('click', removeHandler);
 
-            // fill bg
-            ctx.fillStyle = colorHex;
-            ctx.fillRect(0,0,w,h);
+  // cleanup object URLs when unload
+  window.addEventListener('beforeunload', () => {
+    if (currentPreviewUrl) try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){}
+    if (processedTransparentUrl) try { URL.revokeObjectURL(processedTransparentUrl); } catch(e){}
+    if (processedCompositedUrl) try { URL.revokeObjectURL(processedCompositedUrl); } catch(e){}
+  });
 
-            // draw transparent png on top
-            ctx.drawImage(img, 0, 0, w, h);
-
-            // export PNG (lossless)
-            canvas.toBlob((blob) => {
-              if (!blob) return reject(new Error('Failed to compose image'));
-              const url = URL.createObjectURL(blob);
-              resolve({ blob, url, width: w, height: h });
-            }, 'image/png');
-          } catch (err) {
-            reject(err);
-          }
-        };
-        img.onerror = () => reject(new Error('Failed to load transparent PNG for compositing'));
-        img.src = URL.createObjectURL(transparentBlob);
+  // Share functionality
+  function sharePage() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Skill2Job Background Remover',
+        text: 'Remove image backgrounds instantly for free using this online background remover tool by Skill2Job.',
+        url: 'https://tools.skill2job.site/backgroundremover/'
+      }).then(() => console.log('Shared successfully'))
+        .catch(() => alert('Share failed or canceled.'));
+    } else {
+      navigator.clipboard.writeText('https://tools.skill2job.site/backgroundremover/').then(() => {
+        alert('Link copied to clipboard!');
+      }).catch(() => {
+        alert('Copy to clipboard failed.');
       });
     }
-
-    // show composed result in preview (also used to update on color change)
-    async function composeAndShow(transparentUrl, colorHex){
-      try {
-        const resp = await fetch(transparentUrl);
-        const blob = await resp.blob();
-        const composed = await compositeOverColor(blob, colorHex);
-        // revoke old composed URL
-        if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
-        processedCompositedUrl = composed.url;
-        previewImg.src = processedCompositedUrl;
-        // animate reveal
-        previewImg.classList.remove('reveal');
-        void previewImg.offsetWidth;
-        previewImg.classList.add('reveal');
-
-        // show downloads
-        downloadColored.href = processedCompositedUrl;
-        downloadColored.style.display = 'inline-block';
-
-        // transparent download uses the transparent object URL
-        downloadTransparent.href = transparentUrl;
-        downloadTransparent.style.display = 'inline-block';
-      } catch (err) {
-        console.error('composeAndShow err', err);
-        throw err;
-      }
-    }
-
-    // Reset to initial state (called when user clicks the Reset button)
-    function resetToInitial() {
-      // revoke any processed URLs
-      if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl);} catch(e){} processedTransparentUrl = null; }
-      if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
-
-      // revoke preview if present
-      if (currentPreviewUrl) { try { URL.revokeObjectURL(currentPreviewUrl);} catch(e){} currentPreviewUrl = null; }
-
-      // clear UI
-      previewImg.src = '';
-      previewImg.style.display = 'none';
-      previewImg.classList.remove('reveal');
-      downloadTransparent.style.display = 'none';
-      downloadColored.style.display = 'none';
-      resultMsg.textContent = 'Upload an image and click Remove Background.';
-
-      // clear file input so user can re-upload same image if they want
-      try { fileInput.value = ''; } catch(e){ /* ignore */ }
-
-      // reset selected bg to default (first swatch)
-      if (swatches.length) selectSwatch('#ffffff', swatches[0]);
-
-      // change button back to Remove and reassign handler
-      removeBtn.textContent = 'Remove Background';
-      removeBtn.disabled = false;
-
-      // remove current reset listener and reattach removeHandler
-      removeBtn.removeEventListener('click', resetToInitial);
-      removeBtn.addEventListener('click', removeHandler);
-    }
-
-    // Main removal function (named so we can detach/reattach it)
-    async function removeHandler() {
-      const file = fileInput.files && fileInput.files[0];
-      if (!file) {
-        resultMsg.textContent = '⚠ Please upload an image first.';
-        return;
-      }
-
-      // cleanup previous processed urls
-      if (processedTransparentUrl) { try { URL.revokeObjectURL(processedTransparentUrl);} catch(e){} processedTransparentUrl = null; }
-      if (processedCompositedUrl) { try { URL.revokeObjectURL(processedCompositedUrl);} catch(e){} processedCompositedUrl = null; }
-
-      startProcessingVisuals();
-      resultMsg.textContent = 'Processing...';
-      removeBtn.disabled = true;
-
-      try {
-        const form = new FormData();
-        form.append('image_file', file);
-        form.append('size', 'auto');
-        form.append('format', 'png');
-
-        const resp = await fetch('https://api.remove.bg/v1.0/removebg', {
-          method: 'POST',
-          headers: {
-            'X-Api-Key': apiKey,
-            'Accept': 'image/png'
-          },
-          body: form
-        });
-
-        if (!resp.ok) {
-          let errText = resp.status + ' ' + resp.statusText;
-          try { const t = await resp.text(); if (t) errText += ' - ' + t; } catch(e){}
-          throw new Error('Failed to remove background. (' + errText + ')');
-        }
-
-        const pngBlob = await resp.blob();
-
-        // create an objectURL for the transparent PNG (direct from API)
-        processedTransparentUrl = URL.createObjectURL(pngBlob);
-
-        // composite the returned transparent PNG over the chosen color (lossless PNG)
-        await composeAndShow(processedTransparentUrl, selectedBg);
-
-        // revoke original preview if needed
-        if (currentPreviewUrl) { URL.revokeObjectURL(currentPreviewUrl); currentPreviewUrl = null; }
-
-        stopProcessingVisuals();
-        resultMsg.textContent = 'Background removed and composited on chosen color!';
-
-        // switch Remove button to Reset
-        removeBtn.textContent = 'Reset';
-        // detach the removeHandler and attach resetToInitial
-        removeBtn.removeEventListener('click', removeHandler);
-        removeBtn.addEventListener('click', resetToInitial);
-        removeBtn.disabled = false;
-      } catch (err) {
-        console.error(err);
-        stopProcessingVisuals();
-        resultMsg.textContent = 'Error: ' + (err.message || 'Unknown error');
-        removeBtn.disabled = false;
-      } finally {
-        loader.style.display = 'none';
-      }
-    }
-
-    // attach initial handler
-    removeBtn.addEventListener('click', removeHandler);
-
-    // cleanup object URLs when unload
-    window.addEventListener('beforeunload', () => {
-      if (currentPreviewUrl) try { URL.revokeObjectURL(currentPreviewUrl); } catch(e){}
-      if (processedTransparentUrl) try { URL.revokeObjectURL(processedTransparentUrl); } catch(e){}
-      if (processedCompositedUrl) try { URL.revokeObjectURL(processedCompositedUrl); } catch(e){}
-    });
-  </script>
-
-  <!-- Share Functionality -->
-  <script>
-    // Function to handle native sharing
-    function sharePage() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Skill2Job Background Remover',
-          text: 'Remove image backgrounds instantly for free using this online background remover tool by Skill2Job.',
-          url: 'https://tools.skill2job.site/backgroundremover/'
-        })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing:', error));
-      } else {
-        // Fallback: copy to clipboard
-        navigator.clipboard.writeText('Check out Skill2Job Background Remover: https://tools.skill2job.site/backgroundremover/')
-          .then(() => {
-            alert('Link copied to clipboard! You can now share it anywhere.');
-          })
-          .catch(err => {
-            // Final fallback: show the URL in an alert
-            alert('Share this URL: https://tools.skill2job.site/backgroundremover/');
-          });
-      }
-    }
-  </script>
+  }
+</script>
 </body>
 </html>
