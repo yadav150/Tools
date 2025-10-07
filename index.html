@@ -6,7 +6,7 @@
   <title>Skill2Job.site - Free Online Tools</title>
   <meta name="description" content="Free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser.">
   <meta name="keywords" content="online tools, free pdf tools, image resizer, pdf to jpeg, age calculator, Skill2Job">
-  
+
   <!-- Essential SEO Meta Tags -->
   <link rel="canonical" href="https://tools.skill2job.site/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -33,13 +33,16 @@
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Performance & Preloading -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-  <!-- Inline Critical CSS -->
+  <!-- Preload critical font awesome CSS -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
   <style>
     :root {
       --accent: #d32f2f;
@@ -51,13 +54,13 @@
       --page-pad: 16px;
       --border-radius: 2px;
     }
-    
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       background: #fafafa;
@@ -67,7 +70,7 @@
       line-height: 1.55;
       padding-bottom: 72px;
     }
-    
+
     /* Header */
     .header {
       background: #fff;
@@ -76,7 +79,7 @@
       width: 100%;
       border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
-    
+
     .header-container {
       max-width: var(--max-read);
       width: var(--max-width);
@@ -86,14 +89,14 @@
       justify-content: space-between;
       gap: 12px;
     }
-    
+
     .site-brand img {
       width: 32px;
       height: 32px;
       border-radius: var(--border-radius);
       display: block;
     }
-    
+
     /* Share Icon */
     .share-icon {
       display: flex;
@@ -110,14 +113,21 @@
       border: none;
       font-size: 16px;
     }
-    
+
+    .share-icon:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
     /* Main content container */
     .main-container {
       max-width: var(--max-read);
       width: var(--max-width);
       margin: 0 auto;
     }
-    
+
     /* Section headers */
     .section-header {
       background-color: var(--accent);
@@ -127,7 +137,7 @@
       font-size: 18px;
       margin: 20px 0 15px;
     }
-    
+
     /* Tools container */
     .tools-container {
       display: flex;
@@ -135,7 +145,16 @@
       gap: 12px;
       margin-bottom: 18px;
     }
-    
+
+    /* Desktop grid layout */
+    @media (min-width: 768px) {
+      .tools-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+    }
+
     .card {
       background: var(--sheet);
       border: 1px solid #e6e6e6;
@@ -144,21 +163,21 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
       width: 100%;
     }
-    
+
     .card h2 {
       margin: 0 0 6px 0;
       color: var(--accent);
       font-size: 16px;
       font-weight: 600;
     }
-    
+
     .card p {
       margin: 0 0 8px 0;
       color: #333;
       font-size: 13.5px;
       line-height: 1.4;
     }
-    
+
     .card a {
       display: inline-block;
       padding: 5px 8px;
@@ -169,7 +188,11 @@
       font-weight: 400;
       font-size: 12px;
     }
-    
+
+    .card a:hover {
+      background: var(--accent);
+    }
+
     /* About section container */
     .about-section {
       background: var(--sheet);
@@ -180,13 +203,23 @@
       margin-bottom: 20px;
     }
 
-    /* Contact section */
-    .contact-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
-    .content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
-    .content-paragraph a { color: var(--accent); text-decoration:none; font-weight:600; }
-    .content-paragraph a:hover { text-decoration:underline; }
-    .contact-highlight { background:#f9f9f9; border-left:3px solid var(--accent); padding:12px 16px; margin:16px 0; border-radius:0 var(--border-radius) var(--border-radius) 0; }
-    
+    /* Content paragraphs */
+    .content-paragraph {
+      text-align: justify;
+      margin: 20px 0;
+      font-size: 15px;
+      color: #222;
+    }
+
+    .content-paragraph a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .content-paragraph a:hover {
+      text-decoration: underline;
+    }
+
     /* Footer */
     .footer {
       position: fixed;
@@ -201,37 +234,51 @@
       color: #555;
       border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
-    
+
     .footer-container {
       max-width: var(--max-read);
       width: var(--max-width);
       margin: 0 auto;
     }
-    
+
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
     /* Small screens adjustments */
     @media (max-width: 760px) {
       .header {
         padding: 10px 0;
       }
-      
-      .header-container, .main-container, .footer-container {
+
+      .header-container {
         width: 95%;
       }
-      
+
+      .main-container {
+        width: 95%;
+      }
+
       .section-header {
         margin: 18px 0 12px;
         padding: 6px 8px;
       }
-      
+
       .site-brand img {
         width: 30px;
         height: 30px;
       }
-      
+
+      .footer-container {
+        width: 95%;
+      }
+
       .about-section {
         padding: 12px;
       }
-      
+
       .share-icon {
         width: 32px;
         height: 32px;
@@ -239,48 +286,23 @@
       }
     }
 
-    /* Non-critical CSS loaded later */
-    .share-icon:hover,
-    .card a:hover {
-      display: none;
+    @media (max-width: 420px) {
+      .header-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
     }
   </style>
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Skill2Job Online Tools",
-    "description": "Free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser.",
-    "url": "https://tools.skill2job.site/",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Skill2Job"
-    },
-    "creator": {
-      "@type": "Person",
-      "name": "Yadav Subba"
-    }
-  }
-  </script>
-
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
   <header class="header" role="banner">
     <div class="header-container">
       <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
-        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" alt="Skill2Job logo" width="32" height="32" loading="lazy">
+        <!-- Added fixed width and height to prevent layout shifts -->
+        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" alt="Skill2Job logo" width="32" height="32" />
       </a>
-      
+
       <button class="share-icon" onclick="sharePage()" title="Share this page">
         <i class="fas fa-share-alt"></i>
       </button>
@@ -288,7 +310,7 @@
   </header>
 
   <main class="main-container" role="main">
-    <!-- Google AdSense Ad -->
+    <!-- Google AdSense Ad (Responsive, Width 98%) -->
     <div style="width:98%; margin:auto; min-height:250px; text-align:center;">
       <ins class="adsbygoogle"
            style="display:block; width:100%; min-height:250px;"
@@ -306,7 +328,7 @@
         <p>Compress your PDF files quickly and easily for free.</p>
         <a href="pdfcompressor/">Open Tool</a>
       </div>
-      
+
       <div class="card">
         <h2>Online Image Combiner</h2>
         <p>Combine two images horizontally or vertically.</p>
@@ -364,14 +386,14 @@
       </p>
 
       <p class="content-paragraph">
-        We encourage all users to join and follow our official channels to stay connected with the latest updates and tools. Join our <a href="https://chat.whatsapp.com/B6JT3SoO5qUFGTXHwSy6mR?mode=ems_copy_t">WhatsApp Group</a> and follow our <a href="https://www.facebook.com/groups/948663269161123/?ref=share&mibextid=NSMWBT">Facebook Channel</a> to receive notifications, tips, and resources directly. Additionally, visit our <a href="https://www.skill2job.site/">official Skill2Job Job Updates website</a> to explore all tools and career updates in one place. By connecting with us, users can ensure they never miss new features, tools, or important job notifications while benefiting from Skill2Job Tools' safe, fast, and reliable online solutions.
+        We encourage all users to join and follow our official channels to stay connected with the latest updates and tools. Join our <a href="https://chat.whatsapp.com/B6JT3SoO5qUFGTXHwSy6mR?mode=ems_copy_t">WhatsApp Group</a> and follow our <a href="https://www.facebook.com/groups/948663269161123/?ref=share&mibextid=NSMWBT">Facebook Channel</a> to receive notifications, tips, and resources directly. Additionally, visit our <a href="https://www.skill2job.site/">Official Skill2Job Job Updates website</a> to explore all tools and career updates in one place. By connecting with us, users can ensure they never miss new features, tools, or important job notifications while benefiting from Skill2Job Tools' safe, fast, and reliable online solutions.
       </p>
     </div>
   </main>
 
   <footer class="footer" role="contentinfo">
     <div class="footer-container">
-      &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
+      &copy; <strong>Skill2Job</strong> | All Rights Reserved<br />
       <a href="about/">About</a> |
       <a href="disclaimer/">Disclaimer</a> |
       <a href="privacy/">Privacy</a> |
@@ -380,39 +402,53 @@
     </div>
   </footer>
 
-  <!-- Load non-critical CSS -->
-  <script>
-    // Load Font Awesome asynchronously
-    var faLink = document.createElement('link');
-    faLink.rel = 'stylesheet';
-    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-    document.head.appendChild(faLink);
-
-    // Add hover styles after load
-    window.addEventListener('load', function() {
-      var style = document.createElement('style');
-      style.textContent = `
-        .share-icon:hover { background: var(--accent); color: white; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .card a:hover { background: var(--accent); }
-        @media (min-width: 768px) { .tools-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; } }
-      `;
-      document.head.appendChild(style);
-    });
+  <!-- Structured Data (JSON-LD) - Moved to bottom for better performance -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Skill2Job Online Tools",
+    "description": "Free online tools by Skill2Job for resizing, converting, editing, and compressing images & PDFs securely in your browser.",
+    "url": "https://tools.skill2job.site/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Skill2Job"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Yadav Subba"
+    }
+  }
   </script>
 
-  <!-- All scripts moved to bottom -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+  <!-- Deferred JavaScript -->
+
+  <!-- AdSense Script -->
+  <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+
   <script>
+    // Initialize Google Analytics when script loads
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-HV12J7V98D');
-  </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    // Initialize AdSense when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
 
-  <script>
+    // Function to handle native sharing
     function sharePage() {
       if (navigator.share) {
         navigator.share({
@@ -423,15 +459,17 @@
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing:', error));
       } else {
+        // Fallback: copy to clipboard
         navigator.clipboard.writeText('Check out Skill2Job Online Tools: https://tools.skill2job.site')
           .then(() => {
             alert('Link copied to clipboard! You can now share it anywhere.');
           })
-          .catch(err => {
+          .catch(() => {
+            // Final fallback: show the URL in an alert
             alert('Share this URL: https://tools.skill2job.site');
           });
       }
     }
   </script>
 </body>
-  </html>
+</html>
