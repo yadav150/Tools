@@ -7,7 +7,7 @@
   <meta name="description" content="Skill2Job Tools Photo and Sign Joiner lets you easily merge your photo with your signature into a single PNG image. Fast, secure, reliable, and ideal for exam forms and official documents.">
   <meta name="keywords" content="Skill2Job Tools, Photo and Sign Joiner, photo signature merge tool, combine photo and signature online, join photo and sign, create single PNG, government exam forms, application documents, online tools, secure image merger, fast signature joiner">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Essential SEO Meta Tags -->
   <link rel="canonical" href="https://tools.skill2job.site/photoandsignjoiner/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Photo and Sign Joiner - Skill2Job Tools" />
   <meta property="og:description" content="Skill2Job Tools Photo and Sign Joiner lets you easily merge your photo with your signature into a single PNG image. Fast, secure, reliable, and ideal for exam forms and official documents." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
   <meta property="og:url" content="https://tools.skill2job.site/photoandsignjoiner/" />
   <meta property="og:site_name" content="Skill2Job Online Tools" />
 
@@ -26,40 +26,21 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Photo and Sign Joiner - Skill2Job Tools" />
   <meta name="twitter:description" content="Skill2Job Tools Photo and Sign Joiner lets you easily merge your photo with your signature into a single PNG image. Fast, secure, reliable, and ideal for exam forms and official documents." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
 
-  <!-- Additional Technical SEO -->
+  <!-- Additional SEO -->
   <meta name="theme-color" content="#d32f2f" />
   <meta name="msapplication-TileColor" content="#d32f2f" />
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <link rel="icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" />
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Skill2Job Photo and Sign Joiner",
-    "description": "Skill2Job Tools Photo and Sign Joiner lets you easily merge your photo with your signature into a single PNG image. Fast, secure, reliable, and ideal for exam forms and official documents.",
-    "url": "https://tools.skill2job.site/photoandsignjoiner/",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Skill2Job"
-    }
-  }
-  </script>
-
-  <!-- Performance & Preloading -->
+  <!-- Preconnect & preload -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-  
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
   <style>
 :root {
   --accent: #d32f2f;
@@ -71,9 +52,7 @@
   --page-pad: 16px;
   --border-radius: 2px;
 }
-
 * { box-sizing: border-box; margin:0; padding:0; }
-
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: #fafafa;
@@ -85,122 +64,136 @@ body {
 /* Header */
 .header { background:#fff; padding:14px 0; border-bottom:1px solid #ddd; border-radius:0 0 var(--border-radius) var(--border-radius); width:100%; }
 .header-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block;margin-left:5px; }
+.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block; margin-left:5px; }
+
+/* Prevent layout shift by fixing image dimensions */
+.site-brand img {
+  width: 32px;
+  height: 32px;
+}
 
 /* Share Icon */
-.share-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius); background:#f5f5f5; color:#555; text-decoration:none; cursor:pointer; font-size:16px; border:none; transition:0.3s;margin-right:5px; }
+.share-icon {
+  display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius);
+  background:#f5f5f5; color:#555; border:none; font-size:16px; cursor:pointer; margin-right:5px; transition:0.3s;
+}
 .share-icon:hover { background: var(--accent); color:#fff; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.1); }
 
-/* Main content container */
 .main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
 
-/* ADS CONTAINER */
-.ads-wrapper { width:98%; margin:18px auto; min-height:280px; text-align:center; background:#fff; border:1px solid #e6e6e6; border-radius:var(--border-radius); overflow:hidden; }
+/* Reserve space for ads and prevent layout shift */
+.ads-wrapper {
+  width: 98%;
+  margin: 18px auto;
+  min-height: 280px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
 
-/* Section headers */
 .section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
 
-/* Tool Card */
 .tool-card { background: var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); width:100%; margin-bottom:18px; }
-.tool-card .row { margin-bottom:16px; }
-.tool-card label { display:block; font-size:14px; margin-bottom:6px; color:#333; }
-.tool-card input[type="file"], .tool-card select { width:100%; padding:10px 12px; font-size:15px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#fff; outline:none; }
-.tool-card input[type="file"]:focus, .tool-card select:focus { border-color: var(--accent); box-shadow:0 0 0 2px rgba(211,47,47,0.1); }
-.tool-card .btn { display:block; width:100%; padding:10px 14px; font-size:14px; color:#fff; background:var(--btn); border:none; border-radius:var(--border-radius); cursor:pointer; margin-top:8px; }
-.tool-card .btn.reset { background:#666; }
-.tool-card .result { margin-top:16px; min-height:110px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#f9f9f9; padding:14px; color: var(--text); white-space:pre-wrap; line-height:1.5; }
+.row { margin-bottom:16px; }
+label { display:block; font-size:14px; margin-bottom:6px; color:#333; }
+input[type="file"], select { width:100%; padding:10px 12px; font-size:15px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#fff; outline:none; }
+input[type="file"]:focus, select:focus { border-color: var(--accent); box-shadow:0 0 0 2px rgba(211,47,47,0.1); }
+.btn { display:block; width:100%; padding:10px 14px; font-size:14px; color:#fff; background:var(--btn); border:none; border-radius:var(--border-radius); cursor:pointer; margin-top:8px; }
+.reset { background:#666; }
+
+/* Reserve space for dynamic image preview to reduce layout shifts */
+#result {
+  min-height: 250px;
+  transition: none;
+  margin-top: 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--border-radius);
+  background: #f9f9f9;
+  padding: 14px;
+  color: var(--text);
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
 
 canvas, img.preview { display:block; margin-bottom:10px; border:1px solid #e6e6e6; max-width:100%; border-radius:var(--border-radius); }
 a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-decoration:none; font-size:13px; }
 
-/* About section */
 .about-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
 .content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
 .content-paragraph a { color: var(--accent); text-decoration:none; }
 .content-paragraph a:hover { text-decoration:underline; }
 
-/* Footer */
 .footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 0; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; border-radius: var(--border-radius) var(--border-radius) 0 0; }
 .footer-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
 .footer a { color:#555; text-decoration:none; margin:0 6px; }
 
-/* Responsive */
-@media (max-width:760px) {
+@media(max-width:760px) {
   .header { padding:10px 0; }
   .header-container, .main-container, .footer-container { width:98%; }
-  .ads-wrapper { width:98%; min-height:280px; }
   .section-header { margin:18px 0 12px; padding:6px 8px; }
   .site-brand img { width:30px; height:30px; }
   .about-section { padding:12px; }
   .share-icon { width:32px; height:32px; font-size:14px; }
-  .tool-card { padding:12px; }
-}
-@media (max-width:420px) {
-  .header-container { flex-direction:row; align-items:center; gap:8px; }
 }
 </style>
-  
-  <!-- Global site tag (gtag.js) - Google Analytics for Subdomain -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HV12J7V98D');
-  </script>
-  
-  <!-- AdSense Auto Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-     crossorigin="anonymous"></script>
+
+<!-- External Scripts (Deferred for speed) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HV12J7V98D');
+</script>
+
 </head>
 <body>
-  <header class="header" role="banner">
-    <div class="header-container">
-      <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
-        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" alt="Skill2Job logo">
-      </a>
-      
-      <button class="share-icon" onclick="sharePage()" title="Share this page">
-        <i class="fas fa-share-alt"></i>
-      </button>
+<header class="header" role="banner">
+  <div class="header-container">
+    <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled%20(512%20x%20512%20px)_20250719_151932_0000.png" alt="Skill2Job logo" width="32" height="32">
+    </a>
+    <button class="share-icon" onclick="sharePage()" title="Share this page">
+      <i class="fas fa-share-alt"></i>
+    </button>
+  </div>
+</header>
+
+<main class="main-container" role="main">
+  <!-- AdSense -->
+  <div class="ads-wrapper">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; min-height:280px;"
+         data-ad-client="ca-pub-1876390706944654"
+         data-ad-slot="4054819400"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <!-- Tool Content -->
+  <h2 class="section-header">Photo & Signature Joiner</h2>
+  <div class="tool-card" role="region" aria-label="Photo and Signature joiner">
+    <div class="row">
+      <label for="image1">Upload Photo</label>
+      <input type="file" id="image1" accept="image/*">
     </div>
-  </header>
-
-  <main class="main-container" role="main">
-    <!-- Auto AdSense will place ads automatically -->
-
-    <!-- Google AdSense Ad (Responsive, Width 98%) -->
-    <div class="ads-wrapper">
-      <ins class="adsbygoogle"
-           style="display:block; width:100%; min-height:280px;"
-           data-ad-client="ca-pub-1876390706944654"
-           data-ad-slot="4054819400"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+    <div class="row">
+      <label for="image2">Upload Signature</label>
+      <input type="file" id="image2" accept="image/*">
     </div>
+    <button id="combineBtn" class="btn">Join Photo & Signature</button>
+    <div id="result" class="result">Upload your photo and signature to combine into a single image.</div>
+  </div>
 
-    <h2 class="section-header">Photo & Signature Joiner</h2>
-
-    <div class="tool-card" role="region" aria-label="Photo and Signature joiner">
-      <div class="row">
-        <label for="image1">Upload Photo</label>
-        <input type="file" id="image1" accept="image/*">
-      </div>
-      <div class="row">
-        <label for="image2">Upload Signature</label>
-        <input type="file" id="image2" accept="image/*">
-      </div>
-      <button id="combineBtn" class="btn">Join Photo & Signature</button>
-      <div id="result" class="result">Upload your photo and signature to combine them into a single image.</div>
-    </div>
-
-    <h2 class="section-header">About This Tool</h2>
-
-    <div class="about-section">
-      <p class="content-paragraph">
+  <h2 class="section-header">About This Tool</h2>
+  <div class="about-section">
+    <p class="content-paragraph">
         This online tool is created with the primary goal of making the task of combining your photo and signature into a single image simple, secure, and efficient. Many application forms, government exams, official documents, and verification processes require you to upload your photograph and signature in a specific format. Instead of struggling with heavy editing software or depending on cyber cafes, this tool allows you to instantly merge both elements into one properly aligned image with just a few clicks. It works directly in your browser without any installation, ensuring that you can use it easily on desktops, laptops, tablets, or even smartphones.
       </p>
 
@@ -215,135 +208,124 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
       <p class="content-paragraph">
         This photo and signature combiner is especially useful for students, job seekers, and professionals who frequently deal with online applications. It eliminates the need for external software, saves money, and makes the whole process stress-free. With its speed, accuracy, and focus on privacy, this tool provides a perfect balance of convenience and reliability. Whether you are preparing for an exam, filling out an admission form, or submitting official paperwork, this utility ensures your documents are ready in the correct format every single time.
       </p>
-    </div>
-  </main>
+  </div>
+</main>
 
-  <footer class="footer" role="contentinfo">
-    <div class="footer-container">
-      &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
-      <a href="about/">About</a> |
-      <a href="disclaimer/">Disclaimer</a> |
-      <a href="privacy/">Privacy</a> |
-      <a href="terms/">Terms</a> |
-      <a href="contact/">Contact</a>
-    </div>
-  </footer>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
+    <a href="about/">About</a> | <a href="disclaimer/">Disclaimer</a> | <a href="privacy/">Privacy</a> | <a href="terms/">Terms</a> | <a href="contact/">Contact</a>
+  </div>
+</footer>
 
-  <!-- JavaScript for Photo and Sign Joiner -->
-  <script>
-    const combineBtn = document.getElementById('combineBtn');
-    const img1Input = document.getElementById('image1');
-    const img2Input = document.getElementById('image2');
-    const result = document.getElementById('result');
+<!-- JavaScript -->
+<script>
+  const combineBtn = document.getElementById('combineBtn');
+  const img1Input = document.getElementById('image1');
+  const img2Input = document.getElementById('image2');
+  const result = document.getElementById('result');
 
-    combineBtn.addEventListener('click', () => {
-      if (combineBtn.classList.contains("reset")) {
-        result.innerHTML = "Upload your photo and signature to combine them into a single image.";
-        img1Input.value = "";
-        img2Input.value = "";
-        combineBtn.textContent = "Join Photo & Signature";
-        combineBtn.classList.remove("reset");
-        return;
-      }
-
-      const file1 = img1Input.files[0];
-      const file2 = img2Input.files[0];
-
-      if (!file1 || !file2) {
-        alert("Please upload both photo and signature.");
-        return;
-      }
-
-      const reader1 = new FileReader();
-      const reader2 = new FileReader();
-
-      reader1.onload = (e1) => {
-        reader2.onload = (e2) => {
-          const img1 = new Image();
-          const img2 = new Image();
-          
-          img1.onload = () => {
-            img2.onload = () => {
-              try {
-                const origW1 = img1.width;
-                const origW2 = img2.width;
-                const targetW = Math.max(origW1 || 1, origW2 || 1);
-
-                const scale1 = targetW / (origW1 || 1);
-                const scale2 = targetW / (origW2 || 1);
-
-                const newH1 = Math.round(img1.height * scale1);
-                const signatureShrink = 0.65;
-                const newH2 = Math.max(1, Math.round(img2.height * scale2 * signatureShrink));
-
-                const canvas = document.createElement('canvas');
-                canvas.width = targetW;
-                canvas.height = newH1 + newH2;
-                const ctx = canvas.getContext('2d');
-
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(0,0,canvas.width,canvas.height);
-
-                ctx.drawImage(img1, 0, 0, targetW, newH1);
-                if (newH2 > 0) ctx.drawImage(img2, 0, newH1, targetW, newH2);
-
-                const dataUrl = canvas.toDataURL('image/png');
-
-                result.innerHTML = "";
-                const preview = document.createElement("img");
-                preview.src = dataUrl;
-                preview.className = "preview";
-
-                const link = document.createElement("a");
-                link.href = dataUrl;
-                link.download = "photo-sign-joined.png";
-                link.textContent = "Download Combined Image";
-                link.className = "download-link";
-
-                result.appendChild(preview);
-                result.appendChild(link);
-
-                combineBtn.textContent = "Reset";
-                combineBtn.classList.add("reset");
-              } catch (err) {
-                console.error(err);
-                result.innerHTML = '<div style="color: var(--accent);">Unable to produce combined image in this browser.</div>';
-              }
-            };
-            img2.src = e2.target.result;
-          };
-          img1.src = e1.target.result;
-        };
-        reader2.readAsDataURL(file2);
-      };
-      reader1.readAsDataURL(file1);
-    });
-  </script>
-
-  <!-- Share Functionality -->
-  <script>
-    // Function to handle native sharing
-    function sharePage() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Skill2Job Photo & Signature Joiner',
-          text: 'Combine your photo and signature into a single image easily with this free tool by Skill2Job.',
-          url: 'https://tools.skill2job.site/photoandsignjoiner/'
-        })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing:', error));
-      } else {
-        // Fallback: copy to clipboard
-        navigator.clipboard.writeText('Check out Skill2Job Photo & Signature Joiner: https://tools.skill2job.site/photoandsignjoiner/')
-          .then(() => {
-            alert('Link copied to clipboard! You can now share it anywhere.');
-          })
-          .catch(err => {
-            // Final fallback: show the URL in an alert
-            alert('Share this URL: https://tools.skill2job.site/photoandsignjoiner/');
-          });
-      }
+  combineBtn.addEventListener('click', () => {
+    if (combineBtn.classList.contains("reset")) {
+      result.innerHTML = "Upload your photo and signature to combine into a single image.";
+      img1Input.value = "";
+      img2Input.value = "";
+      combineBtn.textContent = "Join Photo & Signature";
+      combineBtn.classList.remove("reset");
+      return;
     }
-  </script>
+
+    const file1 = img1Input.files[0];
+    const file2 = img2Input.files[0];
+
+    if (!file1 || !file2) {
+      alert("Please upload both photo and signature.");
+      return;
+    }
+
+    const reader1 = new FileReader();
+    const reader2 = new FileReader();
+
+    reader1.onload = (e1) => {
+      reader2.onload = (e2) => {
+        const img1 = new Image();
+        const img2 = new Image();
+
+        img1.onload = () => {
+          img2.onload = () => {
+            try {
+              const origW1 = img1.width;
+              const origW2 = img2.width;
+              const targetW = Math.max(origW1 || 1, origW2 || 1);
+
+              const scale1 = targetW / (origW1 || 1);
+              const scale2 = targetW / (origW2 || 1);
+
+              const newH1 = Math.round(img1.height * scale1);
+              const signatureShrink = 0.65;
+              const newH2 = Math.max(1, Math.round(img2.height * scale2 * signatureShrink));
+
+              const canvas = document.createElement('canvas');
+              canvas.width = targetW;
+              canvas.height = newH1 + newH2;
+              const ctx = canvas.getContext('2d');
+
+              ctx.fillStyle = '#ffffff';
+              ctx.fillRect(0,0,canvas.width,canvas.height);
+
+              ctx.drawImage(img1, 0, 0, targetW, newH1);
+              if (newH2 > 0) ctx.drawImage(img2, 0, newH1, targetW, newH2);
+
+              const dataUrl = canvas.toDataURL('image/png');
+
+              result.innerHTML = "";
+              const preview = document.createElement("img");
+              preview.src = dataUrl;
+              preview.className = "preview";
+
+              const link = document.createElement("a");
+              link.href = dataUrl;
+              link.download = "photo-sign-joined.png";
+              link.textContent = "Download Combined Image";
+              link.className = "download-link";
+
+              result.appendChild(preview);
+              result.appendChild(link);
+
+              combineBtn.textContent = "Reset";
+              combineBtn.classList.add("reset");
+            } catch (err) {
+              console.error(err);
+              result.innerHTML = '<div style="color: var(--accent);">Unable to produce combined image in this browser.</div>';
+            }
+          };
+          img2.src = e2.target.result;
+        };
+        img1.src = e1.target.result;
+      };
+      reader2.readAsDataURL(file2);
+    };
+    reader1.readAsDataURL(file1);
+  });
+
+  // Share functionality
+  function sharePage() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Skill2Job Photo & Signature Joiner',
+        text: 'Combine your photo and signature into a single image easily with this free tool.',
+        url: 'https://tools.skill2job.site/photoandsignjoiner/'
+      }).then(() => console.log('Shared successfully'))
+        .catch(() => alert('Share failed or canceled.'));
+    } else {
+      navigator.clipboard.writeText('https://tools.skill2job.site/photoandsignjoiner/').then(() => {
+        alert('Link copied to clipboard!');
+      }).catch(() => {
+        alert('Copy to clipboard failed.');
+      });
+    }
+  }
+</script>
 </body>
 </html>
