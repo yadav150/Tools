@@ -122,7 +122,7 @@
     .section-header {
       background-color: var(--accent);
       color: #fff;
-      padding: 5px 8px;
+      padding: 8px 12px;
       border-radius: var(--border-radius);
       font-size: 18px;
       margin: 20px 0 15px;
@@ -179,13 +179,13 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
       margin-bottom: 20px;
     }
-    
-    /* Content paragraphs */
-    .content-paragraph {
-      text-align: justify;
-      margin: 20px 0;
-      font-size: 15px;
-    }
+
+    /* Contact section */
+    .contact-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
+    .content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
+    .content-paragraph a { color: var(--accent); text-decoration:none; font-weight:600; }
+    .content-paragraph a:hover { text-decoration:underline; }
+    .contact-highlight { background:#f9f9f9; border-left:3px solid var(--accent); padding:12px 16px; margin:16px 0; border-radius:0 var(--border-radius) var(--border-radius) 0; }
     
     /* Footer */
     .footer {
@@ -241,8 +241,7 @@
 
     /* Non-critical CSS loaded later */
     .share-icon:hover,
-    .card a:hover,
-    .content-paragraph a:hover {
+    .card a:hover {
       display: none;
     }
   </style>
@@ -395,7 +394,6 @@
       style.textContent = `
         .share-icon:hover { background: var(--accent); color: white; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         .card a:hover { background: var(--accent); }
-        .content-paragraph a:hover { text-decoration: underline; }
         @media (min-width: 768px) { .tools-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; } }
       `;
       document.head.appendChild(style);
