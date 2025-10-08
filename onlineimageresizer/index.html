@@ -124,34 +124,24 @@
       margin: 0 auto;
     }
     
-    /* ADS CONTAINER */
     .ads-wrapper {
-      width: 98%; /* explicit 98% */
-      margin: 18px auto;
-      height: 200px; /* fixed height to prevent expansion */
-      min-height: 200px;
-      text-align: center;
-      background: #fff;
-      border: 1px solid #e6e6e6;
-      border-radius: var(--border-radius);
-      overflow: hidden; /* hide overflowing ad content */
-      box-sizing: border-box;
-      display: block;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 16px auto;
+    min-height: 250px;
+    aspect-ratio: 16/9;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
 
-    /* make sure the ins or iframe inside the ad slot cannot grow beyond container */
-    .ads-wrapper ins.adsbygoogle {
-      display: block !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-height: 200px !important;
-      box-sizing: border-box;
-    }
-    .ads-wrapper ins.adsbygoogle > iframe {
-      width: 100% !important;
-      height: 100% !important;
-      max-height: 200px !important;
-    }
+.adsbygoogle {
+    width: 100% !important;
+    height: 100% !important;
+}
     
     /* Section headers */
     .section-header {
