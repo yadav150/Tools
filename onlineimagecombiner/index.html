@@ -95,8 +95,25 @@ body {
 .main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
 
 /* ADS CONTAINER */
-.ads-wrapper { width:98%; margin:18px auto; min-height:280px; text-align:center; background:#fff; border:1px solid #e6e6e6; border-radius:var(--border-radius); overflow:hidden; }
+    .ads-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 16px auto;
+    min-height: 250px;
+    aspect-ratio: 16/9;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
 
+.adsbygoogle {
+    width: 100% !important;
+    height: 100% !important;
+}
+    
 /* Section headers */
 .section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
 
@@ -171,15 +188,11 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
 
     <!-- Google AdSense Ad (Responsive, Width 98%) -->
     <div class="ads-wrapper">
-      <ins class="adsbygoogle"
-           style="display:block; width:100%; min-height:280px;"
-           data-ad-client="ca-pub-1876390706944654"
-           data-ad-slot="4054819400"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+  <ins class="adsbygoogle"
+       data-ad-client="ca-pub-1876390706944654"
+       data-ad-slot="4054819400"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
     </div>
 
     <h2 class="section-header">Image Combiner</h2>
@@ -334,5 +347,14 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
       }
     }
   </script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HV12J7V98D');
+</script>
 </body>
 </html>
