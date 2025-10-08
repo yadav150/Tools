@@ -129,17 +129,24 @@
       margin: 0 auto;
     }
 
-    /* Reserve ad container space with aspect ratio */
     .ads-wrapper {
-      width: 100%;
-      margin: 16px auto;
-      min-height: 250px;
-      aspect-ratio: 16 / 9;
-      background: #fff;
-      border: 1px solid #e6e6e6;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 16px auto;
+  min-height: 250px;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.adsbygoogle {
+  width: 100% !important;
+  height: 100% !important;
+}
 
     /* Section headers */
     .section-header {
@@ -324,12 +331,11 @@
   <main class="main-container" role="main">
     <!-- Ads container with reserved space -->
     <div class="ads-wrapper">
-      <ins class="adsbygoogle"
-           style="display:block; width:100%; min-height:250px;"
-           data-ad-client="ca-pub-1876390706944654"
-           data-ad-slot="4054819400"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+  <ins class="adsbygoogle"
+       data-ad-client="ca-pub-1876390706944654"
+       data-ad-slot="4054819400"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
     </div>
 
     <h2 class="section-header">Our Available Tools</h2>
