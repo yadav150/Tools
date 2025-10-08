@@ -83,6 +83,9 @@ body {
 
 /* Reserve ad container space with aspect ratio */
 .ads-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   margin: 16px auto;
   min-height: 250px;
@@ -92,6 +95,11 @@ body {
   border-radius: var(--border-radius);
   overflow: hidden;
 }
+
+.adsbygoogle {
+  width: 100% !important;
+  height: 100% !important;
+    }
 
 .section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
 
@@ -156,15 +164,11 @@ body {
 <main class="main-container" role="main">
   <!-- AdSense -->
   <div class="ads-wrapper">
-    <ins class="adsbygoogle"
-         style="display:block; width:100%; min-height:280px;"
-         data-ad-client="ca-pub-1876390706944654"
-         data-ad-slot="4054819400"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+  <ins class="adsbygoogle"
+       data-ad-client="ca-pub-1876390706944654"
+       data-ad-slot="4054819400"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   </div>
 
   <h2 class="section-header">Contact Us</h2>
