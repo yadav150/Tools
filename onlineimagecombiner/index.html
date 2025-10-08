@@ -6,7 +6,6 @@
   <title>Online Image Combiner — Skill2Job Tools</title>
   <meta name="description" content="Combine multiple images into one easily with this free Image Combiner tool by Skill2Job. Fast, secure & simple.">
   <meta name="keywords" content="image combiner, merge images online, combine jpg, combine png, join images online, photo combiner free, tools by Skill2Job, Skill2Job free image combiner, combine images Skill2Job, merge photo tool 2025, online image joiner, free student image tool">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Essential SEO Meta Tags -->
   <link rel="canonical" href="https://tools.skill2job.site/onlineimagecombiner/" />
@@ -18,7 +17,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Online Image Combiner - Skill2Job Tools" />
   <meta property="og:description" content="Combine multiple images into one easily with this free Image Combiner tool by Skill2Job. Fast, secure & simple." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <meta property="og:image" content="https://tools.skill2job.site/tools-logo.webp" />
   <meta property="og:url" content="https://tools.skill2job.site/onlineimagecombiner/" />
   <meta property="og:site_name" content="Skill2Job Online Tools" />
 
@@ -26,12 +25,353 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Online Image Combiner - Skill2Job Tools" />
   <meta name="twitter:description" content="Combine multiple images into one easily with this free Image Combiner tool by Skill2Job. Fast, secure & simple." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <meta name="twitter:image" content="https://tools.skill2job.site/tools-logo.webp" />
 
   <!-- Additional Technical SEO -->
   <meta name="theme-color" content="#d32f2f" />
   <meta name="msapplication-TileColor" content="#d32f2f" />
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" />
+  <link rel="icon" type="image/x-icon" href="https://tools.skill2job.site/tools-logo.webp" />
+
+  <!-- Performance & Preloading -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://tools.skill2job.site/tools-logo.webp" as="image">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+
+  <style>
+    :root {
+      --accent: #d32f2f;
+      --btn: #000;
+      --text: #111;
+      --sheet: #fff;
+      --max-width: 95%;
+      --max-read: 1100px;
+      --page-pad: 16px;
+      --border-radius: 2px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #fafafa;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.55;
+      padding-bottom: 72px;
+    }
+    
+    /* Header */
+    .header {
+      background: #fff;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      width: 100%;
+    }
+    
+    .header-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    
+    .site-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--border-radius);
+      display: block;
+    }
+    
+    /* Share Icon */
+    .share-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius);
+      background: #f5f5f5;
+      color: #555;
+      text-decoration: none;
+      transition: all .3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+    }
+    
+    .share-icon:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    }
+    
+    /* Main content container */
+    .main-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+    }
+    
+    /* ADS CONTAINER */
+    .ads-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 16px auto;
+      min-height: 250px;
+      aspect-ratio: 16/9;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+    
+    .adsbygoogle {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    
+    /* Section headers */
+    .section-header {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      font-size: 18px;
+      margin: 20px 0 15px;
+    }
+    
+    /* Tool Card */
+    .tool-card {
+      background: var(--sheet);
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      width: 100%;
+      margin-bottom: 18px;
+    }
+    
+    .tool-card .row {
+      margin-bottom: 16px;
+    }
+    
+    .tool-card label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+    
+    .tool-card input[type="file"], 
+    .tool-card input[type="number"],
+    .tool-card select {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 15px;
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      background: #fff;
+      outline: none;
+    }
+    
+    .tool-card input[type="file"]:focus, 
+    .tool-card input[type="number"]:focus,
+    .tool-card select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(211,47,47,0.1);
+    }
+    
+    .tool-card .btn {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #fff;
+      background: var(--btn);
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all .3s ease;
+    }
+    
+    .tool-card .btn:hover {
+      background: var(--accent);
+    }
+    
+    .tool-card .btn.reset {
+      background: #666;
+    }
+    
+    .tool-card .result {
+      margin-top: 16px;
+      min-height: 110px;
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      background: #f9f9f9;
+      padding: 14px;
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    canvas, img.preview {
+      display: block;
+      margin-bottom: 10px;
+      border: 1px solid #e6e6e6;
+      max-width: 100%;
+      border-radius: var(--border-radius);
+    }
+    
+    a.download-link {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid var(--accent);
+      border-radius: var(--border-radius);
+      transition: all .3s ease;
+    }
+    
+    a.download-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    
+    /* About section */
+    .about-section {
+      background: var(--sheet);
+      border: 1px solid #e6e6e6;
+      border-radius: var(--border-radius);
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+    
+    .content-paragraph {
+      text-align: justify;
+      margin: 20px 0;
+      font-size: 15px;
+      color: #222;
+    }
+    
+    .content-paragraph a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .content-paragraph a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      background: #f5f5f5;
+      border-top: 1px solid #ddd;
+      font-size: 13px;
+      color: #555;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+    
+    .footer-container {
+      max-width: var(--max-read);
+      width: var(--max-width);
+      margin: 0 auto;
+    }
+    
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 760px) {
+      .header {
+        padding: 10px 0;
+      }
+      
+      .header-container, .main-container, .footer-container {
+        width: 95%;
+      }
+      
+      .section-header {
+        margin: 18px 0 12px;
+        padding: 6px 8px;
+        font-size: 16px; /* Reduced font size for mobile */
+      }
+      
+      .site-brand img {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .about-section {
+        padding: 12px;
+      }
+      
+      .share-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+      
+      .tool-card {
+        padding: 12px;
+      }
+      
+      .content-paragraph {
+        font-size: 14px; /* Reduced font size for mobile */
+      }
+    }
+    
+    @media (max-width: 420px) {
+      .header-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .section-header {
+        font-size: 15px; /* Further reduced for small screens */
+      }
+      
+      .content-paragraph {
+        font-size: 13.5px; /* Further reduced for small screens */
+      }
+    }
+  </style>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -54,127 +394,13 @@
     }
   }
   </script>
-
-  <!-- Performance & Preloading -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-  
-  <style>
-:root {
-  --accent: #d32f2f;
-  --btn: #000;
-  --text: #111;
-  --sheet: #fff;
-  --max-width: 98%;
-  --max-read: 1100px;
-  --page-pad: 16px;
-  --border-radius: 2px;
-}
-
-* { box-sizing: border-box; margin:0; padding:0; }
-
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: #fafafa;
-  color: var(--text);
-  line-height: 1.55;
-  padding-bottom: 72px;
-}
-
-/* Header */
-.header { background:#fff; padding:14px 0; border-bottom:1px solid #ddd; border-radius:0 0 var(--border-radius) var(--border-radius); width:100%; }
-.header-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block;margin-left:5px; }
-
-/* Share Icon */
-.share-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius); background:#f5f5f5; color:#555; text-decoration:none; cursor:pointer; font-size:16px; border:none; transition:0.3s;margin-right:5px; }
-.share-icon:hover { background: var(--accent); color:#fff; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.1); }
-
-/* Main content container */
-.main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
-
-/* ADS CONTAINER */
-    .ads-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 16px auto;
-    min-height: 250px;
-    aspect-ratio: 16/9;
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-}
-
-.adsbygoogle {
-    width: 100% !important;
-    height: 100% !important;
-}
-    
-/* Section headers */
-.section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
-
-/* Tool Card */
-.tool-card { background: var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); width:100%; margin-bottom:18px; }
-.tool-card .row { margin-bottom:16px; }
-.tool-card label { display:block; font-size:14px; margin-bottom:6px; color:#333; }
-.tool-card input[type="file"], .tool-card select { width:100%; padding:10px 12px; font-size:15px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#fff; outline:none; }
-.tool-card input[type="file"]:focus, .tool-card select:focus { border-color: var(--accent); box-shadow:0 0 0 2px rgba(211,47,47,0.1); }
-.tool-card .btn { display:block; width:100%; padding:10px 14px; font-size:14px; color:#fff; background:var(--btn); border:none; border-radius:var(--border-radius); cursor:pointer; margin-top:8px; }
-.tool-card .btn.reset { background:#666; }
-.tool-card .result { margin-top:16px; min-height:110px; border:1px solid #e6e6e6; border-radius:var(--border-radius); background:#f9f9f9; padding:14px; color: var(--text); white-space:pre-wrap; line-height:1.5; }
-
-canvas, img.preview { display:block; margin-bottom:10px; border:1px solid #e6e6e6; max-width:100%; border-radius:var(--border-radius); }
-a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-decoration:none; font-size:13px; }
-
-/* About section */
-.about-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
-.content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
-.content-paragraph a { color: var(--accent); text-decoration:none; }
-.content-paragraph a:hover { text-decoration:underline; }
-
-/* Footer */
-.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 0; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; border-radius: var(--border-radius) var(--border-radius) 0 0; }
-.footer-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
-.footer a { color:#555; text-decoration:none; margin:0 6px; }
-
-/* Responsive */
-@media (max-width:760px) {
-  .header { padding:10px 0; }
-  .header-container, .main-container, .footer-container { width:98%; }
-  .ads-wrapper { width:98%; min-height:280px; }
-  .section-header { margin:18px 0 12px; padding:6px 8px; }
-  .site-brand img { width:30px; height:30px; }
-  .about-section { padding:12px; }
-  .share-icon { width:32px; height:32px; font-size:14px; }
-  .tool-card { padding:12px; }
-}
-@media (max-width:420px) {
-  .header-container { flex-direction:row; align-items:center; gap:8px; }
-}
-</style>
-  
-  <!-- Global site tag (gtag.js) - Google Analytics for Subdomain -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HV12J7V98D');
-  </script>
-  
-  <!-- AdSense Auto Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654"
-     crossorigin="anonymous"></script>
 </head>
+
 <body>
   <header class="header" role="banner">
     <div class="header-container">
       <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
-        <img src="https://raw.githubusercontent.com/yadav150/Tools/a9b275ef7b62f9903797c4c071301de47549a5b7/Untitled (512 x 512 px)_20250719_151932_0000.png" alt="Skill2Job logo">
+        <img src="https://tools.skill2job.site/tools-logo.webp" alt="Skill2Job logo" width="32" height="32" loading="eager">
       </a>
       
       <button class="share-icon" onclick="sharePage()" title="Share this page">
@@ -184,15 +410,13 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
   </header>
 
   <main class="main-container" role="main">
-    <!-- Auto AdSense will place ads automatically -->
-
-    <!-- Google AdSense Ad (Responsive, Width 98%) -->
+    <!-- Google AdSense Ad -->
     <div class="ads-wrapper">
-  <ins class="adsbygoogle"
-       data-ad-client="ca-pub-1876390706944654"
-       data-ad-slot="4054819400"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle"
+           data-ad-client="ca-pub-1876390706944654"
+           data-ad-slot="4054819400"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
     </div>
 
     <h2 class="section-header">Image Combiner</h2>
@@ -233,16 +457,35 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
   <footer class="footer" role="contentinfo">
     <div class="footer-container">
       &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
-      <a href="about/">About</a> |
-      <a href="disclaimer/">Disclaimer</a> |
-      <a href="privacy/">Privacy</a> |
-      <a href="terms/">Terms</a> |
-      <a href="contact/">Contact</a>
+      <a href="https://tools.skill2job.site/about/">About</a> |
+      <a href="https://tools.skill2job.site/disclaimer/">Disclaimer</a> |
+      <a href="https://tools.skill2job.site/privacy/">Privacy</a> |
+      <a href="https://tools.skill2job.site/terms/">Terms</a> |
+      <a href="https://tools.skill2job.site/contact/">Contact</a>
     </div>
   </footer>
 
-  <!-- Original JavaScript for Image Combiner (Intact) -->
+  <!-- Deferred JavaScript -->
+
+  <!-- AdSense Script -->
+  <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+
   <script>
+    // Initialize Google Analytics when script loads
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV12J7V98D');
+
+    // Initialize AdSense when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+
+    // Original JavaScript for Image Combiner (Intact)
     const combineBtn = document.getElementById('combineBtn');
     const img1Input = document.getElementById('image1');
     const img2Input = document.getElementById('image2');
@@ -320,10 +563,7 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
       };
       reader1.readAsDataURL(file1);
     });
-  </script>
 
-  <!-- Share Functionality -->
-  <script>
     // Function to handle native sharing
     function sharePage() {
       if (navigator.share) {
@@ -333,28 +573,40 @@ a.download-link { display:block; margin-bottom:4px; color: var(--accent); text-d
           url: 'https://tools.skill2job.site/onlineimagecombiner/'
         })
         .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing:', error));
+        .catch((error) => {
+          console.log('Error sharing:', error);
+          // Fallback if share fails
+          copyToClipboard();
+        });
       } else {
-        // Fallback: copy to clipboard
-        navigator.clipboard.writeText('Check out Skill2Job Image Combiner: https://tools.skill2job.site/onlineimagecombiner/')
-          .then(() => {
-            alert('Link copied to clipboard! You can now share it anywhere.');
-          })
-          .catch(err => {
-            // Final fallback: show the URL in an alert
-            alert('Share this URL: https://tools.skill2job.site/onlineimagecombiner/');
-          });
+        // Fallback for browsers that don't support Web Share API
+        copyToClipboard();
       }
     }
-  </script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-HV12J7V98D');
-</script>
+    // Separate function for clipboard fallback
+    function copyToClipboard() {
+      navigator.clipboard.writeText('Check out Skill2Job Image Combiner: https://tools.skill2job.site/onlineimagecombiner/')
+        .then(() => {
+          alert('Link copied to clipboard! You can now share it anywhere.');
+        })
+        .catch(() => {
+          // Final fallback: show the URL in an alert
+          alert('Share this URL: https://tools.skill2job.site/onlineimagecombiner/');
+        });
+    }
+  </script>
+
+  <!-- Load Font Awesome after critical content is rendered -->
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <script>
+    // Load Font Awesome after page load
+    window.addEventListener('load', function() {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+      document.head.appendChild(link);
+    });
+  </script>
 </body>
 </html>
