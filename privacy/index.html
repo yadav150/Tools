@@ -6,7 +6,6 @@
   <title>Privacy Policy — Skill2Job Tools</title>
   <meta name="description" content="Skill2Job Tools Privacy Policy ensures your personal data is secure while using government job updates, admit cards, results, tutorials, and online tools. Verify official sources.">
   <meta name="keywords" content="Skill2Job Tools, Privacy Policy, government jobs, job notifications, admit cards, exam results, tutorials, online tools, PDF converter, image resizer, career updates, India jobs, data security">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Essential SEO Meta Tags -->
   <link rel="canonical" href="https://tools.skill2job.site/privacy/" />
@@ -18,7 +17,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Privacy Policy - Skill2Job Tools" />
   <meta property="og:description" content="Skill2Job Tools Privacy Policy ensures your personal data is secure while using government job updates, admit cards, results, tutorials, and online tools. Verify official sources." />
-  <meta property="og:image" content="https://tools.skill2job.site/tools.logo.webp" />
+  <meta property="og:image" content="https://tools.skill2job.site/tools-logo.webp" />
   <meta property="og:url" content="https://tools.skill2job.site/privacy/" />
   <meta property="og:site_name" content="Skill2Job Online Tools" />
 
@@ -26,20 +25,21 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Privacy Policy - Skill2Job Tools" />
   <meta name="twitter:description" content="Skill2Job Tools Privacy Policy ensures your personal data is secure while using government job updates, admit cards, results, tutorials, and online tools. Verify official sources." />
-  <meta name="twitter:image" content="https://tools.skill2job.site/tools.logo.webp" />
+  <meta name="twitter:image" content="https://tools.skill2job.site/tools-logo.webp" />
 
   <!-- Additional SEO -->
   <meta name="theme-color" content="#d32f2f" />
   <meta name="msapplication-TileColor" content="#d32f2f" />
-  <link rel="icon" href="https://tools.skill2job.site/tools.logo.webp" />
+  <link rel="icon" href="https://tools.skill2job.site/tools-logo.webp" />
 
-  <!-- Preconnect & preload -->
+  <!-- Performance & Preloading -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://tools.skill2job.site/tools-logo.webp" as="image">
 
   <style>
 :root {
@@ -47,82 +47,181 @@
   --btn: #000;
   --text: #111;
   --sheet: #fff;
-  --max-width: 98%;
+  --max-width: 95%;
   --max-read: 1100px;
   --page-pad: 16px;
   --border-radius: 2px;
 }
-* { box-sizing: border-box; margin:0; padding:0; }
+* { 
+  box-sizing: border-box; 
+  margin:0; 
+  padding:0; 
+}
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: #fafafa;
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 1.55;
   padding-bottom: 72px;
 }
 
 /* Header */
-.header { background:#fff; padding:14px 0; border-bottom:1px solid #ddd; border-radius:0 0 var(--border-radius) var(--border-radius); width:100%; }
-.header-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.site-brand img { width:32px; height:32px; border-radius:var(--border-radius); display:block; margin-left:5px; }
-
-/* Prevent layout shift by fixing image dimensions */
-.site-brand img {
-  width: 32px;
-  height: 32px;
+.header { 
+  background:#fff; 
+  padding:14px 0; 
+  border-bottom:1px solid #ddd; 
+  border-radius:0 0 var(--border-radius) var(--border-radius); 
+  width:100%; 
+}
+.header-container { 
+  max-width: var(--max-read); 
+  width: var(--max-width); 
+  margin:0 auto; 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:12px; 
+}
+.site-brand img { 
+  width:32px; 
+  height:32px; 
+  border-radius:var(--border-radius); 
+  display:block; 
+  margin-left:5px; 
 }
 
 /* Share Icon */
 .share-icon {
-  display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:var(--border-radius);
-  background:#f5f5f5; color:#555; border:none; font-size:16px; cursor:pointer; margin-right:5px; transition:0.3s;
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  width:36px; 
+  height:36px; 
+  border-radius:var(--border-radius);
+  background:#f5f5f5; 
+  color:#555; 
+  border:none; 
+  font-size:16px; 
+  cursor:pointer; 
+  margin-right:5px; 
+  transition:all .3s ease;
+  text-decoration: none;
 }
-.share-icon:hover { background: var(--accent); color:#fff; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+.share-icon:hover { 
+  background: var(--accent); 
+  color:#fff; 
+  transform:translateY(-2px); 
+  box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+}
 
-.main-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
+.main-container { 
+  max-width: var(--max-read); 
+  width: var(--max-width); 
+  margin:0 auto; 
+}
 
 /* Reserve ad container space with aspect ratio */
 .ads-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   margin: 16px auto;
   min-height: 250px;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: var(--border-radius);
   overflow: hidden;
 }
 
-.section-header { background-color: var(--accent); color:#fff; padding:8px 12px; border-radius:var(--border-radius); font-size:18px; margin:20px 0 15px; }
+.adsbygoogle {
+  width: 100% !important;
+  height: 100% !important;
+}
 
-.privacy-section { background:var(--sheet); border:1px solid #e6e6e6; border-radius:var(--border-radius); padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); margin-bottom:20px; }
-.content-paragraph { text-align:justify; margin:20px 0; font-size:15px; color:#222; }
-.content-paragraph a { color: var(--accent); text-decoration:none; }
-.content-paragraph a:hover { text-decoration:underline; }
+.section-header { 
+  background-color: var(--accent); 
+  color:#fff; 
+  padding:8px 12px; 
+  border-radius:var(--border-radius); 
+  font-size:18px; 
+  margin:20px 0 15px; 
+}
 
-.footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px 0; background:#f5f5f5; border-top:1px solid #ddd; font-size:13px; color:#555; border-radius: var(--border-radius) var(--border-radius) 0 0; }
-.footer-container { max-width: var(--max-read); width: var(--max-width); margin:0 auto; }
-.footer a { color:#555; text-decoration:none; margin:0 6px; }
+.privacy-section { 
+  background:var(--sheet); 
+  border:1px solid #e6e6e6; 
+  border-radius:var(--border-radius); 
+  padding:16px; 
+  box-shadow:0 1px 4px rgba(0,0,0,0.04); 
+  margin-bottom:20px; 
+}
+.content-paragraph { 
+  text-align:justify; 
+  margin:20px 0; 
+  font-size:15px; 
+  color:#222; 
+}
+.content-paragraph a { 
+  color: var(--accent); 
+  text-decoration:none; 
+}
+.content-paragraph a:hover { 
+  text-decoration:underline; 
+}
+
+.footer { 
+  position:fixed; 
+  bottom:0; 
+  left:0; 
+  width:100%; 
+  text-align:center; 
+  padding:10px 0; 
+  background:#f5f5f5; 
+  border-top:1px solid #ddd; 
+  font-size:13px; 
+  color:#555; 
+  border-radius: var(--border-radius) var(--border-radius) 0 0; 
+}
+.footer-container { 
+  max-width: var(--max-read); 
+  width: var(--max-width); 
+  margin:0 auto; 
+}
+.footer a { 
+  color:#555; 
+  text-decoration:none; 
+  margin:0 6px; 
+}
 
 @media(max-width:760px) {
   .header { padding:10px 0; }
-  .header-container, .main-container, .footer-container { width:98%; }
-  .section-header { margin:18px 0 12px; padding:6px 8px; }
+  .header-container, .main-container, .footer-container { width:95%; }
+  .section-header { 
+    margin:18px 0 12px; 
+    padding:6px 8px; 
+    font-size: 16px; /* Reduced font size for mobile */
+  }
   .site-brand img { width:30px; height:30px; }
   .privacy-section { padding:12px; }
   .share-icon { width:32px; height:32px; font-size:14px; }
+  .content-paragraph {
+    font-size: 14px; /* Reduced font size for mobile */
+  }
+}
+
+@media (max-width: 420px) {
+  .section-header {
+    font-size: 15px; /* Further reduced for small screens */
+  }
+  .content-paragraph {
+    font-size: 13.5px; /* Further reduced for small screens */
+  }
 }
 </style>
-
-<!-- External Scripts (Deferred for speed) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HV12J7V98D');
-</script>
 
 <!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
@@ -144,7 +243,7 @@ body {
 <header class="header" role="banner">
   <div class="header-container">
     <a class="site-brand" href="https://tools.skill2job.site/" target="_blank" rel="noopener">
-      <img src="https://tools.skill2job.site/tools.logo.webp" alt="Skill2Job logo" width="32" height="32">
+      <img src="https://tools.skill2job.site/tools-logo.webp" alt="Skill2Job logo" width="32" height="32" loading="eager">
     </a>
     <button class="share-icon" onclick="sharePage()" title="Share this page">
       <i class="fas fa-share-alt"></i>
@@ -156,14 +255,10 @@ body {
   <!-- AdSense -->
   <div class="ads-wrapper">
     <ins class="adsbygoogle"
-         style="display:block; width:100%; min-height:280px;"
          data-ad-client="ca-pub-1876390706944654"
          data-ad-slot="4054819400"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
-    <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
   </div>
 
   <h2 class="section-header">Privacy Policy</h2>
@@ -195,29 +290,68 @@ body {
 <footer class="footer">
   <div class="footer-container">
     &copy; <strong>Skill2Job</strong> | All Rights Reserved<br>
-    <a href="about/">About</a> | <a href="disclaimer/">Disclaimer</a> | <a href="privacy/">Privacy</a> | <a href="terms/">Terms</a> | <a href="contact/">Contact</a>
+    <a href="https://tools.skill2job.site/about/">About</a> | 
+    <a href="https://tools.skill2job.site/disclaimer/">Disclaimer</a> | 
+    <a href="https://tools.skill2job.site/privacy/">Privacy</a> | 
+    <a href="https://tools.skill2job.site/terms/">Terms</a> | 
+    <a href="https://tools.skill2job.site/contact/">Contact</a>
   </div>
 </footer>
 
-<!-- JavaScript -->
+<!-- Deferred JavaScript -->
+
+<!-- AdSense Script -->
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876390706944654" crossorigin="anonymous"></script>
+
+<!-- Google Analytics -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-HV12J7V98D"></script>
+
 <script>
-  // Share functionality
+  // Initialize Google Analytics when script loads
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HV12J7V98D');
+
+  // Initialize AdSense when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  });
+
+  // Function to handle native sharing
   function sharePage() {
     if (navigator.share) {
       navigator.share({
         title: 'Privacy Policy - Skill2Job Tools',
         text: 'Skill2Job Tools Privacy Policy ensures your personal data is secure while using government job updates, admit cards, results, tutorials, and online tools.',
         url: 'https://tools.skill2job.site/privacy/'
-      }).then(() => console.log('Shared successfully'))
-        .catch(() => alert('Share failed or canceled.'));
+      })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing:', error));
     } else {
-      navigator.clipboard.writeText('https://tools.skill2job.site/privacy/').then(() => {
-        alert('Link copied to clipboard!');
-      }).catch(() => {
-        alert('Copy to clipboard failed.');
-      });
+      // Fallback: copy to clipboard
+      navigator.clipboard.writeText('Check out Skill2Job Tools Privacy Policy: https://tools.skill2job.site/privacy/')
+        .then(() => {
+          alert('Link copied to clipboard! You can now share it anywhere.');
+        })
+        .catch(() => {
+          // Final fallback: show the URL in an alert
+          alert('Share this URL: https://tools.skill2job.site/privacy/');
+        });
     }
   }
 </script>
+
+<!-- Load Font Awesome after critical content is rendered -->
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+<script>
+  // Load Font Awesome after page load
+  window.addEventListener('load', function() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(link);
+  });
+</script>
 </body>
-</html>
+  </html>
